@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -59,7 +58,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::addFavPoi', {"favPoiInfo": favPoiInfo.refId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::addFavPoi', {"favPoiInfo": favPoiInfo?.refId, "refId": refId});
   
   
     // handle native call
@@ -94,7 +93,7 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = BMKFavPoiInfo()..refId = __result__..tag__ = 'bmap_utils_fluttify';
-      kNativeObjectPool.add(__return__);
+      if (__result__ is Ref) kNativeObjectPool.add(__return__ as Ref);
       return __return__;
     }
   }
@@ -131,7 +130,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo', {"favId": favId, "favPoiInfo": favPoiInfo.refId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo', {"favId": favId, "favPoiInfo": favPoiInfo?.refId, "refId": refId});
   
   
     // handle native call

@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -59,7 +58,7 @@ class BMKOpenRoute extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapWalkingRoute', {"option": option.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapWalkingRoute', {"option": option?.refId});
   
   
     // handle native call
@@ -83,7 +82,7 @@ class BMKOpenRoute extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapTransitRoute', {"option": option.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapTransitRoute', {"option": option?.refId});
   
   
     // handle native call
@@ -107,7 +106,7 @@ class BMKOpenRoute extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapDrivingRoute', {"option": option.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenRoute::openBaiduMapDrivingRoute', {"option": option?.refId});
   
   
     // handle native call

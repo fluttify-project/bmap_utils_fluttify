@@ -7,163 +7,245 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
 // ignore_for_file: non_constant_identifier_names, camel_case_types, missing_return, unused_import
-extension TypeOpBmapUtilsFluttifyIOS on Ref {
-  Future<bool> isBMKOpenRoute() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRoute', {'refId': refId});
-    return result;
+extension TypeOpBmapUtilsFluttifyIOS on Object {
+  // type check
+  Future<bool> is__<T>() async {
+    final typeName = T.toString();
+    if (RegExp('(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)').hasMatch(typeName)) {
+      return this is T;
+    }
+    else if (T == BMKOpenRoute) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRoute', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenPoi) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoi', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenPoiDetailOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenPoiNearbyOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKFavPoiInfo) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenRouteOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenWalkingRouteOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenDrivingRouteOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenTransitRouteOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenPanoramaOption) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKOpenPanorama) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanorama', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKFavPoiManager) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiManager', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKNaviPara) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNaviPara', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == BMKNavigation) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNavigation', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CLLocation) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocation', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CLHeading) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLHeading', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CGRect) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGRect', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CGPoint) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGPoint', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CGSize) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGSize', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIEdgeInsets) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIEdgeInsets', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CLLocationCoordinate2D) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocationCoordinate2D', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == CLLocationManager) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocationManager', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == NSError) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSError', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIView) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIView', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIViewController) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIViewController', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIControl) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIControl', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIImage) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIImage', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == UIColor) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIColor', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == NSData) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSData', {'refId': (this as Ref).refId});
+      return result;
+    }
+    else if (T == NSOperation) {
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSOperation', {'refId': (this as Ref).refId});
+      return result;
+    }
   }
-  
-  Future<bool> isBMKOpenPoi() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoi', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenPoiDetailOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenPoiNearbyOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKFavPoiInfo() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenWalkingRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenDrivingRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenTransitRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenPanoramaOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKOpenPanorama() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanorama', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKFavPoiManager() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiManager', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKNaviPara() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNaviPara', {'refId': refId});
-    return result;
-  }
-  
-  Future<bool> isBMKNavigation() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNavigation', {'refId': refId});
-    return result;
-  }
-  
 
-  Future<BMKOpenRoute> asBMKOpenRoute() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenRoute', {'refId': refId});
-    return BMKOpenRoute()..refId = result;
+  // type cast
+  T as__<T>() {
+    final typeName = T.toString();
+    // jsonable 直接造型 返回
+    if (RegExp('(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)').hasMatch(typeName)) {
+      return this as T;
+    }
+    // 如果是Ref类的cast, 那么取其refId, 如果本身是refId, 那么直接使用(int)
+    else if (T == BMKOpenRoute) {
+      return (BMKOpenRoute()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenPoi) {
+      return (BMKOpenPoi()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenPoiDetailOption) {
+      return (BMKOpenPoiDetailOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenPoiNearbyOption) {
+      return (BMKOpenPoiNearbyOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKFavPoiInfo) {
+      return (BMKFavPoiInfo()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenRouteOption) {
+      return (BMKOpenRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenWalkingRouteOption) {
+      return (BMKOpenWalkingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenDrivingRouteOption) {
+      return (BMKOpenDrivingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenTransitRouteOption) {
+      return (BMKOpenTransitRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenOption) {
+      return (BMKOpenOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenPanoramaOption) {
+      return (BMKOpenPanoramaOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKOpenPanorama) {
+      return (BMKOpenPanorama()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKFavPoiManager) {
+      return (BMKFavPoiManager()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKNaviPara) {
+      return (BMKNaviPara()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == BMKNavigation) {
+      return (BMKNavigation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CLLocation) {
+      return (CLLocation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CLHeading) {
+      return (CLHeading()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CGRect) {
+      return (CGRect()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CGPoint) {
+      return (CGPoint()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CGSize) {
+      return (CGSize()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIEdgeInsets) {
+      return (UIEdgeInsets()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CLLocationCoordinate2D) {
+      return (CLLocationCoordinate2D()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == CLLocationManager) {
+      return (CLLocationManager()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == NSError) {
+      return (NSError()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIView) {
+      return (UIView()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIViewController) {
+      return (UIViewController()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIControl) {
+      return (UIControl()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIImage) {
+      return (UIImage()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == UIColor) {
+      return (UIColor()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == NSData) {
+      return (NSData()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
+    else if (T == NSOperation) {
+      return (NSOperation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+    }
   }
-  
-  Future<BMKOpenPoi> asBMKOpenPoi() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenPoi', {'refId': refId});
-    return BMKOpenPoi()..refId = result;
-  }
-  
-  Future<BMKOpenPoiDetailOption> asBMKOpenPoiDetailOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenPoiDetailOption', {'refId': refId});
-    return BMKOpenPoiDetailOption()..refId = result;
-  }
-  
-  Future<BMKOpenPoiNearbyOption> asBMKOpenPoiNearbyOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenPoiNearbyOption', {'refId': refId});
-    return BMKOpenPoiNearbyOption()..refId = result;
-  }
-  
-  Future<BMKFavPoiInfo> asBMKFavPoiInfo() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKFavPoiInfo', {'refId': refId});
-    return BMKFavPoiInfo()..refId = result;
-  }
-  
-  Future<BMKOpenRouteOption> asBMKOpenRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenRouteOption', {'refId': refId});
-    return BMKOpenRouteOption()..refId = result;
-  }
-  
-  Future<BMKOpenWalkingRouteOption> asBMKOpenWalkingRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenWalkingRouteOption', {'refId': refId});
-    return BMKOpenWalkingRouteOption()..refId = result;
-  }
-  
-  Future<BMKOpenDrivingRouteOption> asBMKOpenDrivingRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenDrivingRouteOption', {'refId': refId});
-    return BMKOpenDrivingRouteOption()..refId = result;
-  }
-  
-  Future<BMKOpenTransitRouteOption> asBMKOpenTransitRouteOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenTransitRouteOption', {'refId': refId});
-    return BMKOpenTransitRouteOption()..refId = result;
-  }
-  
-  Future<BMKOpenOption> asBMKOpenOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenOption', {'refId': refId});
-    return BMKOpenOption()..refId = result;
-  }
-  
-  Future<BMKOpenPanoramaOption> asBMKOpenPanoramaOption() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenPanoramaOption', {'refId': refId});
-    return BMKOpenPanoramaOption()..refId = result;
-  }
-  
-  Future<BMKOpenPanorama> asBMKOpenPanorama() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKOpenPanorama', {'refId': refId});
-    return BMKOpenPanorama()..refId = result;
-  }
-  
-  Future<BMKFavPoiManager> asBMKFavPoiManager() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKFavPoiManager', {'refId': refId});
-    return BMKFavPoiManager()..refId = result;
-  }
-  
-  Future<BMKNaviPara> asBMKNaviPara() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKNaviPara', {'refId': refId});
-    return BMKNaviPara()..refId = result;
-  }
-  
-  Future<BMKNavigation> asBMKNavigation() async {
-    final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::asBMKNavigation', {'refId': refId});
-    return BMKNavigation()..refId = result;
-  }
-  
 }

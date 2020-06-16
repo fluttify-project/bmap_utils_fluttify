@@ -4,6 +4,6 @@
 //////////////////////////////////////////////////////////
 
 enum BMK_NAVI_TYPE {
-  BMK_NAVI_TYPE_NATIVE,
-  BMK_NAVI_TYPE_WEB
+  BMK_NAVI_TYPE_NATIVE /* 0 */,
+  BMK_NAVI_TYPE_WEB /* 0 */
 }

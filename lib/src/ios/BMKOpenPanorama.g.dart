@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -53,9 +52,6 @@ class BMKOpenPanorama extends NSObject  {
     MethodChannel('BMKOpenPanoramaDelegate::Callback')
       .setMethodCallHandler((methodCall) async {
         final args = methodCall.arguments as Map;
-        // final refId = args['callerRefId'] as int;
-        // if (refId != this.refId) return;
-  
         switch (methodCall.method) {
           case 'Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus':
             // print log
@@ -83,7 +79,7 @@ class BMKOpenPanorama extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPanorama::openBaiduMapPanorama', {"option": option.refId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPanorama::openBaiduMapPanorama', {"option": option?.refId, "refId": refId});
   
   
     // handle native call

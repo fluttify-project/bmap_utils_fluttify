@@ -20,7 +20,7 @@ Future<BMKMapPoint> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapPointForCoordinate::BMKMapPointForCoordinate', {"coordinate": coordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapPointForCoordinate::BMKMapPointForCoordinate', {"coordinate": coordinate?.refId});
   
 
   // handle native call
@@ -42,7 +42,7 @@ Future<CLLocationCoordinate2D> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) as
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateForMapPoint::BMKCoordinateForMapPoint', {"mapPoint": mapPoint.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateForMapPoint::BMKCoordinateForMapPoint', {"mapPoint": mapPoint?.refId});
   
 
   // handle native call
@@ -64,7 +64,7 @@ Future<CGPoint> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09l
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL', {"bd09llCoordinate": bd09llCoordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL', {"bd09llCoordinate": bd09llCoordinate?.refId});
   
 
   // handle native call
@@ -86,7 +86,7 @@ Future<CLLocationCoordinate2D> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCT
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator', {"bdMCTCoordinate": bdMCTCoordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator', {"bdMCTCoordinate": bdMCTCoordinate?.refId});
   
 
   // handle native call
@@ -108,7 +108,7 @@ Future<CLLocationCoordinate2D> BMKCoordTrans(CLLocationCoordinate2D coordinate, 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordTrans::BMKCoordTrans', {"coordinate": coordinate.refId, "fromType": fromType.index, "toType": toType.index});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordTrans::BMKCoordTrans', {"coordinate": coordinate?.refId, "fromType": fromType.index + 0, "toType": toType.index + 0});
   
 
   // handle native call
@@ -130,7 +130,7 @@ Future<Map> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom', {"coordinate": coordinate.refId, "type": type.index});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom', {"coordinate": coordinate?.refId, "type": type.index + 0});
   
 
   // handle native call
@@ -196,7 +196,7 @@ Future<double> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints', {"a": a.refId, "b": b.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints', {"a": a?.refId, "b": b?.refId});
   
 
   // handle native call
@@ -218,7 +218,7 @@ Future<BMKMapPoint> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BM
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline', {"point": point.refId, "polyline": polyline.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline', {"point": point?.refId, "polyline": polyline.map((__it__) => __it__?.refId).toList(), "count": count});
   
 
   // handle native call
@@ -240,7 +240,7 @@ Future<BMKMapPoint> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMap
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine', {"point": point.refId, "lineStartPt": lineStartPt.refId, "lineEndPt": lineEndPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine', {"point": point?.refId, "lineStartPt": lineStartPt?.refId, "lineEndPt": lineEndPt?.refId});
   
 
   // handle native call
@@ -262,7 +262,7 @@ Future<double> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint line
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine', {"point": point.refId, "lineStartPt": lineStartPt.refId, "lineEndPt": lineEndPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine', {"point": point?.refId, "lineStartPt": lineStartPt?.refId, "lineEndPt": lineEndPt?.refId});
   
 
   // handle native call
@@ -284,7 +284,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMakeWithDistance(CLLocationCoordi
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance', {"centerCoordinate": centerCoordinate.refId, "latitudinalMeters": latitudinalMeters, "longitudinalMeters": longitudinalMeters});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance', {"centerCoordinate": centerCoordinate?.refId, "latitudinalMeters": latitudinalMeters, "longitudinalMeters": longitudinalMeters});
   
 
   // handle native call
@@ -306,7 +306,7 @@ Future<BMKMapRect> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectUnion::BMKMapRectUnion', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectUnion::BMKMapRectUnion', {"rect1": rect1?.refId, "rect2": rect2?.refId});
   
 
   // handle native call
@@ -328,7 +328,7 @@ Future<BMKMapRect> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) as
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersection::BMKMapRectIntersection', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersection::BMKMapRectIntersection', {"rect1": rect1?.refId, "rect2": rect2?.refId});
   
 
   // handle native call
@@ -350,7 +350,7 @@ Future<BMKMapRect> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectInset::BMKMapRectInset', {"rect": rect.refId, "dx": dx, "dy": dy});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectInset::BMKMapRectInset', {"rect": rect?.refId, "dx": dx, "dy": dy});
   
 
   // handle native call
@@ -372,7 +372,7 @@ Future<BMKMapRect> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectOffset::BMKMapRectOffset', {"rect": rect.refId, "dx": dx, "dy": dy});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectOffset::BMKMapRectOffset', {"rect": rect?.refId, "dx": dx, "dy": dy});
   
 
   // handle native call
@@ -394,7 +394,7 @@ Future<bool> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsPoint::BMKMapRectContainsPoint', {"rect": rect.refId, "point": point.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsPoint::BMKMapRectContainsPoint', {"rect": rect?.refId, "point": point?.refId});
   
 
   // handle native call
@@ -416,7 +416,7 @@ Future<bool> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsRect::BMKMapRectContainsRect', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsRect::BMKMapRectContainsRect', {"rect1": rect1?.refId, "rect2": rect2?.refId});
   
 
   // handle native call
@@ -438,7 +438,7 @@ Future<bool> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersectsRect::BMKMapRectIntersectsRect', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersectsRect::BMKMapRectIntersectsRect', {"rect1": rect1?.refId, "rect2": rect2?.refId});
   
 
   // handle native call
@@ -460,7 +460,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionForMapRect(BMKMapRect rect) async
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect', {"rect": rect?.refId});
   
 
   // handle native call
@@ -482,7 +482,7 @@ Future<bool> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian', {"rect": rect?.refId});
   
 
   // handle native call
@@ -504,7 +504,7 @@ Future<BMKMapRect> BMKMapRectRemainder(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectRemainder::BMKMapRectRemainder', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectRemainder::BMKMapRectRemainder', {"rect": rect?.refId});
   
 
   // handle native call
@@ -526,7 +526,7 @@ Future<bool> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, doubl
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsPoint::BMKCircleContainsPoint', {"point": point.refId, "center": center.refId, "radius": radius});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsPoint::BMKCircleContainsPoint', {"point": point?.refId, "center": center?.refId, "radius": radius});
   
 
   // handle native call
@@ -548,7 +548,7 @@ Future<bool> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocatio
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsCoordinate::BMKCircleContainsCoordinate', {"point": point.refId, "center": center.refId, "radius": radius});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsCoordinate::BMKCircleContainsCoordinate', {"point": point?.refId, "center": center?.refId, "radius": radius});
   
 
   // handle native call
@@ -570,7 +570,7 @@ Future<bool> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygo
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsPoint::BMKPolygonContainsPoint', {"point": point.refId, "polygon": polygon.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsPoint::BMKPolygonContainsPoint', {"point": point?.refId, "polygon": polygon.map((__it__) => __it__?.refId).toList(), "count": count});
   
 
   // handle native call
@@ -592,7 +592,7 @@ Future<bool> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLL
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate', {"point": point.refId, "polygon": polygon.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate', {"point": point?.refId, "polygon": polygon.map((__it__) => __it__?.refId).toList(), "count": count});
   
 
   // handle native call
@@ -614,7 +614,7 @@ Future<double> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocat
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates', {"leftTop": leftTop.refId, "rightBottom": rightBottom.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates', {"leftTop": leftTop?.refId, "rightBottom": rightBottom?.refId});
   
 
   // handle native call
@@ -636,7 +636,7 @@ Future<double> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int c
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaForPolygon::BMKAreaForPolygon', {"coordinates": coordinates.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaForPolygon::BMKAreaForPolygon', {"coordinates": coordinates.map((__it__) => __it__?.refId).toList(), "count": count});
   
 
   // handle native call
@@ -658,7 +658,7 @@ Future<double> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLo
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromCoords::BMKGetDirectionFromCoords', {"startCoord": startCoord.refId, "endCoord": endCoord.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromCoords::BMKGetDirectionFromCoords', {"startCoord": startCoord?.refId, "endCoord": endCoord?.refId});
   
 
   // handle native call
@@ -680,7 +680,7 @@ Future<double> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt)
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromPoints::BMKGetDirectionFromPoints', {"startPt": startPt.refId, "endPt": endPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromPoints::BMKGetDirectionFromPoints', {"startPt": startPt?.refId, "endPt": endPt?.refId});
   
 
   // handle native call
