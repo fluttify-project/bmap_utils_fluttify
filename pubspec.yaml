@@ -14,7 +14,7 @@ dependencies:
   bmap_core_fluttify:
     git:
       url: git@github.com:fluttify-project/bmap_core_fluttify.git
-      ref: 0.1.1
+      ref: develop
   foundation_fluttify: ^0.8.5
   core_location_fluttify: ^0.2.1
 
