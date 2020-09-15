@@ -51,7 +51,7 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
         plugin.platformViewRegistry = platformViewRegistry;
 
         handlerMapList = new ArrayList<>();
-        handlerMapList.add(SubHandler0.getSubHandler(messenger));
+        
         handlerMapList.add(SubHandlerCustom.getSubHandler(messenger, registrar.activity()));
 
         channel.setMethodCallHandler(plugin);
@@ -76,7 +76,7 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
         platformViewRegistry = binding.getPlatformViewRegistry();
 
         handlerMapList = new ArrayList<>();
-        handlerMapList.add(SubHandler0.getSubHandler(messenger));
+        
 
         channel.setMethodCallHandler(this);
     }
