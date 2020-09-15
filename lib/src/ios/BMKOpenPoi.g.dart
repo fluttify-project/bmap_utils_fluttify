@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKOpenPoi extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoi> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKOpenPoi');
+  static Future<BMKOpenPoi> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenPoi', {'init': init});
     final object = BMKOpenPoi()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKOpenPoi>> create_batch__(int length) async {
+  static Future<List<BMKOpenPoi>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKOpenPoi', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenPoi', {'length': length, 'init': init});
   
     final List<BMKOpenPoi> typedResult = resultBatch.map((result) => BMKOpenPoi()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -59,7 +55,7 @@ class BMKOpenPoi extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage', {"option": option.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage', {"option": option});
   
   
     // handle native call
@@ -69,8 +65,7 @@ class BMKOpenPoi extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -83,7 +78,7 @@ class BMKOpenPoi extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch', {"option": option.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch', {"option": option});
   
   
     // handle native call
@@ -93,8 +88,7 @@ class BMKOpenPoi extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -119,15 +113,14 @@ extension BMKOpenPoi_Batch on List<BMKOpenPoi> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }
@@ -139,15 +132,14 @@ extension BMKOpenPoi_Batch on List<BMKOpenPoi> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }

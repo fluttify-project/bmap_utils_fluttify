@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////
 
 #import "SubHandler0.h"
+#import "FluttifyMessageCodec.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -13,11 +14,12 @@ extern BOOL enableLog;
 
 @implementation BmapUtilsFluttifyPlugin (SubHandler0)
 - (NSDictionary<NSString*, Handler>*) getSubHandler0 {
+    __weak __typeof(self)weakSelf = self;
     return @{
         @"BMKOpenRoute::openBaiduMapWalkingRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) args[@"option"];
         
             // ref
         
@@ -32,14 +34,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenRoute::openBaiduMapTransitRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) args[@"option"];
         
             // ref
         
@@ -54,14 +56,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenRoute::openBaiduMapDrivingRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) args[@"option"];
         
             // ref
         
@@ -76,14 +78,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenPoi::openBaiduMapPoiDetailPage": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) args[@"option"];
         
             // ref
         
@@ -98,14 +100,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenPoi::openBaiduMapPoiNearbySearch": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) args[@"option"];
         
             // ref
         
@@ -120,17 +122,17 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenPanorama::openBaiduMapPanorama": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) HEAP[@([args[@"option"] integerValue])];
+            BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) args[@"option"];
         
             // ref
-            BMKOpenPanorama* ref = (BMKOpenPanorama*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -142,17 +144,17 @@ extern BOOL enableLog;
         
             // result
             // 无返回值
-            NSString* jsonableResult = @"success";
+            NSString* __result__ = @"success";
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::addFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) HEAP[@([args[@"favPoiInfo"] integerValue])];
+            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -164,9 +166,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::getFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -174,7 +176,7 @@ extern BOOL enableLog;
             NSString* favId = (NSString*) args[@"favId"];
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -186,17 +188,16 @@ extern BOOL enableLog;
         
             // result
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::getAllFavPois": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
         
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -208,24 +209,23 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 列表
-            NSMutableArray* jsonableResult = [NSMutableArray array];
+            NSMutableArray<NSObject*>* __result__ = [NSMutableArray array];
             for (int __i__ = 0; __i__ < result.count; __i__++) {
                 NSObject* object = [result objectAtIndex:__i__];
-                [jsonableResult addObject: @(object.hash)];
-                HEAP[@([object hash])] = object;
+                [__result__ addObject: object];
             }
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::updateFavPoi_favPoiInfo": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // jsonable arg
             NSString* favId = (NSString*) args[@"favId"];
             // ref arg
-            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) HEAP[@([args[@"favPoiInfo"] integerValue])];
+            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -237,9 +237,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::deleteFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -247,7 +247,7 @@ extern BOOL enableLog;
             NSString* favId = (NSString*) args[@"favId"];
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -259,16 +259,16 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKFavPoiManager::clearAllFavPois": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
         
         
             // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
             // print log
             if (enableLog) {
@@ -280,14 +280,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKNavigation::openBaiduMapNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
             // ref
         
@@ -302,14 +302,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKNavigation::openBaiduMapWalkNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
             // ref
         
@@ -324,14 +324,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKNavigation::openBaiduMapRideNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
             // ref
         
@@ -346,14 +346,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKNavigation::openBaiduMapwalkARNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
             // ref
         
@@ -368,9 +368,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKOpenRoute::openBaiduMapWalkingRoute_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
@@ -380,7 +380,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) args[@"option"];
         
                 // ref
         
@@ -390,9 +390,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -405,7 +405,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) args[@"option"];
         
                 // ref
         
@@ -415,9 +415,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -430,7 +430,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) args[@"option"];
         
                 // ref
         
@@ -440,9 +440,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -455,7 +455,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) args[@"option"];
         
                 // ref
         
@@ -465,9 +465,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -480,7 +480,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) args[@"option"];
         
                 // ref
         
@@ -490,9 +490,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -505,19 +505,19 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) HEAP[@([args[@"option"] integerValue])];
+                BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) args[@"option"];
         
                 // ref
-                BMKOpenPanorama* ref = (BMKOpenPanorama*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
         
                 // invoke native method
                 [ref openBaiduMapPanorama : option];
         
                 // result
                 // 无返回值
-                NSString* jsonableResult = @"success";
+                NSString* __result__ = @"success";
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -530,19 +530,19 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) HEAP[@([args[@"favPoiInfo"] integerValue])];
+                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 NSInteger result = [ref addFavPoi: favPoiInfo];
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -558,17 +558,16 @@ extern BOOL enableLog;
                 NSString* favId = (NSString*) args[@"favId"];
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 BMKFavPoiInfo* result = [ref getFavPoi: favId];
         
                 // result
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -583,21 +582,20 @@ extern BOOL enableLog;
         
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 NSArray* result = [ref getAllFavPois];
         
                 // result
                 // 返回值: 列表
-                NSMutableArray* jsonableResult = [NSMutableArray array];
+                NSMutableArray<NSObject*>* __result__ = [NSMutableArray array];
                 for (int __i__ = 0; __i__ < result.count; __i__++) {
                     NSObject* object = [result objectAtIndex:__i__];
-                    [jsonableResult addObject: @(object.hash)];
-                    HEAP[@([object hash])] = object;
+                    [__result__ addObject: object];
                 }
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -612,19 +610,19 @@ extern BOOL enableLog;
                 // jsonable arg
                 NSString* favId = (NSString*) args[@"favId"];
                 // ref arg
-                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) HEAP[@([args[@"favPoiInfo"] integerValue])];
+                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 BOOL result = [ref updateFavPoi: favId favPoiInfo: favPoiInfo];
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -640,16 +638,16 @@ extern BOOL enableLog;
                 NSString* favId = (NSString*) args[@"favId"];
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 BOOL result = [ref deleteFavPoi: favId];
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -664,16 +662,16 @@ extern BOOL enableLog;
         
         
                 // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
         
                 // invoke native method
                 BOOL result = [ref clearAllFavPois];
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -686,7 +684,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
                 // ref
         
@@ -696,9 +694,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -711,7 +709,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
                 // ref
         
@@ -721,9 +719,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -736,7 +734,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
                 // ref
         
@@ -746,9 +744,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -761,7 +759,7 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) HEAP[@([args[@"para"] integerValue])];
+                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
         
                 // ref
         
@@ -771,9 +769,9 @@ extern BOOL enableLog;
         
                 // result
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -785,15 +783,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.poiUid;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenPoiNearbyOption::get_location": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -803,17 +801,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             // invoke native method
             CLLocationCoordinate2D result = ref.location;
         
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenPoiNearbyOption::get_radius": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -823,15 +819,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             // invoke native method
             NSUInteger result = ref.radius;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenPoiNearbyOption::get_keyword": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -841,15 +837,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.keyword;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_favId": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -859,15 +855,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.favId;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_poiName": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -877,15 +873,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.poiName;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_poiUid": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -895,15 +891,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.poiUid;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_pt": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -913,17 +909,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             CLLocationCoordinate2D result = ref.pt;
         
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_address": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -933,15 +927,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.address;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_cityName": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -951,15 +945,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.cityName;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKFavPoiInfo::get_timeStamp": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -969,15 +963,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             // invoke native method
             NSUInteger result = ref.timeStamp;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenRouteOption::get_startPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -987,16 +981,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
             // invoke native method
             BMKPlanNode* result = ref.startPoint;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenRouteOption::get_endPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1006,16 +999,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
             // invoke native method
             BMKPlanNode* result = ref.endPoint;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenTransitRouteOption::get_openTransitPolicy": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1025,15 +1017,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
         
             // invoke native method
             BMKOpenTransitPolicy result = ref.openTransitPolicy;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenOption::get_appScheme": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1043,15 +1035,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.appScheme;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenOption::get_isSupportWeb": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1061,15 +1053,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
             // invoke native method
             BOOL result = ref.isSupportWeb;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenPanoramaOption::get_poiUid": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1079,15 +1071,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.poiUid;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_startPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1097,16 +1089,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             BMKPlanNode* result = ref.startPoint;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_endPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1116,16 +1107,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             BMKPlanNode* result = ref.endPoint;
         
             // return a ref
-            HEAP[@((result).hash)] = result;
-            NSNumber* jsonableResult = @((result).hash);
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_naviType": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1135,15 +1125,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             BMK_NAVI_TYPE result = ref.naviType;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_appScheme": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1153,15 +1143,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.appScheme;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_appName": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1171,15 +1161,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             NSString* result = ref.appName;
         
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKNaviPara::get_isSupportWeb": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -1189,15 +1179,15 @@ extern BOOL enableLog;
             }
         
             // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             // invoke native method
             BOOL result = ref.isSupportWeb;
         
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         
         @"BMKOpenPoiDetailOption::get_poiUid_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
@@ -1207,14 +1197,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1227,16 +1217,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 CLLocationCoordinate2D result = ref.location;
         
                 // 返回值: 结构体
-                NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1249,14 +1237,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 NSUInteger result = ref.radius;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1269,14 +1257,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 NSString* result = ref.keyword;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1289,14 +1277,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSString* result = ref.favId;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1309,14 +1297,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSString* result = ref.poiName;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1329,14 +1317,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1349,16 +1337,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 CLLocationCoordinate2D result = ref.pt;
         
                 // 返回值: 结构体
-                NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-                HEAP[@(resultValue.hash)] = resultValue;
-                NSNumber* jsonableResult = @(resultValue.hash);
+                NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1371,14 +1357,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSString* result = ref.address;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1391,14 +1377,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSString* result = ref.cityName;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1411,14 +1397,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 NSUInteger result = ref.timeStamp;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1431,15 +1417,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
                 BMKPlanNode* result = ref.startPoint;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1452,15 +1437,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
                 BMKPlanNode* result = ref.endPoint;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1473,14 +1457,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
         
                 BMKOpenTransitPolicy result = ref.openTransitPolicy;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1493,14 +1477,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
                 NSString* result = ref.appScheme;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1513,14 +1497,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
                 BOOL result = ref.isSupportWeb;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1533,14 +1517,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1553,15 +1537,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 BMKPlanNode* result = ref.startPoint;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1574,15 +1557,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 BMKPlanNode* result = ref.endPoint;
         
                 // return a ref
-                HEAP[@((result).hash)] = result;
-                NSNumber* jsonableResult = @((result).hash);
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1595,14 +1577,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 BMK_NAVI_TYPE result = ref.naviType;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1615,14 +1597,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 NSString* result = ref.appScheme;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1635,14 +1617,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 NSString* result = ref.appName;
         
                 // 返回值: jsonable
-                id jsonableResult = result;
+                id __result__ = result;
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1655,14 +1637,14 @@ extern BOOL enableLog;
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 BOOL result = ref.isSupportWeb;
         
                 // 返回值: Value
-                id jsonableResult = @(result);
+                NSObject* __result__ = @(result);
         
-                [resultList addObject:jsonableResult];
+                [resultList addObject:__result__];
             }
         
             methodResult(resultList);
@@ -1679,7 +1661,7 @@ extern BOOL enableLog;
             NSString* poiUid = (NSString*) args[@"poiUid"];
         
             // ref
-            BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
         
             ref.poiUid = poiUid;
             methodResult(@"success");
@@ -1693,12 +1675,12 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* locationValue = (NSValue*) HEAP[@([args[@"location"] integerValue])];
+            NSValue* locationValue = (NSValue*) args[@"location"];
             CLLocationCoordinate2D location;
             [locationValue getValue:&location];
         
             // ref
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             ref.location = location;
             methodResult(@"success");
@@ -1715,7 +1697,7 @@ extern BOOL enableLog;
             NSUInteger radius = [args[@"radius"] unsignedIntegerValue];
         
             // ref
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             ref.radius = radius;
             methodResult(@"success");
@@ -1732,7 +1714,7 @@ extern BOOL enableLog;
             NSString* keyword = (NSString*) args[@"keyword"];
         
             // ref
-            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
             ref.keyword = keyword;
             methodResult(@"success");
@@ -1749,7 +1731,7 @@ extern BOOL enableLog;
             NSString* favId = (NSString*) args[@"favId"];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.favId = favId;
             methodResult(@"success");
@@ -1766,7 +1748,7 @@ extern BOOL enableLog;
             NSString* poiName = (NSString*) args[@"poiName"];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.poiName = poiName;
             methodResult(@"success");
@@ -1783,7 +1765,7 @@ extern BOOL enableLog;
             NSString* poiUid = (NSString*) args[@"poiUid"];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.poiUid = poiUid;
             methodResult(@"success");
@@ -1797,12 +1779,12 @@ extern BOOL enableLog;
         
             // args
             // struct arg
-            NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+            NSValue* ptValue = (NSValue*) args[@"pt"];
             CLLocationCoordinate2D pt;
             [ptValue getValue:&pt];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.pt = pt;
             methodResult(@"success");
@@ -1819,7 +1801,7 @@ extern BOOL enableLog;
             NSString* address = (NSString*) args[@"address"];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.address = address;
             methodResult(@"success");
@@ -1836,7 +1818,7 @@ extern BOOL enableLog;
             NSString* cityName = (NSString*) args[@"cityName"];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.cityName = cityName;
             methodResult(@"success");
@@ -1853,7 +1835,7 @@ extern BOOL enableLog;
             NSUInteger timeStamp = [args[@"timeStamp"] unsignedIntegerValue];
         
             // ref
-            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
             ref.timeStamp = timeStamp;
             methodResult(@"success");
@@ -1867,10 +1849,10 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* startPoint = (BMKPlanNode*) HEAP[@([args[@"startPoint"] integerValue])];
+            BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
         
             // ref
-            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
             ref.startPoint = startPoint;
             methodResult(@"success");
@@ -1884,10 +1866,10 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* endPoint = (BMKPlanNode*) HEAP[@([args[@"endPoint"] integerValue])];
+            BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
         
             // ref
-            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
             ref.endPoint = endPoint;
             methodResult(@"success");
@@ -1904,7 +1886,7 @@ extern BOOL enableLog;
             BMKOpenTransitPolicy openTransitPolicy = (BMKOpenTransitPolicy) [args[@"openTransitPolicy"] integerValue];
         
             // ref
-            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
         
             ref.openTransitPolicy = openTransitPolicy;
             methodResult(@"success");
@@ -1921,7 +1903,7 @@ extern BOOL enableLog;
             NSString* appScheme = (NSString*) args[@"appScheme"];
         
             // ref
-            BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
             ref.appScheme = appScheme;
             methodResult(@"success");
@@ -1938,7 +1920,7 @@ extern BOOL enableLog;
             BOOL isSupportWeb = [args[@"isSupportWeb"] boolValue];
         
             // ref
-            BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
             ref.isSupportWeb = isSupportWeb;
             methodResult(@"success");
@@ -1955,7 +1937,7 @@ extern BOOL enableLog;
             NSString* poiUid = (NSString*) args[@"poiUid"];
         
             // ref
-            BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
         
             ref.poiUid = poiUid;
             methodResult(@"success");
@@ -1971,9 +1953,9 @@ extern BOOL enableLog;
         
         
             // ref
-            BMKOpenPanorama* ref = (BMKOpenPanorama*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
         
-            ref.delegate = self;
+            ref.delegate = weakSelf;
             methodResult(@"success");
         },
         
@@ -1985,10 +1967,10 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* startPoint = (BMKPlanNode*) HEAP[@([args[@"startPoint"] integerValue])];
+            BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.startPoint = startPoint;
             methodResult(@"success");
@@ -2002,10 +1984,10 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* endPoint = (BMKPlanNode*) HEAP[@([args[@"endPoint"] integerValue])];
+            BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.endPoint = endPoint;
             methodResult(@"success");
@@ -2022,7 +2004,7 @@ extern BOOL enableLog;
             BMK_NAVI_TYPE naviType = (BMK_NAVI_TYPE) [args[@"naviType"] integerValue];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.naviType = naviType;
             methodResult(@"success");
@@ -2039,7 +2021,7 @@ extern BOOL enableLog;
             NSString* appScheme = (NSString*) args[@"appScheme"];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.appScheme = appScheme;
             methodResult(@"success");
@@ -2056,7 +2038,7 @@ extern BOOL enableLog;
             NSString* appName = (NSString*) args[@"appName"];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.appName = appName;
             methodResult(@"success");
@@ -2073,7 +2055,7 @@ extern BOOL enableLog;
             BOOL isSupportWeb = [args[@"isSupportWeb"] boolValue];
         
             // ref
-            BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
             ref.isSupportWeb = isSupportWeb;
             methodResult(@"success");
@@ -2088,7 +2070,7 @@ extern BOOL enableLog;
                 NSString* poiUid = (NSString*) args[@"poiUid"];
         
                 // ref
-                BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
         
                 ref.poiUid = poiUid;
                 methodResult(@"success");
@@ -2103,12 +2085,12 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* locationValue = (NSValue*) HEAP[@([args[@"location"] integerValue])];
+                NSValue* locationValue = (NSValue*) args[@"location"];
                 CLLocationCoordinate2D location;
                 [locationValue getValue:&location];
         
                 // ref
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 ref.location = location;
                 methodResult(@"success");
@@ -2126,7 +2108,7 @@ extern BOOL enableLog;
                 NSUInteger radius = [args[@"radius"] unsignedIntegerValue];
         
                 // ref
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 ref.radius = radius;
                 methodResult(@"success");
@@ -2144,7 +2126,7 @@ extern BOOL enableLog;
                 NSString* keyword = (NSString*) args[@"keyword"];
         
                 // ref
-                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
         
                 ref.keyword = keyword;
                 methodResult(@"success");
@@ -2162,7 +2144,7 @@ extern BOOL enableLog;
                 NSString* favId = (NSString*) args[@"favId"];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.favId = favId;
                 methodResult(@"success");
@@ -2180,7 +2162,7 @@ extern BOOL enableLog;
                 NSString* poiName = (NSString*) args[@"poiName"];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.poiName = poiName;
                 methodResult(@"success");
@@ -2198,7 +2180,7 @@ extern BOOL enableLog;
                 NSString* poiUid = (NSString*) args[@"poiUid"];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.poiUid = poiUid;
                 methodResult(@"success");
@@ -2213,12 +2195,12 @@ extern BOOL enableLog;
         
                 // args
                 // struct arg
-                NSValue* ptValue = (NSValue*) HEAP[@([args[@"pt"] integerValue])];
+                NSValue* ptValue = (NSValue*) args[@"pt"];
                 CLLocationCoordinate2D pt;
                 [ptValue getValue:&pt];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.pt = pt;
                 methodResult(@"success");
@@ -2236,7 +2218,7 @@ extern BOOL enableLog;
                 NSString* address = (NSString*) args[@"address"];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.address = address;
                 methodResult(@"success");
@@ -2254,7 +2236,7 @@ extern BOOL enableLog;
                 NSString* cityName = (NSString*) args[@"cityName"];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.cityName = cityName;
                 methodResult(@"success");
@@ -2272,7 +2254,7 @@ extern BOOL enableLog;
                 NSUInteger timeStamp = [args[@"timeStamp"] unsignedIntegerValue];
         
                 // ref
-                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
         
                 ref.timeStamp = timeStamp;
                 methodResult(@"success");
@@ -2287,10 +2269,10 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKPlanNode* startPoint = (BMKPlanNode*) HEAP[@([args[@"startPoint"] integerValue])];
+                BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
         
                 // ref
-                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
                 ref.startPoint = startPoint;
                 methodResult(@"success");
@@ -2305,10 +2287,10 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKPlanNode* endPoint = (BMKPlanNode*) HEAP[@([args[@"endPoint"] integerValue])];
+                BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
         
                 // ref
-                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
         
                 ref.endPoint = endPoint;
                 methodResult(@"success");
@@ -2326,7 +2308,7 @@ extern BOOL enableLog;
                 BMKOpenTransitPolicy openTransitPolicy = (BMKOpenTransitPolicy) [args[@"openTransitPolicy"] integerValue];
         
                 // ref
-                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
         
                 ref.openTransitPolicy = openTransitPolicy;
                 methodResult(@"success");
@@ -2344,7 +2326,7 @@ extern BOOL enableLog;
                 NSString* appScheme = (NSString*) args[@"appScheme"];
         
                 // ref
-                BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
                 ref.appScheme = appScheme;
                 methodResult(@"success");
@@ -2362,7 +2344,7 @@ extern BOOL enableLog;
                 BOOL isSupportWeb = [args[@"isSupportWeb"] boolValue];
         
                 // ref
-                BMKOpenOption* ref = (BMKOpenOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
         
                 ref.isSupportWeb = isSupportWeb;
                 methodResult(@"success");
@@ -2380,7 +2362,7 @@ extern BOOL enableLog;
                 NSString* poiUid = (NSString*) args[@"poiUid"];
         
                 // ref
-                BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
         
                 ref.poiUid = poiUid;
                 methodResult(@"success");
@@ -2395,10 +2377,10 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKPlanNode* startPoint = (BMKPlanNode*) HEAP[@([args[@"startPoint"] integerValue])];
+                BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.startPoint = startPoint;
                 methodResult(@"success");
@@ -2413,10 +2395,10 @@ extern BOOL enableLog;
         
                 // args
                 // ref arg
-                BMKPlanNode* endPoint = (BMKPlanNode*) HEAP[@([args[@"endPoint"] integerValue])];
+                BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.endPoint = endPoint;
                 methodResult(@"success");
@@ -2434,7 +2416,7 @@ extern BOOL enableLog;
                 BMK_NAVI_TYPE naviType = (BMK_NAVI_TYPE) [args[@"naviType"] integerValue];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.naviType = naviType;
                 methodResult(@"success");
@@ -2452,7 +2434,7 @@ extern BOOL enableLog;
                 NSString* appScheme = (NSString*) args[@"appScheme"];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.appScheme = appScheme;
                 methodResult(@"success");
@@ -2470,7 +2452,7 @@ extern BOOL enableLog;
                 NSString* appName = (NSString*) args[@"appName"];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.appName = appName;
                 methodResult(@"success");
@@ -2488,7 +2470,7 @@ extern BOOL enableLog;
                 BOOL isSupportWeb = [args[@"isSupportWeb"] boolValue];
         
                 // ref
-                BMKNaviPara* ref = (BMKNaviPara*) HEAP[(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) args)[@"refId"]];
+                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
         
                 ref.isSupportWeb = isSupportWeb;
                 methodResult(@"success");
@@ -2499,332 +2481,122 @@ extern BOOL enableLog;
         
         @"RefClass::isKindOfBMKOpenRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenRoute class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenRoute class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenPoi class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenPoi class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenPoiDetailOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenPoiDetailOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenPoiDetailOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenPoiNearbyOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenPoiNearbyOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenPoiNearbyOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKFavPoiInfo": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKFavPoiInfo class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKFavPoiInfo class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenRouteOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenRouteOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenWalkingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenWalkingRouteOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenWalkingRouteOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenDrivingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenDrivingRouteOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenDrivingRouteOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenTransitRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenTransitRouteOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenTransitRouteOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenPanoramaOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenPanoramaOption class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenPanoramaOption class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKOpenPanorama": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKOpenPanorama class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKOpenPanorama class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKFavPoiManager": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKFavPoiManager class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKFavPoiManager class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKNaviPara": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKNaviPara class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKNaviPara class]];
             methodResult(@(isTargetType));
         },
         
         @"RefClass::isKindOfBMKNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
+            NSObject* __this__ = ((NSDictionary<NSString*, NSObject*>*) args)[@"__this__"];
         
-            BOOL isTargetType = [ref isKindOfClass:[BMKNavigation class]];
+            BOOL isTargetType = [__this__ isKindOfClass:[BMKNavigation class]];
             methodResult(@(isTargetType));
-        },
-        
-        @"RefClass::asBMKOpenRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenRoute *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenPoi *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenPoiDetailOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenPoiDetailOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenPoiNearbyOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenPoiNearbyOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKFavPoiInfo": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKFavPoiInfo *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenRouteOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenWalkingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenWalkingRouteOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenDrivingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenDrivingRouteOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenTransitRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenTransitRouteOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenPanoramaOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenPanoramaOption *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKOpenPanorama": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKOpenPanorama *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKFavPoiManager": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKFavPoiManager *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKNaviPara": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKNaviPara *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
-        },
-        
-        @"RefClass::asBMKNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // 引用对象
-            NSNumber* refId = ((NSDictionary<NSString*, NSNumber*>*) args)[@"refId"];
-            id ref = HEAP[refId];
-        
-            // 转型
-            ref = (BMKNavigation *) ref;
-            // 放回HEAP
-            HEAP[refId] = ref;
-        
-            methodResult(refId);
         },
         
         @"ObjectFactory::createBMKOpenRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
@@ -2833,10 +2605,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenRoute");
             }
         
-            BMKOpenRoute* ref = [[BMKOpenRoute alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenRoute* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenRoute alloc] init];
+            } else {
+                __this__ = [BMKOpenRoute alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2847,10 +2623,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenPoi");
             }
         
-            BMKOpenPoi* ref = [[BMKOpenPoi alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenPoi* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenPoi alloc] init];
+            } else {
+                __this__ = [BMKOpenPoi alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2861,10 +2641,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenPoiDetailOption");
             }
         
-            BMKOpenPoiDetailOption* ref = [[BMKOpenPoiDetailOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenPoiDetailOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenPoiDetailOption alloc] init];
+            } else {
+                __this__ = [BMKOpenPoiDetailOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2875,10 +2659,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenPoiNearbyOption");
             }
         
-            BMKOpenPoiNearbyOption* ref = [[BMKOpenPoiNearbyOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenPoiNearbyOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenPoiNearbyOption alloc] init];
+            } else {
+                __this__ = [BMKOpenPoiNearbyOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2889,10 +2677,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKFavPoiInfo");
             }
         
-            BMKFavPoiInfo* ref = [[BMKFavPoiInfo alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKFavPoiInfo* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKFavPoiInfo alloc] init];
+            } else {
+                __this__ = [BMKFavPoiInfo alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2903,10 +2695,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenRouteOption");
             }
         
-            BMKOpenRouteOption* ref = [[BMKOpenRouteOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenRouteOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenRouteOption alloc] init];
+            } else {
+                __this__ = [BMKOpenRouteOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2917,10 +2713,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenWalkingRouteOption");
             }
         
-            BMKOpenWalkingRouteOption* ref = [[BMKOpenWalkingRouteOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenWalkingRouteOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenWalkingRouteOption alloc] init];
+            } else {
+                __this__ = [BMKOpenWalkingRouteOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2931,10 +2731,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenDrivingRouteOption");
             }
         
-            BMKOpenDrivingRouteOption* ref = [[BMKOpenDrivingRouteOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenDrivingRouteOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenDrivingRouteOption alloc] init];
+            } else {
+                __this__ = [BMKOpenDrivingRouteOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2945,10 +2749,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenTransitRouteOption");
             }
         
-            BMKOpenTransitRouteOption* ref = [[BMKOpenTransitRouteOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenTransitRouteOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenTransitRouteOption alloc] init];
+            } else {
+                __this__ = [BMKOpenTransitRouteOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2959,10 +2767,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenOption");
             }
         
-            BMKOpenOption* ref = [[BMKOpenOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenOption alloc] init];
+            } else {
+                __this__ = [BMKOpenOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2973,10 +2785,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenPanoramaOption");
             }
         
-            BMKOpenPanoramaOption* ref = [[BMKOpenPanoramaOption alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenPanoramaOption* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenPanoramaOption alloc] init];
+            } else {
+                __this__ = [BMKOpenPanoramaOption alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -2987,10 +2803,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKOpenPanorama");
             }
         
-            BMKOpenPanorama* ref = [[BMKOpenPanorama alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKOpenPanorama* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKOpenPanorama alloc] init];
+            } else {
+                __this__ = [BMKOpenPanorama alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3001,10 +2821,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKFavPoiManager");
             }
         
-            BMKFavPoiManager* ref = [[BMKFavPoiManager alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKFavPoiManager* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKFavPoiManager alloc] init];
+            } else {
+                __this__ = [BMKFavPoiManager alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3015,10 +2839,14 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKNaviPara");
             }
         
-            BMKNaviPara* ref = [[BMKNaviPara alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKNaviPara* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKNaviPara alloc] init];
+            } else {
+                __this__ = [BMKNaviPara alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
@@ -3029,22 +2857,31 @@ extern BOOL enableLog;
                 NSLog(@"ObjectFactory::createBMKNavigation");
             }
         
-            BMKNavigation* ref = [[BMKNavigation alloc] init];
-            HEAP[@(ref.hash)] = ref;
+            BMKNavigation* __this__;
+            if ([((NSDictionary<NSString*, id>*) args)[@"init"] boolValue]) {
+                __this__ = [[BMKNavigation alloc] init];
+            } else {
+                __this__ = [BMKNavigation alloc];
+            }
         
-            methodResult(@(ref.hash));
+            methodResult(__this__);
         
             if (enableLog) NSLog(@"HEAP: %@", HEAP);
         },
         
         @"ObjectFactory::create_batchBMKOpenRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenRoute* ref = [[BMKOpenRoute alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenRoute* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenRoute alloc] init];
+                } else {
+                    __this__ = [BMKOpenRoute alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3053,13 +2890,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenPoi* ref = [[BMKOpenPoi alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenPoi* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenPoi alloc] init];
+                } else {
+                    __this__ = [BMKOpenPoi alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3068,13 +2910,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenPoiDetailOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenPoiDetailOption* ref = [[BMKOpenPoiDetailOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenPoiDetailOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenPoiDetailOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenPoiDetailOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3083,13 +2930,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenPoiNearbyOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenPoiNearbyOption* ref = [[BMKOpenPoiNearbyOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenPoiNearbyOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenPoiNearbyOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenPoiNearbyOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3098,13 +2950,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKFavPoiInfo": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKFavPoiInfo* ref = [[BMKFavPoiInfo alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKFavPoiInfo* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKFavPoiInfo alloc] init];
+                } else {
+                    __this__ = [BMKFavPoiInfo alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3113,13 +2970,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenRouteOption* ref = [[BMKOpenRouteOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenRouteOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenRouteOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenRouteOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3128,13 +2990,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenWalkingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenWalkingRouteOption* ref = [[BMKOpenWalkingRouteOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenWalkingRouteOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenWalkingRouteOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenWalkingRouteOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3143,13 +3010,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenDrivingRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenDrivingRouteOption* ref = [[BMKOpenDrivingRouteOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenDrivingRouteOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenDrivingRouteOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenDrivingRouteOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3158,13 +3030,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenTransitRouteOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenTransitRouteOption* ref = [[BMKOpenTransitRouteOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenTransitRouteOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenTransitRouteOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenTransitRouteOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3173,13 +3050,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenOption* ref = [[BMKOpenOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3188,13 +3070,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenPanoramaOption": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenPanoramaOption* ref = [[BMKOpenPanoramaOption alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenPanoramaOption* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenPanoramaOption alloc] init];
+                } else {
+                    __this__ = [BMKOpenPanoramaOption alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3203,13 +3090,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKOpenPanorama": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKOpenPanorama* ref = [[BMKOpenPanorama alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKOpenPanorama* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKOpenPanorama alloc] init];
+                } else {
+                    __this__ = [BMKOpenPanorama alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3218,13 +3110,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKFavPoiManager": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKFavPoiManager* ref = [[BMKFavPoiManager alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKFavPoiManager* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKFavPoiManager alloc] init];
+                } else {
+                    __this__ = [BMKFavPoiManager alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3233,13 +3130,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKNaviPara": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKNaviPara* ref = [[BMKNaviPara alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKNaviPara* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKNaviPara alloc] init];
+                } else {
+                    __this__ = [BMKNaviPara alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3248,13 +3150,18 @@ extern BOOL enableLog;
         },
         
         @"ObjectFactory::create_batchBMKNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray<NSNumber*>* resultList = [NSMutableArray array];
+            NSMutableArray<NSObject*>* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < [(NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"] integerValue]; __i__++) {
-                BMKNavigation* ref = [[BMKNavigation alloc] init];
-                HEAP[@(ref.hash)] = ref;
-        
-                [resultList addObject:@(ref.hash)];
+            NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
+            NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
+            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+                BMKNavigation* __this__;
+                if ([init boolValue]) {
+                    __this__ = [[BMKNavigation alloc] init];
+                } else {
+                    __this__ = [BMKNavigation alloc];
+                }
+                [resultList addObject:__this__];
             }
         
             methodResult(resultList);
@@ -3265,7 +3172,7 @@ extern BOOL enableLog;
         @"BMKMapPointForCoordinate::BMKMapPointForCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* coordinateValue = (NSValue*) HEAP[@([args[@"coordinate"] integerValue])];
+            NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
             [coordinateValue getValue:&coordinate];
         
@@ -3282,16 +3189,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKCoordinateForMapPoint::BMKCoordinateForMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* mapPointValue = (NSValue*) HEAP[@([args[@"mapPoint"] integerValue])];
+            NSValue* mapPointValue = (NSValue*) args[@"mapPoint"];
             BMKMapPoint mapPoint;
             [mapPointValue getValue:&mapPoint];
         
@@ -3308,16 +3213,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* bd09llCoordinateValue = (NSValue*) HEAP[@([args[@"bd09llCoordinate"] integerValue])];
+            NSValue* bd09llCoordinateValue = (NSValue*) args[@"bd09llCoordinate"];
             CLLocationCoordinate2D bd09llCoordinate;
             [bd09llCoordinateValue getValue:&bd09llCoordinate];
         
@@ -3334,16 +3237,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CGPoint)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CGPoint)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* bdMCTCoordinateValue = (NSValue*) HEAP[@([args[@"bdMCTCoordinate"] integerValue])];
+            NSValue* bdMCTCoordinateValue = (NSValue*) args[@"bdMCTCoordinate"];
             CGPoint bdMCTCoordinate;
             [bdMCTCoordinateValue getValue:&bdMCTCoordinate];
         
@@ -3360,16 +3261,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKCoordTrans::BMKCoordTrans": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* coordinateValue = (NSValue*) HEAP[@([args[@"coordinate"] integerValue])];
+            NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
             [coordinateValue getValue:&coordinate];
             // enum arg
@@ -3390,16 +3289,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* coordinateValue = (NSValue*) HEAP[@([args[@"coordinate"] integerValue])];
+            NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
             [coordinateValue getValue:&coordinate];
             // enum arg
@@ -3418,9 +3315,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: jsonable
-            id jsonableResult = result;
+            id __result__ = result;
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -3440,9 +3337,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -3462,18 +3359,18 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* aValue = (NSValue*) HEAP[@([args[@"a"] integerValue])];
+            NSValue* aValue = (NSValue*) args[@"a"];
             BMKMapPoint a;
             [aValue getValue:&a];
             // struct arg
-            NSValue* bValue = (NSValue*) HEAP[@([args[@"b"] integerValue])];
+            NSValue* bValue = (NSValue*) args[@"b"];
             BMKMapPoint b;
             [bValue getValue:&b];
         
@@ -3490,22 +3387,97 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
+        },
+        @"BMKMapRectGetWidth::BMKMapRectGetWidth": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetWidth::BMKMapRectGetWidth(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetWidth(rect);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectGetHeight::BMKMapRectGetHeight": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetHeight::BMKMapRectGetHeight(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            double result = BMKMapRectGetHeight(rect);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapPointEqualToPoint::BMKMapPointEqualToPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* point1Value = (NSValue*) args[@"point1"];
+            BMKMapPoint point1;
+            [point1Value getValue:&point1];
+            // struct arg
+            NSValue* point2Value = (NSValue*) args[@"point2"];
+            BMKMapPoint point2;
+            [point2Value getValue:&point2];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapPointEqualToPoint::BMKMapPointEqualToPoint(%@, %@)", args[@"point1"], args[@"point2"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapPointEqualToPoint(point1, point2);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
         },
         @"BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
             [pointValue getValue:&point];
             // list arg struct
-            NSArray* polylineRefIdArray = (NSArray*) args[@"polyline"];
-            BMKMapPoint polyline[polylineRefIdArray.count];
-        
-            for (int __i__ = 0; __i__ < polylineRefIdArray.count; __i__++) {
-                NSValue* polylineValue = (NSValue*) HEAP[[polylineRefIdArray objectAtIndex:__i__]];
+            NSArray<NSValue*>* polylineValueList = (NSArray<NSValue*>*) args[@"polyline"];
+            BMKMapPoint polyline[polylineValueList.count];
+            for (int __i__ = 0; __i__ < polylineValueList.count; __i__++) {
+                NSValue* polylineValue = (NSValue*) [polylineValueList objectAtIndex:__i__];
                 BMKMapPoint polylineItem;
                 [polylineValue getValue:&polylineItem];
                 polyline[__i__] = polylineItem;
@@ -3526,24 +3498,22 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
             [pointValue getValue:&point];
             // struct arg
-            NSValue* lineStartPtValue = (NSValue*) HEAP[@([args[@"lineStartPt"] integerValue])];
+            NSValue* lineStartPtValue = (NSValue*) args[@"lineStartPt"];
             BMKMapPoint lineStartPt;
             [lineStartPtValue getValue:&lineStartPt];
             // struct arg
-            NSValue* lineEndPtValue = (NSValue*) HEAP[@([args[@"lineEndPt"] integerValue])];
+            NSValue* lineEndPtValue = (NSValue*) args[@"lineEndPt"];
             BMKMapPoint lineEndPt;
             [lineEndPtValue getValue:&lineEndPt];
         
@@ -3560,24 +3530,22 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapPoint)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
             [pointValue getValue:&point];
             // struct arg
-            NSValue* lineStartPtValue = (NSValue*) HEAP[@([args[@"lineStartPt"] integerValue])];
+            NSValue* lineStartPtValue = (NSValue*) args[@"lineStartPt"];
             BMKMapPoint lineStartPt;
             [lineStartPtValue getValue:&lineStartPt];
             // struct arg
-            NSValue* lineEndPtValue = (NSValue*) HEAP[@([args[@"lineEndPt"] integerValue])];
+            NSValue* lineEndPtValue = (NSValue*) args[@"lineEndPt"];
             BMKMapPoint lineEndPt;
             [lineEndPtValue getValue:&lineEndPt];
         
@@ -3594,14 +3562,14 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* centerCoordinateValue = (NSValue*) HEAP[@([args[@"centerCoordinate"] integerValue])];
+            NSValue* centerCoordinateValue = (NSValue*) args[@"centerCoordinate"];
             CLLocationCoordinate2D centerCoordinate;
             [centerCoordinateValue getValue:&centerCoordinate];
             // jsonable arg
@@ -3622,20 +3590,98 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateRegion)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKCoordinateRegion)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
+        },
+        @"BMKMapSizeEqualToSize::BMKMapSizeEqualToSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* size1Value = (NSValue*) args[@"size1"];
+            BMKMapSize size1;
+            [size1Value getValue:&size1];
+            // struct arg
+            NSValue* size2Value = (NSValue*) args[@"size2"];
+            BMKMapSize size2;
+            [size2Value getValue:&size2];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapSizeEqualToSize::BMKMapSizeEqualToSize(%@, %@)", args[@"size1"], args[@"size2"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapSizeEqualToSize(size1, size2);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectEqualToRect::BMKMapRectEqualToRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rect1Value = (NSValue*) args[@"rect1"];
+            BMKMapRect rect1;
+            [rect1Value getValue:&rect1];
+            // struct arg
+            NSValue* rect2Value = (NSValue*) args[@"rect2"];
+            BMKMapRect rect2;
+            [rect2Value getValue:&rect2];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectEqualToRect::BMKMapRectEqualToRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectEqualToRect(rect1, rect2);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectIsEmpty::BMKMapRectIsEmpty": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIsEmpty::BMKMapRectIsEmpty(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectIsEmpty(rect);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
         },
         @"BMKMapRectUnion::BMKMapRectUnion": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* rect1Value = (NSValue*) HEAP[@([args[@"rect1"] integerValue])];
+            NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
             [rect1Value getValue:&rect1];
             // struct arg
-            NSValue* rect2Value = (NSValue*) HEAP[@([args[@"rect2"] integerValue])];
+            NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
             [rect2Value getValue:&rect2];
         
@@ -3652,20 +3698,18 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKMapRectIntersection::BMKMapRectIntersection": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* rect1Value = (NSValue*) HEAP[@([args[@"rect1"] integerValue])];
+            NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
             [rect1Value getValue:&rect1];
             // struct arg
-            NSValue* rect2Value = (NSValue*) HEAP[@([args[@"rect2"] integerValue])];
+            NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
             [rect2Value getValue:&rect2];
         
@@ -3682,11 +3726,251 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
+        },
+        @"BMKMapRectInset::BMKMapRectInset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+            // jsonable arg
+            double dx = [args[@"dx"] doubleValue];
+            // jsonable arg
+            double dy = [args[@"dy"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectInset::BMKMapRectInset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
+            }
+        
+            // invoke native method
+            BMKMapRect result = BMKMapRectInset(rect, dx, dy);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectOffset::BMKMapRectOffset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+            // jsonable arg
+            double dx = [args[@"dx"] doubleValue];
+            // jsonable arg
+            double dy = [args[@"dy"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectOffset::BMKMapRectOffset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
+            }
+        
+            // invoke native method
+            BMKMapRect result = BMKMapRectOffset(rect, dx, dy);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectContainsPoint::BMKMapRectContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            BMKMapPoint point;
+            [pointValue getValue:&point];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectContainsPoint::BMKMapRectContainsPoint(%@, %@)", args[@"rect"], args[@"point"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectContainsPoint(rect, point);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectContainsRect::BMKMapRectContainsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rect1Value = (NSValue*) args[@"rect1"];
+            BMKMapRect rect1;
+            [rect1Value getValue:&rect1];
+            // struct arg
+            NSValue* rect2Value = (NSValue*) args[@"rect2"];
+            BMKMapRect rect2;
+            [rect2Value getValue:&rect2];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectContainsRect::BMKMapRectContainsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectContainsRect(rect1, rect2);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectIntersectsRect::BMKMapRectIntersectsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rect1Value = (NSValue*) args[@"rect1"];
+            BMKMapRect rect1;
+            [rect1Value getValue:&rect1];
+            // struct arg
+            NSValue* rect2Value = (NSValue*) args[@"rect2"];
+            BMKMapRect rect2;
+            [rect2Value getValue:&rect2];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIntersectsRect::BMKMapRectIntersectsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectIntersectsRect(rect1, rect2);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            BMKCoordinateRegion result = BMKCoordinateRegionForMapRect(rect);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKCoordinateRegion)];
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKMapRectSpans180thMeridian(rect);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKMapRectRemainder::BMKMapRectRemainder": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectRemainder::BMKMapRectRemainder(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            BMKMapRect result = BMKMapRectRemainder(rect);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
+        
+            methodResult(__result__);
+        },
+        @"BMKCircleContainsPoint::BMKCircleContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            BMKMapPoint point;
+            [pointValue getValue:&point];
+            // struct arg
+            NSValue* centerValue = (NSValue*) args[@"center"];
+            BMKMapPoint center;
+            [centerValue getValue:&center];
+            // jsonable arg
+            double radius = [args[@"radius"] doubleValue];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCircleContainsPoint::BMKCircleContainsPoint(%@, %@, %@)", args[@"point"], args[@"center"], args[@"radius"]);
+            }
+        
+            // invoke native method
+            BOOL result = BMKCircleContainsPoint(point, center, radius);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
         },
     };
 }

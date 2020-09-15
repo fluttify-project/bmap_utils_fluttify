@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKNavigation extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKNavigation> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKNavigation');
+  static Future<BMKNavigation> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKNavigation', {'init': init});
     final object = BMKNavigation()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKNavigation>> create_batch__(int length) async {
+  static Future<List<BMKNavigation>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKNavigation', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKNavigation', {'length': length, 'init': init});
   
     final List<BMKNavigation> typedResult = resultBatch.map((result) => BMKNavigation()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -59,7 +55,7 @@ class BMKNavigation extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapNavigation', {"para": para.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapNavigation', {"para": para});
   
   
     // handle native call
@@ -69,8 +65,7 @@ class BMKNavigation extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -83,7 +78,7 @@ class BMKNavigation extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapWalkNavigation', {"para": para.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapWalkNavigation', {"para": para});
   
   
     // handle native call
@@ -93,8 +88,7 @@ class BMKNavigation extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -107,7 +101,7 @@ class BMKNavigation extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapRideNavigation', {"para": para.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapRideNavigation', {"para": para});
   
   
     // handle native call
@@ -117,8 +111,7 @@ class BMKNavigation extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -131,7 +124,7 @@ class BMKNavigation extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation', {"para": para.refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation', {"para": para});
   
   
     // handle native call
@@ -141,8 +134,7 @@ class BMKNavigation extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = BMKOpenErrorCode.values[__result__];
-    
+      final __return__ = (__result__ as int).toBMKOpenErrorCode();
       return __return__;
     }
   }
@@ -167,15 +159,14 @@ extension BMKNavigation_Batch on List<BMKNavigation> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }
@@ -187,15 +178,14 @@ extension BMKNavigation_Batch on List<BMKNavigation> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapWalkNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapWalkNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }
@@ -207,15 +197,14 @@ extension BMKNavigation_Batch on List<BMKNavigation> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapRideNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapRideNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }
@@ -227,15 +216,14 @@ extension BMKNavigation_Batch on List<BMKNavigation> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKOpenErrorCode.values[__result__]).toList();
-    
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenErrorCode()).toList();
       return typedResult;
     }
   }

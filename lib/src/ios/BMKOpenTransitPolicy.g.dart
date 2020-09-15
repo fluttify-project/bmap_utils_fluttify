@@ -4,9 +4,31 @@
 //////////////////////////////////////////////////////////
 
 enum BMKOpenTransitPolicy {
-  BMK_OPEN_TRANSIT_RECOMMAND,
-  BMK_OPEN_TRANSIT_TRANSFER_FIRST,
-  BMK_OPEN_TRANSIT_WALK_FIRST,
-  BMK_OPEN_TRANSIT_NO_SUBWAY,
-  BMK_OPEN_TRANSIT_TIME_FIRST
+  BMK_OPEN_TRANSIT_RECOMMAND /* 3 */,
+  BMK_OPEN_TRANSIT_TRANSFER_FIRST /* null */,
+  BMK_OPEN_TRANSIT_WALK_FIRST /* null */,
+  BMK_OPEN_TRANSIT_NO_SUBWAY /* null */,
+  BMK_OPEN_TRANSIT_TIME_FIRST /* null */
+}
+
+extension BMKOpenTransitPolicyToX on BMKOpenTransitPolicy {
+  int toValue() {
+    switch (this) {
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_RECOMMAND: return 3;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST.index + 3;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST.index + 3;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY.index + 3;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST.index + 3;
+      default: return 0;
+    }
+  }
+}
+
+extension BMKOpenTransitPolicyFromX on int {
+  BMKOpenTransitPolicy toBMKOpenTransitPolicy() {
+    switch (this) {
+      case 3: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_RECOMMAND;
+      default: return BMKOpenTransitPolicy.values[this + 3];
+    }
+  }
 }

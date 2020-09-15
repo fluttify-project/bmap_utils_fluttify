@@ -20,7 +20,7 @@ Future<BMKMapPoint> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapPointForCoordinate::BMKMapPointForCoordinate', {"coordinate": coordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapPointForCoordinate::BMKMapPointForCoordinate', {"coordinate": coordinate});
   
 
   // handle native call
@@ -30,7 +30,6 @@ Future<BMKMapPoint> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) 
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -42,7 +41,7 @@ Future<CLLocationCoordinate2D> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) as
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateForMapPoint::BMKCoordinateForMapPoint', {"mapPoint": mapPoint.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCoordinateForMapPoint::BMKCoordinateForMapPoint', {"mapPoint": mapPoint});
   
 
   // handle native call
@@ -52,7 +51,6 @@ Future<CLLocationCoordinate2D> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) as
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -64,7 +62,7 @@ Future<CGPoint> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09l
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL', {"bd09llCoordinate": bd09llCoordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL', {"bd09llCoordinate": bd09llCoordinate});
   
 
   // handle native call
@@ -74,7 +72,6 @@ Future<CGPoint> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09l
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(CGPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return CGPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -86,7 +83,7 @@ Future<CLLocationCoordinate2D> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCT
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator', {"bdMCTCoordinate": bdMCTCoordinate.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator', {"bdMCTCoordinate": bdMCTCoordinate});
   
 
   // handle native call
@@ -96,7 +93,6 @@ Future<CLLocationCoordinate2D> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCT
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -108,7 +104,7 @@ Future<CLLocationCoordinate2D> BMKCoordTrans(CLLocationCoordinate2D coordinate, 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordTrans::BMKCoordTrans', {"coordinate": coordinate.refId, "fromType": fromType.index, "toType": toType.index});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCoordTrans::BMKCoordTrans', {"coordinate": coordinate, "fromType": fromType.toValue(), "toType": toType.toValue()});
   
 
   // handle native call
@@ -118,7 +114,6 @@ Future<CLLocationCoordinate2D> BMKCoordTrans(CLLocationCoordinate2D coordinate, 
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -130,7 +125,7 @@ Future<Map> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom', {"coordinate": coordinate.refId, "type": type.index});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom', {"coordinate": coordinate, "type": type.toValue()});
   
 
   // handle native call
@@ -140,7 +135,6 @@ Future<Map> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -152,7 +146,7 @@ Future<double> BMKMetersPerMapPointAtLatitude(double latitude) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude', {"latitude": latitude});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude', {"latitude": latitude});
   
 
   // handle native call
@@ -162,7 +156,6 @@ Future<double> BMKMetersPerMapPointAtLatitude(double latitude) async {
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -174,7 +167,7 @@ Future<double> BMKMapPointsPerMeterAtLatitude(double latitude) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude', {"latitude": latitude});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude', {"latitude": latitude});
   
 
   // handle native call
@@ -184,7 +177,6 @@ Future<double> BMKMapPointsPerMeterAtLatitude(double latitude) async {
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -196,7 +188,7 @@ Future<double> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints', {"a": a.refId, "b": b.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints', {"a": a, "b": b});
   
 
   // handle native call
@@ -206,7 +198,69 @@ Future<double> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
   if (__result__ == null) {
     return null;
   } else {
-    
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetWidth(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetWidth::BMKMapRectGetWidth([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectGetWidth::BMKMapRectGetWidth', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<double> BMKMapRectGetHeight(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetHeight::BMKMapRectGetHeight([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectGetHeight::BMKMapRectGetHeight', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<bool> BMKMapPointEqualToPoint(BMKMapPoint point1, BMKMapPoint point2) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapPointEqualToPoint::BMKMapPointEqualToPoint([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapPointEqualToPoint::BMKMapPointEqualToPoint', {"point1": point1, "point2": point2});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
     return __result__;
   }
 }
@@ -218,7 +272,7 @@ Future<BMKMapPoint> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BM
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline', {"point": point.refId, "polyline": polyline.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline', {"point": point, "polyline": polyline, "count": count});
   
 
   // handle native call
@@ -228,7 +282,6 @@ Future<BMKMapPoint> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BM
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -240,7 +293,7 @@ Future<BMKMapPoint> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMap
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine', {"point": point.refId, "lineStartPt": lineStartPt.refId, "lineEndPt": lineEndPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine', {"point": point, "lineStartPt": lineStartPt, "lineEndPt": lineEndPt});
   
 
   // handle native call
@@ -250,7 +303,6 @@ Future<BMKMapPoint> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMap
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapPoint()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -262,7 +314,7 @@ Future<double> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint line
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine', {"point": point.refId, "lineStartPt": lineStartPt.refId, "lineEndPt": lineEndPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine', {"point": point, "lineStartPt": lineStartPt, "lineEndPt": lineEndPt});
   
 
   // handle native call
@@ -272,7 +324,6 @@ Future<double> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint line
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -284,7 +335,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMakeWithDistance(CLLocationCoordi
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance', {"centerCoordinate": centerCoordinate.refId, "latitudinalMeters": latitudinalMeters, "longitudinalMeters": longitudinalMeters});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance', {"centerCoordinate": centerCoordinate, "latitudinalMeters": latitudinalMeters, "longitudinalMeters": longitudinalMeters});
   
 
   // handle native call
@@ -294,8 +345,70 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMakeWithDistance(CLLocationCoordi
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_utils_fluttify';
+  }
+}
+
+Future<bool> BMKMapSizeEqualToSize(BMKMapSize size1, BMKMapSize size2) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapSizeEqualToSize::BMKMapSizeEqualToSize([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapSizeEqualToSize::BMKMapSizeEqualToSize', {"size1": size1, "size2": size2});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<bool> BMKMapRectEqualToRect(BMKMapRect rect1, BMKMapRect rect2) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectEqualToRect::BMKMapRectEqualToRect([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectEqualToRect::BMKMapRectEqualToRect', {"rect1": rect1, "rect2": rect2});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<bool> BMKMapRectIsEmpty(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectIsEmpty::BMKMapRectIsEmpty([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectIsEmpty::BMKMapRectIsEmpty', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
   }
 }
 
@@ -306,7 +419,7 @@ Future<BMKMapRect> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectUnion::BMKMapRectUnion', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectUnion::BMKMapRectUnion', {"rect1": rect1, "rect2": rect2});
   
 
   // handle native call
@@ -316,7 +429,6 @@ Future<BMKMapRect> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -328,7 +440,7 @@ Future<BMKMapRect> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) as
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersection::BMKMapRectIntersection', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectIntersection::BMKMapRectIntersection', {"rect1": rect1, "rect2": rect2});
   
 
   // handle native call
@@ -338,7 +450,6 @@ Future<BMKMapRect> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) as
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -350,7 +461,7 @@ Future<BMKMapRect> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectInset::BMKMapRectInset', {"rect": rect.refId, "dx": dx, "dy": dy});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectInset::BMKMapRectInset', {"rect": rect, "dx": dx, "dy": dy});
   
 
   // handle native call
@@ -360,7 +471,6 @@ Future<BMKMapRect> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async 
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -372,7 +482,7 @@ Future<BMKMapRect> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectOffset::BMKMapRectOffset', {"rect": rect.refId, "dx": dx, "dy": dy});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectOffset::BMKMapRectOffset', {"rect": rect, "dx": dx, "dy": dy});
   
 
   // handle native call
@@ -382,7 +492,6 @@ Future<BMKMapRect> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -394,7 +503,7 @@ Future<bool> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsPoint::BMKMapRectContainsPoint', {"rect": rect.refId, "point": point.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectContainsPoint::BMKMapRectContainsPoint', {"rect": rect, "point": point});
   
 
   // handle native call
@@ -404,7 +513,6 @@ Future<bool> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -416,7 +524,7 @@ Future<bool> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectContainsRect::BMKMapRectContainsRect', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectContainsRect::BMKMapRectContainsRect', {"rect1": rect1, "rect2": rect2});
   
 
   // handle native call
@@ -426,7 +534,6 @@ Future<bool> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -438,7 +545,7 @@ Future<bool> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async 
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectIntersectsRect::BMKMapRectIntersectsRect', {"rect1": rect1.refId, "rect2": rect2.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectIntersectsRect::BMKMapRectIntersectsRect', {"rect1": rect1, "rect2": rect2});
   
 
   // handle native call
@@ -448,7 +555,6 @@ Future<bool> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async 
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -460,7 +566,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionForMapRect(BMKMapRect rect) async
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect', {"rect": rect});
   
 
   // handle native call
@@ -470,7 +576,6 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionForMapRect(BMKMapRect rect) async
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKCoordinateRegion()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -482,7 +587,7 @@ Future<bool> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian', {"rect": rect});
   
 
   // handle native call
@@ -492,7 +597,6 @@ Future<bool> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -504,7 +608,7 @@ Future<BMKMapRect> BMKMapRectRemainder(BMKMapRect rect) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKMapRectRemainder::BMKMapRectRemainder', {"rect": rect.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKMapRectRemainder::BMKMapRectRemainder', {"rect": rect});
   
 
   // handle native call
@@ -514,7 +618,6 @@ Future<BMKMapRect> BMKMapRectRemainder(BMKMapRect rect) async {
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return BMKMapRect()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }
@@ -526,7 +629,7 @@ Future<bool> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, doubl
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsPoint::BMKCircleContainsPoint', {"point": point.refId, "center": center.refId, "radius": radius});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCircleContainsPoint::BMKCircleContainsPoint', {"point": point, "center": center, "radius": radius});
   
 
   // handle native call
@@ -536,7 +639,6 @@ Future<bool> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, doubl
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -548,7 +650,7 @@ Future<bool> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocatio
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCircleContainsCoordinate::BMKCircleContainsCoordinate', {"point": point.refId, "center": center.refId, "radius": radius});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCircleContainsCoordinate::BMKCircleContainsCoordinate', {"point": point, "center": center, "radius": radius});
   
 
   // handle native call
@@ -558,7 +660,6 @@ Future<bool> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocatio
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -570,7 +671,7 @@ Future<bool> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygo
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsPoint::BMKPolygonContainsPoint', {"point": point.refId, "polygon": polygon.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKPolygonContainsPoint::BMKPolygonContainsPoint', {"point": point, "polygon": polygon, "count": count});
   
 
   // handle native call
@@ -580,7 +681,6 @@ Future<bool> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygo
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -592,7 +692,7 @@ Future<bool> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLL
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate', {"point": point.refId, "polygon": polygon.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate', {"point": point, "polygon": polygon, "count": count});
   
 
   // handle native call
@@ -602,7 +702,6 @@ Future<bool> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLL
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -614,7 +713,7 @@ Future<double> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocat
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates', {"leftTop": leftTop.refId, "rightBottom": rightBottom.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates', {"leftTop": leftTop, "rightBottom": rightBottom});
   
 
   // handle native call
@@ -624,7 +723,6 @@ Future<double> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocat
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -636,7 +734,7 @@ Future<double> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int c
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKAreaForPolygon::BMKAreaForPolygon', {"coordinates": coordinates.map((__it__) => __it__.refId).toList(), "count": count});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKAreaForPolygon::BMKAreaForPolygon', {"coordinates": coordinates, "count": count});
   
 
   // handle native call
@@ -646,7 +744,6 @@ Future<double> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int c
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -658,7 +755,7 @@ Future<double> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLo
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromCoords::BMKGetDirectionFromCoords', {"startCoord": startCoord.refId, "endCoord": endCoord.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKGetDirectionFromCoords::BMKGetDirectionFromCoords', {"startCoord": startCoord, "endCoord": endCoord});
   
 
   // handle native call
@@ -668,7 +765,6 @@ Future<double> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLo
   if (__result__ == null) {
     return null;
   } else {
-    
     return __result__;
   }
 }
@@ -680,7 +776,7 @@ Future<double> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt)
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKGetDirectionFromPoints::BMKGetDirectionFromPoints', {"startPt": startPt.refId, "endPt": endPt.refId});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKGetDirectionFromPoints::BMKGetDirectionFromPoints', {"startPt": startPt, "endPt": endPt});
   
 
   // handle native call
@@ -690,7 +786,69 @@ Future<double> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt)
   if (__result__ == null) {
     return null;
   } else {
-    
+    return __result__;
+  }
+}
+
+Future<String> BMKStringFromMapPoint(BMKMapPoint point) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKStringFromMapPoint::BMKStringFromMapPoint([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKStringFromMapPoint::BMKStringFromMapPoint', {"point": point});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<String> BMKStringFromMapSize(BMKMapSize size) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKStringFromMapSize::BMKStringFromMapSize([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKStringFromMapSize::BMKStringFromMapSize', {"size": size});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
+    return __result__;
+  }
+}
+
+Future<String> BMKStringFromMapRect(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKStringFromMapRect::BMKStringFromMapRect([])');
+  }
+
+  // invoke native method
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKStringFromMapRect::BMKStringFromMapRect', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  // convert native result to dart side object
+  if (__result__ == null) {
+    return null;
+  } else {
     return __result__;
   }
 }
@@ -702,7 +860,7 @@ Future<CLLocationCoordinate2D> BMKCoorDictionaryDecode(Map dictionary) async {
   }
 
   // invoke native method
-  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKCoorDictionaryDecode::BMKCoorDictionaryDecode', {"dictionary": dictionary});
+  final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKCoorDictionaryDecode::BMKCoorDictionaryDecode', {"dictionary": dictionary});
   
 
   // handle native call
@@ -712,7 +870,6 @@ Future<CLLocationCoordinate2D> BMKCoorDictionaryDecode(Map dictionary) async {
   if (__result__ == null) {
     return null;
   } else {
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
     return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
   }
 }

@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKOpenOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenOption> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKOpenOption');
+  static Future<BMKOpenOption> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenOption', {'init': init});
     final object = BMKOpenOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKOpenOption>> create_batch__(int length) async {
+  static Future<List<BMKOpenOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKOpenOption', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenOption', {'length': length, 'init': init});
   
     final List<BMKOpenOption> typedResult = resultBatch.map((result) => BMKOpenOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -44,28 +40,26 @@ class BMKOpenOption extends NSObject  {
 
   //region getters
   Future<String> get_appScheme() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenOption::get_appScheme", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenOption::get_appScheme", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<bool> get_isSupportWeb() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenOption::get_isSupportWeb", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenOption::get_isSupportWeb", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_appScheme(String appScheme) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenOption::set_appScheme', {'refId': refId, "appScheme": appScheme});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenOption::set_appScheme', <String, dynamic>{'__this__': this, "appScheme": appScheme});
   
   
   }
   
   Future<void> set_isSupportWeb(bool isSupportWeb) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenOption::set_isSupportWeb', {'refId': refId, "isSupportWeb": isSupportWeb});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenOption::set_isSupportWeb', <String, dynamic>{'__this__': this, "isSupportWeb": isSupportWeb});
   
   
   }
@@ -80,16 +74,16 @@ class BMKOpenOption extends NSObject  {
 extension BMKOpenOption_Batch on List<BMKOpenOption> {
   //region getters
   Future<List<String>> get_appScheme_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenOption::get_appScheme_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenOption::get_appScheme_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<bool>> get_isSupportWeb_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenOption::get_isSupportWeb_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenOption::get_isSupportWeb_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -97,13 +91,13 @@ extension BMKOpenOption_Batch on List<BMKOpenOption> {
 
   //region setters
   Future<void> set_appScheme_batch(List<String> appScheme) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenOption::set_appScheme_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "appScheme": appScheme[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenOption::set_appScheme_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "appScheme": appScheme[__i__]}]);
   
   
   }
   
   Future<void> set_isSupportWeb_batch(List<bool> isSupportWeb) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenOption::set_isSupportWeb_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "isSupportWeb": isSupportWeb[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenOption::set_isSupportWeb_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "isSupportWeb": isSupportWeb[__i__]}]);
   
   
   }

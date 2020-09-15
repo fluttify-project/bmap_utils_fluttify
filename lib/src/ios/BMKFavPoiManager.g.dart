@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKFavPoiManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKFavPoiManager> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKFavPoiManager');
+  static Future<BMKFavPoiManager> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKFavPoiManager', {'init': init});
     final object = BMKFavPoiManager()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKFavPoiManager>> create_batch__(int length) async {
+  static Future<List<BMKFavPoiManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKFavPoiManager', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKFavPoiManager', {'length': length, 'init': init});
   
     final List<BMKFavPoiManager> typedResult = resultBatch.map((result) => BMKFavPoiManager()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -59,7 +55,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::addFavPoi', {"favPoiInfo": favPoiInfo.refId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::addFavPoi', {"favPoiInfo": favPoiInfo, "__this__": this});
   
   
     // handle native call
@@ -70,7 +66,6 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -83,7 +78,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::getFavPoi', {"favId": favId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::getFavPoi', {"favId": favId, "__this__": this});
   
   
     // handle native call
@@ -94,7 +89,6 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = BMKFavPoiInfo()..refId = __result__..tag__ = 'bmap_utils_fluttify';
-      kNativeObjectPool.add(__return__);
       return __return__;
     }
   }
@@ -107,7 +101,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::getAllFavPois', {"refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::getAllFavPois', {"__this__": this});
   
   
     // handle native call
@@ -117,8 +111,7 @@ class BMKFavPoiManager extends NSObject  {
     if (__result__ == null) {
       return null;
     } else {
-      final __return__ = (__result__ as List).cast<int>().map((__it__) => NSObject()..refId = __it__..tag__ = 'bmap_utils_fluttify').toList();
-      kNativeObjectPool.addAll(__return__);
+      final __return__ = (__result__ as List).cast<String>().map((__it__) => NSObject()..refId = __it__..tag__ = 'bmap_utils_fluttify').toList();
       return __return__;
     }
   }
@@ -131,7 +124,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo', {"favId": favId, "favPoiInfo": favPoiInfo.refId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo', {"favId": favId, "favPoiInfo": favPoiInfo, "__this__": this});
   
   
     // handle native call
@@ -142,7 +135,6 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -155,7 +147,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::deleteFavPoi', {"favId": favId, "refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::deleteFavPoi', {"favId": favId, "__this__": this});
   
   
     // handle native call
@@ -166,7 +158,6 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -179,7 +170,7 @@ class BMKFavPoiManager extends NSObject  {
     }
   
     // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::clearAllFavPois', {"refId": refId});
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::clearAllFavPois', {"__this__": this});
   
   
     // handle native call
@@ -190,7 +181,6 @@ class BMKFavPoiManager extends NSObject  {
       return null;
     } else {
       final __return__ = __result__;
-    
       return __return__;
     }
   }
@@ -215,7 +205,7 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::addFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favPoiInfo": favPoiInfo[__i__].refId, "refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::addFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favPoiInfo": favPoiInfo[__i__], "__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -223,7 +213,6 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -235,15 +224,14 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::getFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::getFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKFavPoiInfo()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-      kNativeObjectPool.addAll(typedResult);
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKFavPoiInfo()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
       return typedResult;
     }
   }
@@ -255,15 +243,14 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::getAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::getAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
     if (resultBatch == null) {
       return null;
     } else {
-      final typedResult = (resultBatch as List).cast<int>().map((__result__) => (__result__ as List).cast<int>().map((__it__) => NSObject()..refId = __it__..tag__ = 'bmap_utils_fluttify').toList()).toList();
-      kNativeObjectPool.addAll(typedResult.expand((e) => e));
+      final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as List).cast<String>().map((__it__) => NSObject()..refId = __it__..tag__ = 'bmap_utils_fluttify').toList()).toList();
       return typedResult;
     }
   }
@@ -275,7 +262,7 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "favPoiInfo": favPoiInfo[__i__].refId, "refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "favPoiInfo": favPoiInfo[__i__], "__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -283,7 +270,6 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -295,7 +281,7 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::deleteFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::deleteFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -303,7 +289,6 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }
@@ -315,7 +300,7 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
     }
   
     // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiManager::clearAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"refId": this[__i__].refId}]);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiManager::clearAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
     // convert native result to dart side object
@@ -323,7 +308,6 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
       return null;
     } else {
       final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
-    
       return typedResult;
     }
   }

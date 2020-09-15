@@ -4,6 +4,25 @@
 //////////////////////////////////////////////////////////
 
 enum BMK_NAVI_TYPE {
-  BMK_NAVI_TYPE_NATIVE,
-  BMK_NAVI_TYPE_WEB
+  BMK_NAVI_TYPE_NATIVE /* 0 */,
+  BMK_NAVI_TYPE_WEB /* null */
+}
+
+extension BMK_NAVI_TYPEToX on BMK_NAVI_TYPE {
+  int toValue() {
+    switch (this) {
+      case BMK_NAVI_TYPE.BMK_NAVI_TYPE_NATIVE: return 0;
+      case BMK_NAVI_TYPE.BMK_NAVI_TYPE_WEB: return BMK_NAVI_TYPE.BMK_NAVI_TYPE_WEB.index + 0;
+      default: return 0;
+    }
+  }
+}
+
+extension BMK_NAVI_TYPEFromX on int {
+  BMK_NAVI_TYPE toBMK_NAVI_TYPE() {
+    switch (this) {
+      case 0: return BMK_NAVI_TYPE.BMK_NAVI_TYPE_NATIVE;
+      default: return BMK_NAVI_TYPE.values[this + 0];
+    }
+  }
 }

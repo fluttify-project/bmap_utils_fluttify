@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKFavPoiInfo extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKFavPoiInfo> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKFavPoiInfo');
+  static Future<BMKFavPoiInfo> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKFavPoiInfo', {'init': init});
     final object = BMKFavPoiInfo()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKFavPoiInfo>> create_batch__(int length) async {
+  static Future<List<BMKFavPoiInfo>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKFavPoiInfo', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKFavPoiInfo', {'length': length, 'init': init});
   
     final List<BMKFavPoiInfo> typedResult = resultBatch.map((result) => BMKFavPoiInfo()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -44,88 +40,81 @@ class BMKFavPoiInfo extends NSObject  {
 
   //region getters
   Future<String> get_favId() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_favId", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_favId", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<String> get_poiName() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_poiName", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_poiName", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<String> get_poiUid() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_poiUid", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_poiUid", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<CLLocationCoordinate2D> get_pt() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_pt", {'refId': refId});
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
-    return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_pt", {'__this__': this});
+    return __result__ == null ? null : (CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
   }
   
   Future<String> get_address() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_address", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_address", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<String> get_cityName() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_cityName", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_cityName", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<int> get_timeStamp() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_timeStamp", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_timeStamp", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_favId(String favId) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_favId', {'refId': refId, "favId": favId});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_favId', <String, dynamic>{'__this__': this, "favId": favId});
   
   
   }
   
   Future<void> set_poiName(String poiName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_poiName', {'refId': refId, "poiName": poiName});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_poiName', <String, dynamic>{'__this__': this, "poiName": poiName});
   
   
   }
   
   Future<void> set_poiUid(String poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_poiUid', {'refId': refId, "poiUid": poiUid});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_poiUid', <String, dynamic>{'__this__': this, "poiUid": poiUid});
   
   
   }
   
   Future<void> set_pt(CLLocationCoordinate2D pt) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_pt', {'refId': refId, "pt": pt.refId});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_pt', <String, dynamic>{'__this__': this, "pt": pt});
   
   
   }
   
   Future<void> set_address(String address) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_address', {'refId': refId, "address": address});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_address', <String, dynamic>{'__this__': this, "address": address});
   
   
   }
   
   Future<void> set_cityName(String cityName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_cityName', {'refId': refId, "cityName": cityName});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_cityName', <String, dynamic>{'__this__': this, "cityName": cityName});
   
   
   }
   
   Future<void> set_timeStamp(int timeStamp) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_timeStamp', {'refId': refId, "timeStamp": timeStamp});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKFavPoiInfo::set_timeStamp', <String, dynamic>{'__this__': this, "timeStamp": timeStamp});
   
   
   }
@@ -140,51 +129,51 @@ class BMKFavPoiInfo extends NSObject  {
 extension BMKFavPoiInfo_Batch on List<BMKFavPoiInfo> {
   //region getters
   Future<List<String>> get_favId_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_favId_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_favId_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<String>> get_poiName_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_poiName_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_poiName_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<String>> get_poiUid_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_poiUid_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<CLLocationCoordinate2D>> get_pt_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_pt_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_pt_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
     return typedResult;
   }
   
   Future<List<String>> get_address_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_address_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_address_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<String>> get_cityName_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_cityName_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_cityName_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<int>> get_timeStamp_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKFavPoiInfo::get_timeStamp_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKFavPoiInfo::get_timeStamp_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -192,43 +181,43 @@ extension BMKFavPoiInfo_Batch on List<BMKFavPoiInfo> {
 
   //region setters
   Future<void> set_favId_batch(List<String> favId) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_favId_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "favId": favId[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_favId_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "favId": favId[__i__]}]);
   
   
   }
   
   Future<void> set_poiName_batch(List<String> poiName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_poiName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "poiName": poiName[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_poiName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "poiName": poiName[__i__]}]);
   
   
   }
   
   Future<void> set_poiUid_batch(List<String> poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "poiUid": poiUid[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "poiUid": poiUid[__i__]}]);
   
   
   }
   
   Future<void> set_pt_batch(List<CLLocationCoordinate2D> pt) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_pt_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "pt": pt[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_pt_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "pt": pt[__i__]}]);
   
   
   }
   
   Future<void> set_address_batch(List<String> address) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_address_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "address": address[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_address_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "address": address[__i__]}]);
   
   
   }
   
   Future<void> set_cityName_batch(List<String> cityName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_cityName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "cityName": cityName[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_cityName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "cityName": cityName[__i__]}]);
   
   
   }
   
   Future<void> set_timeStamp_batch(List<int> timeStamp) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKFavPoiInfo::set_timeStamp_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "timeStamp": timeStamp[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKFavPoiInfo::set_timeStamp_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "timeStamp": timeStamp[__i__]}]);
   
   
   }

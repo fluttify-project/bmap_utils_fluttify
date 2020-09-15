@@ -6,7 +6,6 @@
 import 'dart:typed_data';
 
 import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
-import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -21,22 +20,19 @@ class BMKNaviPara extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKNaviPara> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKNaviPara');
+  static Future<BMKNaviPara> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKNaviPara', {'init': init});
     final object = BMKNaviPara()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKNaviPara>> create_batch__(int length) async {
+  static Future<List<BMKNaviPara>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKNaviPara', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKNaviPara', {'length': length, 'init': init});
   
     final List<BMKNaviPara> typedResult = resultBatch.map((result) => BMKNaviPara()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -44,76 +40,70 @@ class BMKNaviPara extends NSObject  {
 
   //region getters
   Future<BMKPlanNode> get_startPoint() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_startPoint", {'refId': refId});
-    kNativeObjectPool.add(BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
-    return BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_startPoint", {'__this__': this});
+    return __result__ == null ? null : (BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
   }
   
   Future<BMKPlanNode> get_endPoint() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_endPoint", {'refId': refId});
-    kNativeObjectPool.add(BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
-    return BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_endPoint", {'__this__': this});
+    return __result__ == null ? null : (BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
   }
   
   Future<BMK_NAVI_TYPE> get_naviType() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_naviType", {'refId': refId});
-  
-    return BMK_NAVI_TYPE.values[__result__];
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_naviType", {'__this__': this});
+    return __result__ == null ? null : ((__result__ as int).toBMK_NAVI_TYPE());
   }
   
   Future<String> get_appScheme() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_appScheme", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_appScheme", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<String> get_appName() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_appName", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_appName", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<bool> get_isSupportWeb() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_isSupportWeb", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_isSupportWeb", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_startPoint(BMKPlanNode startPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_startPoint', {'refId': refId, "startPoint": startPoint.refId});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_startPoint', <String, dynamic>{'__this__': this, "startPoint": startPoint});
   
   
   }
   
   Future<void> set_endPoint(BMKPlanNode endPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_endPoint', {'refId': refId, "endPoint": endPoint.refId});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_endPoint', <String, dynamic>{'__this__': this, "endPoint": endPoint});
   
   
   }
   
   Future<void> set_naviType(BMK_NAVI_TYPE naviType) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_naviType', {'refId': refId, "naviType": naviType.index});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_naviType', <String, dynamic>{'__this__': this, "naviType": naviType.toValue()});
   
   
   }
   
   Future<void> set_appScheme(String appScheme) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_appScheme', {'refId': refId, "appScheme": appScheme});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_appScheme', <String, dynamic>{'__this__': this, "appScheme": appScheme});
   
   
   }
   
   Future<void> set_appName(String appName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_appName', {'refId': refId, "appName": appName});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_appName', <String, dynamic>{'__this__': this, "appName": appName});
   
   
   }
   
   Future<void> set_isSupportWeb(bool isSupportWeb) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_isSupportWeb', {'refId': refId, "isSupportWeb": isSupportWeb});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKNaviPara::set_isSupportWeb', <String, dynamic>{'__this__': this, "isSupportWeb": isSupportWeb});
   
   
   }
@@ -128,44 +118,44 @@ class BMKNaviPara extends NSObject  {
 extension BMKNaviPara_Batch on List<BMKNaviPara> {
   //region getters
   Future<List<BMKPlanNode>> get_startPoint_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_startPoint_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_startPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
     return typedResult;
   }
   
   Future<List<BMKPlanNode>> get_endPoint_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_endPoint_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_endPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
     return typedResult;
   }
   
   Future<List<BMK_NAVI_TYPE>> get_naviType_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_naviType_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => BMK_NAVI_TYPE.values[__result__]).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_naviType_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMK_NAVI_TYPE()).toList();
     return typedResult;
   }
   
   Future<List<String>> get_appScheme_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_appScheme_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_appScheme_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<String>> get_appName_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_appName_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_appName_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<bool>> get_isSupportWeb_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKNaviPara::get_isSupportWeb_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKNaviPara::get_isSupportWeb_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<bool>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -173,37 +163,37 @@ extension BMKNaviPara_Batch on List<BMKNaviPara> {
 
   //region setters
   Future<void> set_startPoint_batch(List<BMKPlanNode> startPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_startPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "startPoint": startPoint[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_startPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "startPoint": startPoint[__i__]}]);
   
   
   }
   
   Future<void> set_endPoint_batch(List<BMKPlanNode> endPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_endPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "endPoint": endPoint[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_endPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "endPoint": endPoint[__i__]}]);
   
   
   }
   
   Future<void> set_naviType_batch(List<BMK_NAVI_TYPE> naviType) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_naviType_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "naviType": naviType[__i__].index}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_naviType_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "naviType": naviType[__i__].toValue()}]);
   
   
   }
   
   Future<void> set_appScheme_batch(List<String> appScheme) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_appScheme_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "appScheme": appScheme[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_appScheme_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "appScheme": appScheme[__i__]}]);
   
   
   }
   
   Future<void> set_appName_batch(List<String> appName) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_appName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "appName": appName[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_appName_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "appName": appName[__i__]}]);
   
   
   }
   
   Future<void> set_isSupportWeb_batch(List<bool> isSupportWeb) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKNaviPara::set_isSupportWeb_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "isSupportWeb": isSupportWeb[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKNaviPara::set_isSupportWeb_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "isSupportWeb": isSupportWeb[__i__]}]);
   
   
   }
