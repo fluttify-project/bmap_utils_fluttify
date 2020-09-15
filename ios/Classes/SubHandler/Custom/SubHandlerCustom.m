@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////
 
 #import "SubHandlerCustom.h"
+#import "FluttifyMessageCodec.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -13,6 +14,7 @@ extern BOOL enableLog;
 
 @implementation BmapUtilsFluttifyPlugin (SubHandlerCustom)
 - (NSDictionary<NSString*, Handler>*) getSubHandlerCustom {
+    __weak __typeof(self)weakSelf = self;
     return @{
 
     };

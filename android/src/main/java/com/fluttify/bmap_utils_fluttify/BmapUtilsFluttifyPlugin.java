@@ -22,9 +22,12 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import io.flutter.plugin.common.StandardMethodCodec;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 
 import com.fluttify.bmap_utils_fluttify.sub_handler.*;
+import com.fluttify.bmap_utils_fluttify.sub_handler.custom.SubHandlerCustom;
+import me.yohom.foundation_fluttify.core.FluttifyMessageCodec;
 
 import static me.yohom.foundation_fluttify.FoundationFluttifyPluginKt.getEnableLog;
 import static me.yohom.foundation_fluttify.FoundationFluttifyPluginKt.getHEAP;
@@ -36,7 +39,7 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
 
     // v1 android embedding for compatible
     public static void registerWith(Registrar registrar) {
-        final MethodChannel channel = new MethodChannel(registrar.messenger(), "com.fluttify/bmap_utils_fluttify");
+        final MethodChannel channel = new MethodChannel(registrar.messenger(), "com.fluttify/bmap_utils_fluttify", new StandardMethodCodec(new FluttifyMessageCodec()));
 
         BmapUtilsFluttifyPlugin plugin = new BmapUtilsFluttifyPlugin();
 
@@ -48,8 +51,8 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
         plugin.platformViewRegistry = platformViewRegistry;
 
         handlerMapList = new ArrayList<>();
-        
-        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger));
+        handlerMapList.add(SubHandler0.getSubHandler(messenger));
+        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger, registrar.activity()));
 
         channel.setMethodCallHandler(plugin);
 
@@ -67,14 +70,13 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
             Log.d("fluttify-java", "BmapUtilsFluttifyPlugin::onAttachedToEngine@" + binding);
         }
 
-        final MethodChannel channel = new MethodChannel(binding.getBinaryMessenger(), "com.fluttify/bmap_utils_fluttify");
+        final MethodChannel channel = new MethodChannel(binding.getBinaryMessenger(), "com.fluttify/bmap_utils_fluttify", new StandardMethodCodec(new FluttifyMessageCodec()));
 
         messenger = binding.getBinaryMessenger();
         platformViewRegistry = binding.getPlatformViewRegistry();
 
         handlerMapList = new ArrayList<>();
-        
-        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger));
+        handlerMapList.add(SubHandler0.getSubHandler(messenger));
 
         channel.setMethodCallHandler(this);
     }
@@ -92,6 +94,8 @@ public class BmapUtilsFluttifyPlugin implements FlutterPlugin, MethodChannel.Met
             Log.d("fluttify-java", "BmapUtilsFluttifyPlugin::onAttachedToActivity@" + binding);
         }
         Activity activity = binding.getActivity();
+
+        handlerMapList.add(SubHandlerCustom.getSubHandler(messenger, activity));
 
         // register platform view
         

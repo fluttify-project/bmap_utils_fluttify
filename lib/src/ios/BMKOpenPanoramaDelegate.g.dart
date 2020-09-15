@@ -24,13 +24,7 @@ mixin BMKOpenPanoramaDelegate on NSObject {
   
 
   @mustCallSuper
-  Future<void> onGetOpenPanoramaStatus(BMKOpenErrorCode ecode) {
-  
-  
-    if (fluttifyLogEnabled) {
-      debugPrint('onGetOpenPanoramaStatus::kNativeObjectPool: $kNativeObjectPool');
-    }
-  }
+  Future<void> onGetOpenPanoramaStatus(BMKOpenErrorCode ecode) {}
   
 }
 

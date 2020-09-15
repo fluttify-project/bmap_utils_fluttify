@@ -20,22 +20,19 @@ class BMKOpenPoiDetailOption extends BMKOpenOption  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoiDetailOption> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKOpenPoiDetailOption');
+  static Future<BMKOpenPoiDetailOption> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenPoiDetailOption', {'init': init});
     final object = BMKOpenPoiDetailOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKOpenPoiDetailOption>> create_batch__(int length) async {
+  static Future<List<BMKOpenPoiDetailOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKOpenPoiDetailOption', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenPoiDetailOption', {'length': length, 'init': init});
   
     final List<BMKOpenPoiDetailOption> typedResult = resultBatch.map((result) => BMKOpenPoiDetailOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -43,16 +40,15 @@ class BMKOpenPoiDetailOption extends BMKOpenOption  {
 
   //region getters
   Future<String> get_poiUid() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiDetailOption::get_poiUid", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiDetailOption::get_poiUid", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_poiUid(String poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiDetailOption::set_poiUid', {'refId': refId, "poiUid": poiUid});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoiDetailOption::set_poiUid', <String, dynamic>{'__this__': this, "poiUid": poiUid});
   
   
   }
@@ -67,9 +63,9 @@ class BMKOpenPoiDetailOption extends BMKOpenOption  {
 extension BMKOpenPoiDetailOption_Batch on List<BMKOpenPoiDetailOption> {
   //region getters
   Future<List<String>> get_poiUid_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiDetailOption::get_poiUid_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiDetailOption::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -77,7 +73,7 @@ extension BMKOpenPoiDetailOption_Batch on List<BMKOpenPoiDetailOption> {
 
   //region setters
   Future<void> set_poiUid_batch(List<String> poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiDetailOption::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "poiUid": poiUid[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenPoiDetailOption::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "poiUid": poiUid[__i__]}]);
   
   
   }

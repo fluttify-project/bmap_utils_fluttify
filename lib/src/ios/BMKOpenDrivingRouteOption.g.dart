@@ -20,22 +20,19 @@ class BMKOpenDrivingRouteOption extends BMKOpenRouteOption  {
   //endregion
 
   //region creators
-  static Future<BMKOpenDrivingRouteOption> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKOpenDrivingRouteOption');
+  static Future<BMKOpenDrivingRouteOption> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenDrivingRouteOption', {'init': init});
     final object = BMKOpenDrivingRouteOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKOpenDrivingRouteOption>> create_batch__(int length) async {
+  static Future<List<BMKOpenDrivingRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKOpenDrivingRouteOption', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenDrivingRouteOption', {'length': length, 'init': init});
   
     final List<BMKOpenDrivingRouteOption> typedResult = resultBatch.map((result) => BMKOpenDrivingRouteOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   

@@ -20,22 +20,19 @@ class BMKOpenPoiNearbyOption extends BMKOpenOption  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoiNearbyOption> create__() async {
-    final int refId = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::createBMKOpenPoiNearbyOption');
+  static Future<BMKOpenPoiNearbyOption> create__({ bool init = true /* ios only */ }) async {
+    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenPoiNearbyOption', {'init': init});
     final object = BMKOpenPoiNearbyOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-  
-    kNativeObjectPool.add(object);
     return object;
   }
   
-  static Future<List<BMKOpenPoiNearbyOption>> create_batch__(int length) async {
+  static Future<List<BMKOpenPoiNearbyOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('ObjectFactory::create_batchBMKOpenPoiNearbyOption', {'length': length});
+    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenPoiNearbyOption', {'length': length, 'init': init});
   
     final List<BMKOpenPoiNearbyOption> typedResult = resultBatch.map((result) => BMKOpenPoiNearbyOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
     return typedResult;
   }
   
@@ -43,40 +40,37 @@ class BMKOpenPoiNearbyOption extends BMKOpenOption  {
 
   //region getters
   Future<CLLocationCoordinate2D> get_location() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_location", {'refId': refId});
-    kNativeObjectPool.add(CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
-    return CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify';
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_location", {'__this__': this});
+    return __result__ == null ? null : (CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify');
   }
   
   Future<int> get_radius() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_radius", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_radius", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   Future<String> get_keyword() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_keyword", {'refId': refId});
-  
-    return __result__;
+    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_keyword", {'__this__': this});
+    return __result__ == null ? null : (__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_location(CLLocationCoordinate2D location) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_location', {'refId': refId, "location": location.refId});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoiNearbyOption::set_location', <String, dynamic>{'__this__': this, "location": location});
   
   
   }
   
   Future<void> set_radius(int radius) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_radius', {'refId': refId, "radius": radius});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoiNearbyOption::set_radius', <String, dynamic>{'__this__': this, "radius": radius});
   
   
   }
   
   Future<void> set_keyword(String keyword) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_keyword', {'refId': refId, "keyword": keyword});
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPoiNearbyOption::set_keyword', <String, dynamic>{'__this__': this, "keyword": keyword});
   
   
   }
@@ -91,23 +85,23 @@ class BMKOpenPoiNearbyOption extends BMKOpenOption  {
 extension BMKOpenPoiNearbyOption_Batch on List<BMKOpenPoiNearbyOption> {
   //region getters
   Future<List<CLLocationCoordinate2D>> get_location_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_location_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    kNativeObjectPool.addAll(typedResult);
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_location_batch", [for (final __item__ in this) {'__this__': __item__}]);
+  
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => CLLocationCoordinate2D()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
     return typedResult;
   }
   
   Future<List<int>> get_radius_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_radius_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_radius_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<int>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
   Future<List<String>> get_keyword_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod("BMKOpenPoiNearbyOption::get_keyword_batch", [for (final __item__ in this) {'refId': __item__.refId}]);
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
+    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPoiNearbyOption::get_keyword_batch", [for (final __item__ in this) {'__this__': __item__}]);
   
+    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
     return typedResult;
   }
   
@@ -115,19 +109,19 @@ extension BMKOpenPoiNearbyOption_Batch on List<BMKOpenPoiNearbyOption> {
 
   //region setters
   Future<void> set_location_batch(List<CLLocationCoordinate2D> location) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_location_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "location": location[__i__].refId}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenPoiNearbyOption::set_location_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "location": location[__i__]}]);
   
   
   }
   
   Future<void> set_radius_batch(List<int> radius) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_radius_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "radius": radius[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenPoiNearbyOption::set_radius_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "radius": radius[__i__]}]);
   
   
   }
   
   Future<void> set_keyword_batch(List<String> keyword) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('BMKOpenPoiNearbyOption::set_keyword_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'refId': this[__i__].refId, "keyword": keyword[__i__]}]);
+    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenPoiNearbyOption::set_keyword_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "keyword": keyword[__i__]}]);
   
   
   }

@@ -6,7 +6,8 @@
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
 #import "SubHandler/SubHandler1.h"
-#import "SubHandler/SubHandlerCustom.h"
+#import "SubHandler/Custom/SubHandlerCustom.h"
+#import "FluttifyMessageCodec.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -37,7 +38,8 @@ extern BOOL enableLog;
 + (void)registerWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
   FlutterMethodChannel *channel = [FlutterMethodChannel
       methodChannelWithName:@"com.fluttify/bmap_utils_fluttify"
-            binaryMessenger:[registrar messenger]];
+            binaryMessenger:[registrar messenger]
+                      codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
 
   [registrar addMethodCallDelegate:[[BmapUtilsFluttifyPlugin alloc] initWithFlutterPluginRegistrar:registrar]
                            channel:channel];
@@ -59,8 +61,9 @@ extern BOOL enableLog;
 - (void)onGetOpenPanoramaStatus : (BMKOpenErrorCode)ecode
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
-      methodChannelWithName:@"BMKOpenPanoramaDelegate::Callback"
-            binaryMessenger:[_registrar messenger]];
+        methodChannelWithName:@"BMKOpenPanoramaDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
   // print log
   if (enableLog) {
     NSLog(@"BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus");
@@ -70,7 +73,9 @@ extern BOOL enableLog;
   // enum callback arg
   NSNumber* argecode = @((NSInteger) ecode);
 
-  [channel invokeMethod:@"Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus" arguments:@{@"ecode": argecode}];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [channel invokeMethod:@"Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus" arguments:@{@"ecode": argecode == nil ? [NSNull null] : argecode}];
+  });
   
 }
 

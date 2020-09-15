@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////
 
 #import "SubHandler1.h"
+#import "FluttifyMessageCodec.h"
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -13,265 +14,16 @@ extern BOOL enableLog;
 
 @implementation BmapUtilsFluttifyPlugin (SubHandler1)
 - (NSDictionary<NSString*, Handler>*) getSubHandler1 {
+    __weak __typeof(self)weakSelf = self;
     return @{
-        @"BMKMapRectInset::BMKMapRectInset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-            // jsonable arg
-            double dx = [args[@"dx"] doubleValue];
-            // jsonable arg
-            double dy = [args[@"dy"] doubleValue];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectInset::BMKMapRectInset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
-            }
-        
-            // invoke native method
-            BMKMapRect result = BMKMapRectInset(rect, dx, dy);
-        
-            // result
-            // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectOffset::BMKMapRectOffset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-            // jsonable arg
-            double dx = [args[@"dx"] doubleValue];
-            // jsonable arg
-            double dy = [args[@"dy"] doubleValue];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectOffset::BMKMapRectOffset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
-            }
-        
-            // invoke native method
-            BMKMapRect result = BMKMapRectOffset(rect, dx, dy);
-        
-            // result
-            // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectContainsPoint::BMKMapRectContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-            // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
-            BMKMapPoint point;
-            [pointValue getValue:&point];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectContainsPoint::BMKMapRectContainsPoint(%@, %@)", args[@"rect"], args[@"point"]);
-            }
-        
-            // invoke native method
-            BOOL result = BMKMapRectContainsPoint(rect, point);
-        
-            // result
-            // 返回值: Value
-            id jsonableResult = @(result);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectContainsRect::BMKMapRectContainsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rect1Value = (NSValue*) HEAP[@([args[@"rect1"] integerValue])];
-            BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
-            // struct arg
-            NSValue* rect2Value = (NSValue*) HEAP[@([args[@"rect2"] integerValue])];
-            BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectContainsRect::BMKMapRectContainsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
-        
-            // invoke native method
-            BOOL result = BMKMapRectContainsRect(rect1, rect2);
-        
-            // result
-            // 返回值: Value
-            id jsonableResult = @(result);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectIntersectsRect::BMKMapRectIntersectsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rect1Value = (NSValue*) HEAP[@([args[@"rect1"] integerValue])];
-            BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
-            // struct arg
-            NSValue* rect2Value = (NSValue*) HEAP[@([args[@"rect2"] integerValue])];
-            BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectIntersectsRect::BMKMapRectIntersectsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
-        
-            // invoke native method
-            BOOL result = BMKMapRectIntersectsRect(rect1, rect2);
-        
-            // result
-            // 返回值: Value
-            id jsonableResult = @(result);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect(%@)", args[@"rect"]);
-            }
-        
-            // invoke native method
-            BMKCoordinateRegion result = BMKCoordinateRegionForMapRect(rect);
-        
-            // result
-            // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKCoordinateRegion)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian(%@)", args[@"rect"]);
-            }
-        
-            // invoke native method
-            BOOL result = BMKMapRectSpans180thMeridian(rect);
-        
-            // result
-            // 返回值: Value
-            id jsonableResult = @(result);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKMapRectRemainder::BMKMapRectRemainder": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* rectValue = (NSValue*) HEAP[@([args[@"rect"] integerValue])];
-            BMKMapRect rect;
-            [rectValue getValue:&rect];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectRemainder::BMKMapRectRemainder(%@)", args[@"rect"]);
-            }
-        
-            // invoke native method
-            BMKMapRect result = BMKMapRectRemainder(rect);
-        
-            // result
-            // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(BMKMapRect)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
-        
-            methodResult(jsonableResult);
-        },
-        @"BMKCircleContainsPoint::BMKCircleContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
-            BMKMapPoint point;
-            [pointValue getValue:&point];
-            // struct arg
-            NSValue* centerValue = (NSValue*) HEAP[@([args[@"center"] integerValue])];
-            BMKMapPoint center;
-            [centerValue getValue:&center];
-            // jsonable arg
-            double radius = [args[@"radius"] doubleValue];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCircleContainsPoint::BMKCircleContainsPoint(%@, %@, %@)", args[@"point"], args[@"center"], args[@"radius"]);
-            }
-        
-            // invoke native method
-            BOOL result = BMKCircleContainsPoint(point, center, radius);
-        
-            // result
-            // 返回值: Value
-            id jsonableResult = @(result);
-        
-            methodResult(jsonableResult);
-        },
         @"BMKCircleContainsCoordinate::BMKCircleContainsCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             CLLocationCoordinate2D point;
             [pointValue getValue:&point];
             // struct arg
-            NSValue* centerValue = (NSValue*) HEAP[@([args[@"center"] integerValue])];
+            NSValue* centerValue = (NSValue*) args[@"center"];
             CLLocationCoordinate2D center;
             [centerValue getValue:&center];
             // jsonable arg
@@ -290,22 +42,21 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKPolygonContainsPoint::BMKPolygonContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
             [pointValue getValue:&point];
             // list arg struct
-            NSArray* polygonRefIdArray = (NSArray*) args[@"polygon"];
-            BMKMapPoint polygon[polygonRefIdArray.count];
-        
-            for (int __i__ = 0; __i__ < polygonRefIdArray.count; __i__++) {
-                NSValue* polygonValue = (NSValue*) HEAP[[polygonRefIdArray objectAtIndex:__i__]];
+            NSArray<NSValue*>* polygonValueList = (NSArray<NSValue*>*) args[@"polygon"];
+            BMKMapPoint polygon[polygonValueList.count];
+            for (int __i__ = 0; __i__ < polygonValueList.count; __i__++) {
+                NSValue* polygonValue = (NSValue*) [polygonValueList objectAtIndex:__i__];
                 BMKMapPoint polygonItem;
                 [polygonValue getValue:&polygonItem];
                 polygon[__i__] = polygonItem;
@@ -326,22 +77,21 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* pointValue = (NSValue*) HEAP[@([args[@"point"] integerValue])];
+            NSValue* pointValue = (NSValue*) args[@"point"];
             CLLocationCoordinate2D point;
             [pointValue getValue:&point];
             // list arg struct
-            NSArray* polygonRefIdArray = (NSArray*) args[@"polygon"];
-            CLLocationCoordinate2D polygon[polygonRefIdArray.count];
-        
-            for (int __i__ = 0; __i__ < polygonRefIdArray.count; __i__++) {
-                NSValue* polygonValue = (NSValue*) HEAP[[polygonRefIdArray objectAtIndex:__i__]];
+            NSArray<NSValue*>* polygonValueList = (NSArray<NSValue*>*) args[@"polygon"];
+            CLLocationCoordinate2D polygon[polygonValueList.count];
+            for (int __i__ = 0; __i__ < polygonValueList.count; __i__++) {
+                NSValue* polygonValue = (NSValue*) [polygonValueList objectAtIndex:__i__];
                 CLLocationCoordinate2D polygonItem;
                 [polygonValue getValue:&polygonItem];
                 polygon[__i__] = polygonItem;
@@ -362,18 +112,18 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* leftTopValue = (NSValue*) HEAP[@([args[@"leftTop"] integerValue])];
+            NSValue* leftTopValue = (NSValue*) args[@"leftTop"];
             CLLocationCoordinate2D leftTop;
             [leftTopValue getValue:&leftTop];
             // struct arg
-            NSValue* rightBottomValue = (NSValue*) HEAP[@([args[@"rightBottom"] integerValue])];
+            NSValue* rightBottomValue = (NSValue*) args[@"rightBottom"];
             CLLocationCoordinate2D rightBottom;
             [rightBottomValue getValue:&rightBottom];
         
@@ -390,18 +140,17 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKAreaForPolygon::BMKAreaForPolygon": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // list arg struct
-            NSArray* coordinatesRefIdArray = (NSArray*) args[@"coordinates"];
-            CLLocationCoordinate2D coordinates[coordinatesRefIdArray.count];
-        
-            for (int __i__ = 0; __i__ < coordinatesRefIdArray.count; __i__++) {
-                NSValue* coordinatesValue = (NSValue*) HEAP[[coordinatesRefIdArray objectAtIndex:__i__]];
+            NSArray<NSValue*>* coordinatesValueList = (NSArray<NSValue*>*) args[@"coordinates"];
+            CLLocationCoordinate2D coordinates[coordinatesValueList.count];
+            for (int __i__ = 0; __i__ < coordinatesValueList.count; __i__++) {
+                NSValue* coordinatesValue = (NSValue*) [coordinatesValueList objectAtIndex:__i__];
                 CLLocationCoordinate2D coordinatesItem;
                 [coordinatesValue getValue:&coordinatesItem];
                 coordinates[__i__] = coordinatesItem;
@@ -422,18 +171,18 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKGetDirectionFromCoords::BMKGetDirectionFromCoords": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* startCoordValue = (NSValue*) HEAP[@([args[@"startCoord"] integerValue])];
+            NSValue* startCoordValue = (NSValue*) args[@"startCoord"];
             CLLocationCoordinate2D startCoord;
             [startCoordValue getValue:&startCoord];
             // struct arg
-            NSValue* endCoordValue = (NSValue*) HEAP[@([args[@"endCoord"] integerValue])];
+            NSValue* endCoordValue = (NSValue*) args[@"endCoord"];
             CLLocationCoordinate2D endCoord;
             [endCoordValue getValue:&endCoord];
         
@@ -450,18 +199,18 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
         @"BMKGetDirectionFromPoints::BMKGetDirectionFromPoints": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
             // struct arg
-            NSValue* startPtValue = (NSValue*) HEAP[@([args[@"startPt"] integerValue])];
+            NSValue* startPtValue = (NSValue*) args[@"startPt"];
             BMKMapPoint startPt;
             [startPtValue getValue:&startPt];
             // struct arg
-            NSValue* endPtValue = (NSValue*) HEAP[@([args[@"endPt"] integerValue])];
+            NSValue* endPtValue = (NSValue*) args[@"endPt"];
             BMKMapPoint endPt;
             [endPtValue getValue:&endPt];
         
@@ -478,9 +227,81 @@ extern BOOL enableLog;
         
             // result
             // 返回值: Value
-            id jsonableResult = @(result);
+            NSObject* __result__ = @(result);
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapPoint::BMKStringFromMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            BMKMapPoint point;
+            [pointValue getValue:&point];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapPoint::BMKStringFromMapPoint(%@)", args[@"point"]);
+            }
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapPoint(point);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapSize::BMKStringFromMapSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* sizeValue = (NSValue*) args[@"size"];
+            BMKMapSize size;
+            [sizeValue getValue:&size];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapSize::BMKStringFromMapSize(%@)", args[@"size"]);
+            }
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapSize(size);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapRect::BMKStringFromMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            [rectValue getValue:&rect];
+        
+            // ref
+        
+        
+            // print log
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapRect::BMKStringFromMapRect(%@)", args[@"rect"]);
+            }
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapRect(rect);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
         },
         @"BMKCoorDictionaryDecode::BMKCoorDictionaryDecode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
             // args
@@ -500,11 +321,9 @@ extern BOOL enableLog;
         
             // result
             // 返回值: 结构体
-            NSValue* resultValue = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(resultValue.hash)] = resultValue;
-            NSNumber* jsonableResult = @(resultValue.hash);
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-            methodResult(jsonableResult);
+            methodResult(__result__);
         },
     };
 }

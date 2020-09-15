@@ -17,131 +17,131 @@ extension TypeOpBmapUtilsFluttifyIOS on Object {
   // type check
   Future<bool> is__<T>() async {
     final typeName = T.toString();
-    if (RegExp('(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)').hasMatch(typeName)) {
+    if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
       return this is T;
     }
     else if (T == BMKOpenRoute) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRoute', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenRoute', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenPoi) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoi', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenPoi', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenPoiDetailOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenPoiNearbyOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'__this__': this});
       return result;
     }
     else if (T == BMKFavPoiInfo) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenRouteOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenWalkingRouteOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenDrivingRouteOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenTransitRouteOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenPanoramaOption) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'__this__': this});
       return result;
     }
     else if (T == BMKOpenPanorama) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKOpenPanorama', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKOpenPanorama', {'__this__': this});
       return result;
     }
     else if (T == BMKFavPoiManager) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKFavPoiManager', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKFavPoiManager', {'__this__': this});
       return result;
     }
     else if (T == BMKNaviPara) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNaviPara', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKNaviPara', {'__this__': this});
       return result;
     }
     else if (T == BMKNavigation) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfBMKNavigation', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfBMKNavigation', {'__this__': this});
       return result;
     }
     else if (T == CLLocation) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocation', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCLLocation', {'__this__': this});
       return result;
     }
     else if (T == CLHeading) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLHeading', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCLHeading', {'__this__': this});
       return result;
     }
     else if (T == CGRect) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGRect', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCGRect', {'__this__': this});
       return result;
     }
     else if (T == CGPoint) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGPoint', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCGPoint', {'__this__': this});
       return result;
     }
     else if (T == CGSize) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCGSize', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCGSize', {'__this__': this});
       return result;
     }
     else if (T == UIEdgeInsets) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIEdgeInsets', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIEdgeInsets', {'__this__': this});
       return result;
     }
     else if (T == CLLocationCoordinate2D) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocationCoordinate2D', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCLLocationCoordinate2D', {'__this__': this});
       return result;
     }
     else if (T == CLLocationManager) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfCLLocationManager', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfCLLocationManager', {'__this__': this});
       return result;
     }
     else if (T == NSError) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSError', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfNSError', {'__this__': this});
       return result;
     }
     else if (T == UIView) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIView', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIView', {'__this__': this});
       return result;
     }
     else if (T == UIViewController) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIViewController', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIViewController', {'__this__': this});
       return result;
     }
     else if (T == UIControl) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIControl', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIControl', {'__this__': this});
       return result;
     }
     else if (T == UIImage) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIImage', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIImage', {'__this__': this});
       return result;
     }
     else if (T == UIColor) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfUIColor', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfUIColor', {'__this__': this});
       return result;
     }
     else if (T == NSData) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSData', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfNSData', {'__this__': this});
       return result;
     }
     else if (T == NSOperation) {
-      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify').invokeMethod('RefClass::isKindOfNSOperation', {'refId': (this as Ref).refId});
+      final result = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('RefClass::isKindOfNSOperation', {'__this__': this});
       return result;
     }
   }
@@ -150,102 +150,102 @@ extension TypeOpBmapUtilsFluttifyIOS on Object {
   T as__<T>() {
     final typeName = T.toString();
     // jsonable 直接造型 返回
-    if (RegExp('(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)').hasMatch(typeName)) {
+    if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
       return this as T;
     }
     // 如果是Ref类的cast, 那么取其refId, 如果本身是refId, 那么直接使用(int)
     else if (T == BMKOpenRoute) {
-      return (BMKOpenRoute()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenRoute()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenPoi) {
-      return (BMKOpenPoi()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenPoi()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenPoiDetailOption) {
-      return (BMKOpenPoiDetailOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenPoiDetailOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenPoiNearbyOption) {
-      return (BMKOpenPoiNearbyOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenPoiNearbyOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKFavPoiInfo) {
-      return (BMKFavPoiInfo()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKFavPoiInfo()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenRouteOption) {
-      return (BMKOpenRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenWalkingRouteOption) {
-      return (BMKOpenWalkingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenWalkingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenDrivingRouteOption) {
-      return (BMKOpenDrivingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenDrivingRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenTransitRouteOption) {
-      return (BMKOpenTransitRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenTransitRouteOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenOption) {
-      return (BMKOpenOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenPanoramaOption) {
-      return (BMKOpenPanoramaOption()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenPanoramaOption()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKOpenPanorama) {
-      return (BMKOpenPanorama()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKOpenPanorama()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKFavPoiManager) {
-      return (BMKFavPoiManager()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKFavPoiManager()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKNaviPara) {
-      return (BMKNaviPara()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKNaviPara()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == BMKNavigation) {
-      return (BMKNavigation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (BMKNavigation()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CLLocation) {
-      return (CLLocation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CLLocation()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CLHeading) {
-      return (CLHeading()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CLHeading()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CGRect) {
-      return (CGRect()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CGRect()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CGPoint) {
-      return (CGPoint()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CGPoint()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CGSize) {
-      return (CGSize()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CGSize()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIEdgeInsets) {
-      return (UIEdgeInsets()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIEdgeInsets()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CLLocationCoordinate2D) {
-      return (CLLocationCoordinate2D()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CLLocationCoordinate2D()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == CLLocationManager) {
-      return (CLLocationManager()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (CLLocationManager()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == NSError) {
-      return (NSError()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (NSError()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIView) {
-      return (UIView()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIView()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIViewController) {
-      return (UIViewController()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIViewController()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIControl) {
-      return (UIControl()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIControl()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIImage) {
-      return (UIImage()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIImage()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == UIColor) {
-      return (UIColor()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (UIColor()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == NSData) {
-      return (NSData()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (NSData()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
     else if (T == NSOperation) {
-      return (NSOperation()..refId = (this is Ref ? (this as Ref).refId : this as int)..tag__ = 'bmap_utils_fluttify') as T;
+      return (NSOperation()..refId = (this is Ref ? (this as Ref).refId : this as String)..tag__ = 'bmap_utils_fluttify') as T;
     }
   }
 }
