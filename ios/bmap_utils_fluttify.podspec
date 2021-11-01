@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
   s.name             = 'bmap_utils_fluttify'
   s.version          = '0.0.1'
-  s.summary          = 'An `BaiduMap` Map Component, Powered By `Fluttify` Engine, Which Generates Dart Binding For Native SDK.'
+  s.summary          = 'An `BaiduMap` Utils Component, Powered By `Fluttify`, A Compiler Generating Dart Bindings For Native SDK.'
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC

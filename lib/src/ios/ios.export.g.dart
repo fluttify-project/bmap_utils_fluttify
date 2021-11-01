@@ -20,3 +20,4 @@ export 'BMKOpenOption.g.dart';
 export 'BMKOpenPanorama.g.dart';
 export 'BMKOpenPoi.g.dart';
 export 'package:bmap_core_fluttify/bmap_core_fluttify.dart';
+export '../facade/shared.g.dart';

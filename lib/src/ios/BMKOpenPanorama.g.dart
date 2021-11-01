@@ -16,24 +16,30 @@ class BMKOpenPanorama extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenPanorama';
 
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
+
   
   //endregion
 
   //region creators
   static Future<BMKOpenPanorama> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenPanorama', {'init': init});
-    final object = BMKOpenPanorama()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenPanorama',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenPanorama>(__result__);
   }
   
   static Future<List<BMKOpenPanorama>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenPanorama', {'length': length, 'init': init});
-  
-    final List<BMKOpenPanorama> typedResult = resultBatch.map((result) => BMKOpenPanorama()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenPanorama',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanorama>(it))
+        .toList();
   }
   
   //endregion
@@ -43,60 +49,17 @@ class BMKOpenPanorama extends NSObject  {
   //endregion
 
   //region setters
-  Future<void> set_delegate(BMKOpenPanoramaDelegate delegate) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPanorama::set_delegate', <String, dynamic>{'__this__': this, });
-  
-    MethodChannel('BMKOpenPanoramaDelegate::Callback', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify')))
-      .setMethodCallHandler((methodCall) async {
-        try {
-          final args = methodCall.arguments as Map;
-          switch (methodCall.method) {
-            case 'Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus':
-              // print log
-              if (fluttifyLogEnabled) {
-                debugPrint('fluttify-dart-callback: onGetOpenPanoramaStatus([\'ecode\':${args['ecode']}])');
-              }
-          
-              // handle the native call
-              delegate?.onGetOpenPanoramaStatus((args['ecode'] as int).toBMKOpenErrorCode());
-              break;
-            default:
-              break;
-          }
-        } catch (e) {
-          debugPrint(e);
-          throw e;
-        }
-      });
-  }
   
   //endregion
 
   //region methods
   
-  Future<void> openBaiduMapPanorama(BMKOpenPanoramaOption option) async {
-    // print log
-    if (fluttifyLogEnabled) {
-      debugPrint('fluttify-dart: BMKOpenPanorama@$refId::openBaiduMapPanorama([])');
-    }
-  
-    // invoke native method
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPanorama::openBaiduMapPanorama', {"option": option, "__this__": this});
-  
-  
-    // handle native call
-  
-  
-    // convert native result to dart side object
-    if (__result__ == null) {
-      return null;
-    } else {
-      final __return__ = __result__;
-      return __return__;
-    }
-  }
-  
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenPanorama{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenPanorama_Batch on List<BMKOpenPanorama> {
@@ -109,24 +72,6 @@ extension BMKOpenPanorama_Batch on List<BMKOpenPanorama> {
   //endregion
 
   //region methods
-  
-  Future<List<void>> openBaiduMapPanorama_batch(List<BMKOpenPanoramaOption> option) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-  
-    // invoke native method
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPanorama::openBaiduMapPanorama_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"option": option[__i__], "__this__": this[__i__]}]);
-  
-  
-    // convert native result to dart side object
-    if (resultBatch == null) {
-      return null;
-    } else {
-      final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-      return typedResult;
-    }
-  }
   
   //endregion
 }
