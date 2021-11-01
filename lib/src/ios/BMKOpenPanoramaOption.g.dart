@@ -12,43 +12,49 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenPanoramaOption extends BMKOpenOption  {
+class BMKOpenPanoramaOption extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenPanoramaOption';
+
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
   //endregion
 
   //region creators
   static Future<BMKOpenPanoramaOption> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenPanoramaOption', {'init': init});
-    final object = BMKOpenPanoramaOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenPanoramaOption',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption>(__result__);
   }
   
   static Future<List<BMKOpenPanoramaOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenPanoramaOption', {'length': length, 'init': init});
-  
-    final List<BMKOpenPanoramaOption> typedResult = resultBatch.map((result) => BMKOpenPanoramaOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenPanoramaOption',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<String> get_poiUid() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPanoramaOption::get_poiUid", {'__this__': this});
-    return __result__ == null ? null : (__result__);
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPanoramaOption::get_poiUid", {'__this__': this});
+    return __result__;
   }
   
   //endregion
 
   //region setters
   Future<void> set_poiUid(String poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenPanoramaOption::set_poiUid', <String, dynamic>{'__this__': this, "poiUid": poiUid});
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPanoramaOption::set_poiUid', <String, dynamic>{'__this__': this, "poiUid": poiUid});
   
   
   }
@@ -58,22 +64,25 @@ class BMKOpenPanoramaOption extends BMKOpenOption  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenPanoramaOption{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenPanoramaOption_Batch on List<BMKOpenPanoramaOption> {
   //region getters
   Future<List<String>> get_poiUid_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenPanoramaOption::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => __result__).toList();
-    return typedResult;
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPanoramaOption::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_poiUid_batch(List<String> poiUid) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenPanoramaOption::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "poiUid": poiUid[__i__]}]);
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPanoramaOption::set_poiUid_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "poiUid": poiUid[__i__]}]);
   
   
   }

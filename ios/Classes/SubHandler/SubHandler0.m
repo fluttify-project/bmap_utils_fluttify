@@ -4,11 +4,12 @@
 
 #import "SubHandler0.h"
 #import "FluttifyMessageCodec.h"
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
 // Dart端随机存取对象的容器
-extern NSMutableDictionary<NSNumber*, NSObject*>* HEAP;
+extern NSMutableDictionary<NSString*, NSObject*>* HEAP;
 // 日志打印开关
 extern BOOL enableLog;
 
@@ -16,242 +17,44 @@ extern BOOL enableLog;
 - (NSDictionary<NSString*, Handler>*) getSubHandler0 {
     __weak __typeof(self)weakSelf = self;
     return @{
-        @"BMKOpenRoute::openBaiduMapWalkingRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) args[@"option"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenRoute::openBaiduMapWalkingRoute(%@)", args[@"option"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapWalkingRoute: option];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenRoute::openBaiduMapTransitRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) args[@"option"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenRoute::openBaiduMapTransitRoute(%@)", args[@"option"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapTransitRoute: option];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenRoute::openBaiduMapDrivingRoute": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) args[@"option"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenRoute::openBaiduMapDrivingRoute(%@)", args[@"option"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapDrivingRoute: option];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenPoi::openBaiduMapPoiDetailPage": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) args[@"option"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenPoi::openBaiduMapPoiDetailPage(%@)", args[@"option"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKOpenPoi openBaiduMapPoiDetailPage: option];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenPoi::openBaiduMapPoiNearbySearch": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) args[@"option"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenPoi::openBaiduMapPoiNearbySearch(%@)", args[@"option"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKOpenPoi openBaiduMapPoiNearbySearch: option];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenPanorama::openBaiduMapPanorama": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) args[@"option"];
-        
-            // ref
-            BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKOpenPanorama@%@::openBaiduMapPanorama(%@)", args[@"refId"], args[@"option"]);
-            }
-        
-            // invoke native method
-            [ref openBaiduMapPanorama : option];
-        
-            // result
-            // 无返回值
-            NSString* __result__ = @"success";
-        
-            methodResult(__result__);
-        },
-        @"BMKFavPoiManager::addFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
-        
-            // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::addFavPoi(%@)", args[@"refId"], args[@"favPoiInfo"]);
-            }
-        
-            // invoke native method
-            NSInteger result = [ref addFavPoi: favPoiInfo];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKFavPoiManager::getFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // jsonable arg
-            NSString* favId = (NSString*) args[@"favId"];
-        
-            // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::getFavPoi(%@)", args[@"refId"], args[@"favId"]);
-            }
-        
-            // invoke native method
-            BMKFavPoiInfo* result = [ref getFavPoi: favId];
-        
-            // result
-            // return a ref
-            id __result__ = result;
-        
-            methodResult(__result__);
-        },
         @"BMKFavPoiManager::getAllFavPois": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::getAllFavPois(%@)", args);
+            }
+        
             // args
         
         
             // ref
             BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::getAllFavPois()", args[@"refId"]);
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
             // invoke native method
             NSArray* result = [ref getAllFavPois];
         
             // result
-            // 返回值: 列表
-            NSMutableArray<NSObject*>* __result__ = [NSMutableArray array];
-            for (int __i__ = 0; __i__ < result.count; __i__++) {
-                NSObject* object = [result objectAtIndex:__i__];
-                [__result__ addObject: object];
-            }
-        
-            methodResult(__result__);
-        },
-        @"BMKFavPoiManager::updateFavPoi_favPoiInfo": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // jsonable arg
-            NSString* favId = (NSString*) args[@"favId"];
-            // ref arg
-            BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
-        
-            // ref
-            BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::updateFavPoi(%@, %@)", args[@"refId"], args[@"favId"], args[@"favPoiInfo"]);
-            }
-        
-            // invoke native method
-            BOOL result = [ref updateFavPoi: favId favPoiInfo: favPoiInfo];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
+            // return a ref
+            NSObject* __result__ = result;
         
             methodResult(__result__);
         },
         @"BMKFavPoiManager::deleteFavPoi": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::deleteFavPoi(%@)", args);
+            }
+        
             // args
             // jsonable arg
             NSString* favId = (NSString*) args[@"favId"];
         
             // ref
             BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::deleteFavPoi(%@)", args[@"refId"], args[@"favId"]);
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
             // invoke native method
@@ -264,15 +67,18 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKFavPoiManager::clearAllFavPois": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::clearAllFavPois(%@)", args);
+            }
+        
             // args
         
         
             // ref
             BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKFavPoiManager@%@::clearAllFavPois()", args[@"refId"]);
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
             // invoke native method
@@ -284,298 +90,14 @@ extern BOOL enableLog;
         
             methodResult(__result__);
         },
-        @"BMKNavigation::openBaiduMapNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKNavigation::openBaiduMapNavigation(%@)", args[@"para"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKNavigation openBaiduMapNavigation: para];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKNavigation::openBaiduMapWalkNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKNavigation::openBaiduMapWalkNavigation(%@)", args[@"para"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKNavigation openBaiduMapWalkNavigation: para];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKNavigation::openBaiduMapRideNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKNavigation::openBaiduMapRideNavigation(%@)", args[@"para"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKNavigation openBaiduMapRideNavigation: para];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKNavigation::openBaiduMapwalkARNavigation": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // args
-            // ref arg
-            BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-            // ref
-        
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKNavigation::openBaiduMapwalkARNavigation(%@)", args[@"para"]);
-            }
-        
-            // invoke native method
-            BMKOpenErrorCode result = [BMKNavigation openBaiduMapwalkARNavigation: para];
-        
-            // result
-            // 返回值: Value
-            NSObject* __result__ = @(result);
-        
-            methodResult(__result__);
-        },
-        @"BMKOpenRoute::openBaiduMapWalkingRoute_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenWalkingRouteOption* option = (BMKOpenWalkingRouteOption*) args[@"option"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapWalkingRoute: option];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKOpenRoute::openBaiduMapTransitRoute_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenTransitRouteOption* option = (BMKOpenTransitRouteOption*) args[@"option"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapTransitRoute: option];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKOpenRoute::openBaiduMapDrivingRoute_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenDrivingRouteOption* option = (BMKOpenDrivingRouteOption*) args[@"option"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKOpenRoute openBaiduMapDrivingRoute: option];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKOpenPoi::openBaiduMapPoiDetailPage_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenPoiDetailOption* option = (BMKOpenPoiDetailOption*) args[@"option"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKOpenPoi openBaiduMapPoiDetailPage: option];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKOpenPoi::openBaiduMapPoiNearbySearch_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenPoiNearbyOption* option = (BMKOpenPoiNearbyOption*) args[@"option"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKOpenPoi openBaiduMapPoiNearbySearch: option];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKOpenPanorama::openBaiduMapPanorama_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKOpenPanoramaOption* option = (BMKOpenPanoramaOption*) args[@"option"];
-        
-                // ref
-                BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
-        
-                // invoke native method
-                [ref openBaiduMapPanorama : option];
-        
-                // result
-                // 无返回值
-                NSString* __result__ = @"success";
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKFavPoiManager::addFavPoi_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
-        
-                // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-                // invoke native method
-                NSInteger result = [ref addFavPoi: favPoiInfo];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKFavPoiManager::getFavPoi_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // jsonable arg
-                NSString* favId = (NSString*) args[@"favId"];
-        
-                // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-                // invoke native method
-                BMKFavPoiInfo* result = [ref getFavPoi: favId];
-        
-                // result
-                // return a ref
-                id __result__ = result;
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
         @"BMKFavPoiManager::getAllFavPois_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::getAllFavPois(%@)", argsBatch);
+            }
+        
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -583,54 +105,32 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 // invoke native method
                 NSArray* result = [ref getAllFavPois];
         
                 // result
-                // 返回值: 列表
-                NSMutableArray<NSObject*>* __result__ = [NSMutableArray array];
-                for (int __i__ = 0; __i__ < result.count; __i__++) {
-                    NSObject* object = [result objectAtIndex:__i__];
-                    [__result__ addObject: object];
-                }
+                // return a ref
+                NSObject* __result__ = result;
         
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKFavPoiManager::updateFavPoi_favPoiInfo_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // jsonable arg
-                NSString* favId = (NSString*) args[@"favId"];
-                // ref arg
-                BMKFavPoiInfo* favPoiInfo = (BMKFavPoiInfo*) args[@"favPoiInfo"];
-        
-                // ref
-                BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
-        
-                // invoke native method
-                BOOL result = [ref updateFavPoi: favId favPoiInfo: favPoiInfo];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
         },
         @"BMKFavPoiManager::deleteFavPoi_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::deleteFavPoi(%@)", argsBatch);
+            }
+        
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -639,6 +139,11 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 // invoke native method
                 BOOL result = [ref deleteFavPoi: favId];
@@ -647,15 +152,19 @@ extern BOOL enableLog;
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
         },
         @"BMKFavPoiManager::clearAllFavPois_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKFavPoiManager::clearAllFavPois(%@)", argsBatch);
+            }
+        
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -663,6 +172,11 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiManager* ref = (BMKFavPoiManager*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 // invoke native method
                 BOOL result = [ref clearAllFavPois];
@@ -671,107 +185,7 @@ extern BOOL enableLog;
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKNavigation::openBaiduMapNavigation_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKNavigation openBaiduMapNavigation: para];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKNavigation::openBaiduMapWalkNavigation_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKNavigation openBaiduMapWalkNavigation: para];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKNavigation::openBaiduMapRideNavigation_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKNavigation openBaiduMapRideNavigation: para];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        @"BMKNavigation::openBaiduMapwalkARNavigation_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // ref arg
-                BMKNaviPara* para = (BMKNaviPara*) args[@"para"];
-        
-                // ref
-        
-        
-                // invoke native method
-                BMKOpenErrorCode result = [BMKNavigation openBaiduMapwalkARNavigation: para];
-        
-                // result
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -784,6 +198,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.poiUid;
@@ -802,6 +220,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             CLLocationCoordinate2D result = ref.location;
@@ -820,6 +242,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSUInteger result = ref.radius;
@@ -838,6 +264,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.keyword;
@@ -856,6 +286,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.favId;
@@ -874,6 +308,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.poiName;
@@ -892,6 +330,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.poiUid;
@@ -910,6 +352,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             CLLocationCoordinate2D result = ref.pt;
@@ -928,6 +374,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.address;
@@ -946,6 +396,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.cityName;
@@ -964,6 +418,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSUInteger result = ref.timeStamp;
@@ -982,12 +440,16 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BMKPlanNode* result = ref.startPoint;
         
             // return a ref
-            id __result__ = result;
+            NSObject* __result__ = result;
         
             methodResult(__result__);
         },
@@ -1000,30 +462,16 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BMKPlanNode* result = ref.endPoint;
         
             // return a ref
-            id __result__ = result;
-        
-            methodResult(__result__);
-        },
-        
-        @"BMKOpenTransitRouteOption::get_openTransitPolicy": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // print log
-            if (enableLog) {
-                NSLog(@"BMKOpenTransitRouteOption::get_openTransitPolicy");
-            }
-        
-            // ref object
-            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
-        
-            // invoke native method
-            BMKOpenTransitPolicy result = ref.openTransitPolicy;
-        
-            // 返回值: Value
-            NSObject* __result__ = @(result);
+            NSObject* __result__ = result;
         
             methodResult(__result__);
         },
@@ -1036,6 +484,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.appScheme;
@@ -1054,6 +506,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BOOL result = ref.isSupportWeb;
@@ -1072,6 +528,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.poiUid;
@@ -1090,12 +550,16 @@ extern BOOL enableLog;
         
             // ref object
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BMKPlanNode* result = ref.startPoint;
         
             // return a ref
-            id __result__ = result;
+            NSObject* __result__ = result;
         
             methodResult(__result__);
         },
@@ -1108,30 +572,16 @@ extern BOOL enableLog;
         
             // ref object
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BMKPlanNode* result = ref.endPoint;
         
             // return a ref
-            id __result__ = result;
-        
-            methodResult(__result__);
-        },
-        
-        @"BMKNaviPara::get_naviType": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // print log
-            if (enableLog) {
-                NSLog(@"BMKNaviPara::get_naviType");
-            }
-        
-            // ref object
-            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
-        
-            // invoke native method
-            BMK_NAVI_TYPE result = ref.naviType;
-        
-            // 返回值: Value
-            NSObject* __result__ = @(result);
+            NSObject* __result__ = result;
         
             methodResult(__result__);
         },
@@ -1144,6 +594,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.appScheme;
@@ -1162,6 +616,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             NSString* result = ref.appName;
@@ -1180,6 +638,10 @@ extern BOOL enableLog;
         
             // ref object
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             // invoke native method
             BOOL result = ref.isSupportWeb;
@@ -1193,18 +655,23 @@ extern BOOL enableLog;
         @"BMKOpenPoiDetailOption::get_poiUid_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1213,18 +680,23 @@ extern BOOL enableLog;
         @"BMKOpenPoiNearbyOption::get_location_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 CLLocationCoordinate2D result = ref.location;
         
                 // 返回值: 结构体
                 NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1233,18 +705,23 @@ extern BOOL enableLog;
         @"BMKOpenPoiNearbyOption::get_radius_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSUInteger result = ref.radius;
         
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1253,18 +730,23 @@ extern BOOL enableLog;
         @"BMKOpenPoiNearbyOption::get_keyword_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.keyword;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1273,18 +755,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_favId_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.favId;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1293,18 +780,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_poiName_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.poiName;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1313,18 +805,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_poiUid_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1333,18 +830,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_pt_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 CLLocationCoordinate2D result = ref.pt;
         
                 // 返回值: 结构体
                 NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1353,18 +855,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_address_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.address;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1373,18 +880,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_cityName_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.cityName;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1393,18 +905,23 @@ extern BOOL enableLog;
         @"BMKFavPoiInfo::get_timeStamp_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSUInteger result = ref.timeStamp;
         
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1413,18 +930,23 @@ extern BOOL enableLog;
         @"BMKOpenRouteOption::get_startPoint_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BMKPlanNode* result = ref.startPoint;
         
                 // return a ref
-                id __result__ = result;
+                NSObject* __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1433,38 +955,23 @@ extern BOOL enableLog;
         @"BMKOpenRouteOption::get_endPoint_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BMKPlanNode* result = ref.endPoint;
         
                 // return a ref
-                id __result__ = result;
+                NSObject* __result__ = result;
         
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        
-        @"BMKOpenTransitRouteOption::get_openTransitPolicy_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // ref object
-                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
-        
-                BMKOpenTransitPolicy result = ref.openTransitPolicy;
-        
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1473,18 +980,23 @@ extern BOOL enableLog;
         @"BMKOpenOption::get_appScheme_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.appScheme;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1493,18 +1005,23 @@ extern BOOL enableLog;
         @"BMKOpenOption::get_isSupportWeb_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BOOL result = ref.isSupportWeb;
         
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1513,18 +1030,23 @@ extern BOOL enableLog;
         @"BMKOpenPanoramaOption::get_poiUid_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.poiUid;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1533,18 +1055,23 @@ extern BOOL enableLog;
         @"BMKNaviPara::get_startPoint_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BMKPlanNode* result = ref.startPoint;
         
                 // return a ref
-                id __result__ = result;
+                NSObject* __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1553,38 +1080,23 @@ extern BOOL enableLog;
         @"BMKNaviPara::get_endPoint_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BMKPlanNode* result = ref.endPoint;
         
                 // return a ref
-                id __result__ = result;
+                NSObject* __result__ = result;
         
-                [resultList addObject:__result__];
-            }
-        
-            methodResult(resultList);
-        },
-        
-        @"BMKNaviPara::get_naviType_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
-            NSMutableArray* resultList = [NSMutableArray array];
-        
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // ref object
-                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
-        
-                BMK_NAVI_TYPE result = ref.naviType;
-        
-                // 返回值: Value
-                NSObject* __result__ = @(result);
-        
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1593,18 +1105,23 @@ extern BOOL enableLog;
         @"BMKNaviPara::get_appScheme_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.appScheme;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1613,18 +1130,23 @@ extern BOOL enableLog;
         @"BMKNaviPara::get_appName_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 NSString* result = ref.appName;
         
                 // 返回值: jsonable
                 id __result__ = result;
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1633,18 +1155,23 @@ extern BOOL enableLog;
         @"BMKNaviPara::get_isSupportWeb_batch": ^(NSObject <FlutterPluginRegistrar>* registrar, id argsBatch, FlutterResult methodResult) {
             NSMutableArray* resultList = [NSMutableArray array];
         
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // ref object
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                // 批处理过程中出现nil引用则直接添加nil进结果列表, 然后进行下一次循环
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    [resultList addObject: [NSNull null]];
+                    continue;
+                }
         
                 BOOL result = ref.isSupportWeb;
         
                 // 返回值: Value
                 NSObject* __result__ = @(result);
         
-                [resultList addObject:__result__];
+                [resultList addObject:__result__ == nil ? [NSNull null] : __result__];
             }
         
             methodResult(resultList);
@@ -1662,6 +1189,10 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.poiUid = poiUid;
             methodResult(@"success");
@@ -1677,10 +1208,22 @@ extern BOOL enableLog;
             // struct arg
             NSValue* locationValue = (NSValue*) args[@"location"];
             CLLocationCoordinate2D location;
-            [locationValue getValue:&location];
+            if (locationValue != nil && (NSNull*) locationValue != [NSNull null]) {
+              [locationValue getValue:&location];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"location不能为null"]);
+              return;
+            }
+        
         
             // ref
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.location = location;
             methodResult(@"success");
@@ -1698,6 +1241,10 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.radius = radius;
             methodResult(@"success");
@@ -1715,6 +1262,10 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.keyword = keyword;
             methodResult(@"success");
@@ -1732,6 +1283,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.favId = favId;
             methodResult(@"success");
@@ -1749,6 +1304,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.poiName = poiName;
             methodResult(@"success");
@@ -1766,6 +1325,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.poiUid = poiUid;
             methodResult(@"success");
@@ -1781,10 +1344,22 @@ extern BOOL enableLog;
             // struct arg
             NSValue* ptValue = (NSValue*) args[@"pt"];
             CLLocationCoordinate2D pt;
-            [ptValue getValue:&pt];
+            if (ptValue != nil && (NSNull*) ptValue != [NSNull null]) {
+              [ptValue getValue:&pt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"pt不能为null"]);
+              return;
+            }
+        
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.pt = pt;
             methodResult(@"success");
@@ -1802,6 +1377,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.address = address;
             methodResult(@"success");
@@ -1819,6 +1398,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.cityName = cityName;
             methodResult(@"success");
@@ -1836,6 +1419,10 @@ extern BOOL enableLog;
         
             // ref
             BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.timeStamp = timeStamp;
             methodResult(@"success");
@@ -1849,10 +1436,14 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
+            BMKPlanNode* startPoint = (BMKPlanNode*) (args[@"startPoint"] == [NSNull null] ? nil : args[@"startPoint"]);
         
             // ref
             BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.startPoint = startPoint;
             methodResult(@"success");
@@ -1866,29 +1457,16 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
+            BMKPlanNode* endPoint = (BMKPlanNode*) (args[@"endPoint"] == [NSNull null] ? nil : args[@"endPoint"]);
         
             // ref
             BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
-        
-            ref.endPoint = endPoint;
-            methodResult(@"success");
-        },
-        
-        @"BMKOpenTransitRouteOption::set_openTransitPolicy": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // print log
-            if (enableLog) {
-                NSLog(@"BMKOpenTransitRouteOption::set_openTransitPolicy");
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
-            // args
-            // enum arg
-            BMKOpenTransitPolicy openTransitPolicy = (BMKOpenTransitPolicy) [args[@"openTransitPolicy"] integerValue];
-        
-            // ref
-            BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
-        
-            ref.openTransitPolicy = openTransitPolicy;
+            ref.endPoint = endPoint;
             methodResult(@"success");
         },
         
@@ -1904,6 +1482,10 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.appScheme = appScheme;
             methodResult(@"success");
@@ -1921,6 +1503,10 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.isSupportWeb = isSupportWeb;
             methodResult(@"success");
@@ -1938,24 +1524,12 @@ extern BOOL enableLog;
         
             // ref
             BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
-        
-            ref.poiUid = poiUid;
-            methodResult(@"success");
-        },
-        
-        @"BMKOpenPanorama::set_delegate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // print log
-            if (enableLog) {
-                NSLog(@"BMKOpenPanorama::set_delegate");
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
-            // args
-        
-        
-            // ref
-            BMKOpenPanorama* ref = (BMKOpenPanorama*) args[@"__this__"];
-        
-            ref.delegate = weakSelf;
+            ref.poiUid = poiUid;
             methodResult(@"success");
         },
         
@@ -1967,10 +1541,14 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
+            BMKPlanNode* startPoint = (BMKPlanNode*) (args[@"startPoint"] == [NSNull null] ? nil : args[@"startPoint"]);
         
             // ref
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.startPoint = startPoint;
             methodResult(@"success");
@@ -1984,29 +1562,16 @@ extern BOOL enableLog;
         
             // args
             // ref arg
-            BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
+            BMKPlanNode* endPoint = (BMKPlanNode*) (args[@"endPoint"] == [NSNull null] ? nil : args[@"endPoint"]);
         
             // ref
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
-        
-            ref.endPoint = endPoint;
-            methodResult(@"success");
-        },
-        
-        @"BMKNaviPara::set_naviType": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
-            // print log
-            if (enableLog) {
-                NSLog(@"BMKNaviPara::set_naviType");
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
             }
         
-            // args
-            // enum arg
-            BMK_NAVI_TYPE naviType = (BMK_NAVI_TYPE) [args[@"naviType"] integerValue];
-        
-            // ref
-            BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
-        
-            ref.naviType = naviType;
+            ref.endPoint = endPoint;
             methodResult(@"success");
         },
         
@@ -2022,6 +1587,10 @@ extern BOOL enableLog;
         
             // ref
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.appScheme = appScheme;
             methodResult(@"success");
@@ -2039,6 +1608,10 @@ extern BOOL enableLog;
         
             // ref
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.appName = appName;
             methodResult(@"success");
@@ -2056,13 +1629,17 @@ extern BOOL enableLog;
         
             // ref
             BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+            if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                return;
+            }
         
             ref.isSupportWeb = isSupportWeb;
             methodResult(@"success");
         },
         
         @"BMKOpenPoiDetailOption::set_poiUid_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2071,8 +1648,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenPoiDetailOption* ref = (BMKOpenPoiDetailOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.poiUid = poiUid;
+                ref.poiUid = poiUid;;
                 methodResult(@"success");
             }
         
@@ -2080,19 +1661,31 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenPoiNearbyOption::set_location_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // struct arg
                 NSValue* locationValue = (NSValue*) args[@"location"];
                 CLLocationCoordinate2D location;
-                [locationValue getValue:&location];
+                if (locationValue != nil && (NSNull*) locationValue != [NSNull null]) {
+                  [locationValue getValue:&location];
+                } else {
+                  methodResult([FlutterError errorWithCode:@"参数非法"
+                                                   message:@"参数非法"
+                                                   details:@"location不能为null"]);
+                  return;
+                }
+        
         
                 // ref
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.location = location;
+                ref.location = location;;
                 methodResult(@"success");
             }
         
@@ -2100,7 +1693,7 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenPoiNearbyOption::set_radius_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2109,8 +1702,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.radius = radius;
+                ref.radius = radius;;
                 methodResult(@"success");
             }
         
@@ -2118,7 +1715,7 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenPoiNearbyOption::set_keyword_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2127,8 +1724,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenPoiNearbyOption* ref = (BMKOpenPoiNearbyOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.keyword = keyword;
+                ref.keyword = keyword;;
                 methodResult(@"success");
             }
         
@@ -2136,7 +1737,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_favId_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2145,8 +1746,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.favId = favId;
+                ref.favId = favId;;
                 methodResult(@"success");
             }
         
@@ -2154,7 +1759,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_poiName_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2163,8 +1768,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.poiName = poiName;
+                ref.poiName = poiName;;
                 methodResult(@"success");
             }
         
@@ -2172,7 +1781,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_poiUid_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2181,8 +1790,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.poiUid = poiUid;
+                ref.poiUid = poiUid;;
                 methodResult(@"success");
             }
         
@@ -2190,19 +1803,31 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_pt_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // struct arg
                 NSValue* ptValue = (NSValue*) args[@"pt"];
                 CLLocationCoordinate2D pt;
-                [ptValue getValue:&pt];
+                if (ptValue != nil && (NSNull*) ptValue != [NSNull null]) {
+                  [ptValue getValue:&pt];
+                } else {
+                  methodResult([FlutterError errorWithCode:@"参数非法"
+                                                   message:@"参数非法"
+                                                   details:@"pt不能为null"]);
+                  return;
+                }
+        
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.pt = pt;
+                ref.pt = pt;;
                 methodResult(@"success");
             }
         
@@ -2210,7 +1835,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_address_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2219,8 +1844,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.address = address;
+                ref.address = address;;
                 methodResult(@"success");
             }
         
@@ -2228,7 +1857,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_cityName_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2237,8 +1866,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.cityName = cityName;
+                ref.cityName = cityName;;
                 methodResult(@"success");
             }
         
@@ -2246,7 +1879,7 @@ extern BOOL enableLog;
         },
         
         @"BMKFavPoiInfo::set_timeStamp_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2255,8 +1888,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKFavPoiInfo* ref = (BMKFavPoiInfo*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.timeStamp = timeStamp;
+                ref.timeStamp = timeStamp;;
                 methodResult(@"success");
             }
         
@@ -2264,17 +1901,21 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenRouteOption::set_startPoint_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // ref arg
-                BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
+                BMKPlanNode* startPoint = (BMKPlanNode*) (args[@"startPoint"] == [NSNull null] ? nil : args[@"startPoint"]);
         
                 // ref
                 BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.startPoint = startPoint;
+                ref.startPoint = startPoint;;
                 methodResult(@"success");
             }
         
@@ -2282,35 +1923,21 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenRouteOption::set_endPoint_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // ref arg
-                BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
+                BMKPlanNode* endPoint = (BMKPlanNode*) (args[@"endPoint"] == [NSNull null] ? nil : args[@"endPoint"]);
         
                 // ref
                 BMKOpenRouteOption* ref = (BMKOpenRouteOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.endPoint = endPoint;
-                methodResult(@"success");
-            }
-        
-            methodResult(@"success");
-        },
-        
-        @"BMKOpenTransitRouteOption::set_openTransitPolicy_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // enum arg
-                BMKOpenTransitPolicy openTransitPolicy = (BMKOpenTransitPolicy) [args[@"openTransitPolicy"] integerValue];
-        
-                // ref
-                BMKOpenTransitRouteOption* ref = (BMKOpenTransitRouteOption*) args[@"__this__"];
-        
-                ref.openTransitPolicy = openTransitPolicy;
+                ref.endPoint = endPoint;;
                 methodResult(@"success");
             }
         
@@ -2318,7 +1945,7 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenOption::set_appScheme_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2327,8 +1954,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.appScheme = appScheme;
+                ref.appScheme = appScheme;;
                 methodResult(@"success");
             }
         
@@ -2336,7 +1967,7 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenOption::set_isSupportWeb_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2345,8 +1976,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenOption* ref = (BMKOpenOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.isSupportWeb = isSupportWeb;
+                ref.isSupportWeb = isSupportWeb;;
                 methodResult(@"success");
             }
         
@@ -2354,7 +1989,7 @@ extern BOOL enableLog;
         },
         
         @"BMKOpenPanoramaOption::set_poiUid_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2363,8 +1998,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKOpenPanoramaOption* ref = (BMKOpenPanoramaOption*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.poiUid = poiUid;
+                ref.poiUid = poiUid;;
                 methodResult(@"success");
             }
         
@@ -2372,17 +2011,21 @@ extern BOOL enableLog;
         },
         
         @"BMKNaviPara::set_startPoint_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // ref arg
-                BMKPlanNode* startPoint = (BMKPlanNode*) args[@"startPoint"];
+                BMKPlanNode* startPoint = (BMKPlanNode*) (args[@"startPoint"] == [NSNull null] ? nil : args[@"startPoint"]);
         
                 // ref
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.startPoint = startPoint;
+                ref.startPoint = startPoint;;
                 methodResult(@"success");
             }
         
@@ -2390,35 +2033,21 @@ extern BOOL enableLog;
         },
         
         @"BMKNaviPara::set_endPoint_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
                 // ref arg
-                BMKPlanNode* endPoint = (BMKPlanNode*) args[@"endPoint"];
+                BMKPlanNode* endPoint = (BMKPlanNode*) (args[@"endPoint"] == [NSNull null] ? nil : args[@"endPoint"]);
         
                 // ref
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.endPoint = endPoint;
-                methodResult(@"success");
-            }
-        
-            methodResult(@"success");
-        },
-        
-        @"BMKNaviPara::set_naviType_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
-                NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
-        
-                // args
-                // enum arg
-                BMK_NAVI_TYPE naviType = (BMK_NAVI_TYPE) [args[@"naviType"] integerValue];
-        
-                // ref
-                BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
-        
-                ref.naviType = naviType;
+                ref.endPoint = endPoint;;
                 methodResult(@"success");
             }
         
@@ -2426,7 +2055,7 @@ extern BOOL enableLog;
         },
         
         @"BMKNaviPara::set_appScheme_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2435,8 +2064,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.appScheme = appScheme;
+                ref.appScheme = appScheme;;
                 methodResult(@"success");
             }
         
@@ -2444,7 +2077,7 @@ extern BOOL enableLog;
         },
         
         @"BMKNaviPara::set_appName_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2453,8 +2086,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.appName = appName;
+                ref.appName = appName;;
                 methodResult(@"success");
             }
         
@@ -2462,7 +2099,7 @@ extern BOOL enableLog;
         },
         
         @"BMKNaviPara::set_isSupportWeb_batch": ^(NSObject <FlutterPluginRegistrar> * registrar, id argsBatch, FlutterResult methodResult) {
-            for (int __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < ((NSArray<NSDictionary<NSString*, NSObject*>*>*) argsBatch).count; __i__++) {
                 NSDictionary<NSString*, id>* args = [((NSArray<NSDictionary<NSString*, id>*>*) argsBatch) objectAtIndex:__i__];
         
                 // args
@@ -2471,8 +2108,12 @@ extern BOOL enableLog;
         
                 // ref
                 BMKNaviPara* ref = (BMKNaviPara*) args[@"__this__"];
+                if ((NSNull *) ref == [NSNull null] || ref == nil) {
+                    methodResult([FlutterError errorWithCode:@"目标对象为nil" message:@"目标对象为nil" details:@"目标对象为nil"]);
+                    return;
+                }
         
-                ref.isSupportWeb = isSupportWeb;
+                ref.isSupportWeb = isSupportWeb;;
                 methodResult(@"success");
             }
         
@@ -2874,7 +2515,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenRoute* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenRoute alloc] init];
@@ -2894,7 +2535,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenPoi* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenPoi alloc] init];
@@ -2914,7 +2555,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenPoiDetailOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenPoiDetailOption alloc] init];
@@ -2934,7 +2575,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenPoiNearbyOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenPoiNearbyOption alloc] init];
@@ -2954,7 +2595,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKFavPoiInfo* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKFavPoiInfo alloc] init];
@@ -2974,7 +2615,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenRouteOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenRouteOption alloc] init];
@@ -2994,7 +2635,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenWalkingRouteOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenWalkingRouteOption alloc] init];
@@ -3014,7 +2655,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenDrivingRouteOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenDrivingRouteOption alloc] init];
@@ -3034,7 +2675,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenTransitRouteOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenTransitRouteOption alloc] init];
@@ -3054,7 +2695,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenOption alloc] init];
@@ -3074,7 +2715,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenPanoramaOption* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenPanoramaOption alloc] init];
@@ -3094,7 +2735,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKOpenPanorama* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKOpenPanorama alloc] init];
@@ -3114,7 +2755,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKFavPoiManager* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKFavPoiManager alloc] init];
@@ -3134,7 +2775,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKNaviPara* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKNaviPara alloc] init];
@@ -3154,7 +2795,7 @@ extern BOOL enableLog;
         
             NSNumber* length = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"length"];
             NSNumber* init = (NSNumber*) ((NSDictionary<NSString*, NSObject*>*) argsBatch)[@"init"];
-            for (int __i__ = 0; __i__ < [length integerValue]; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < [length integerValue]; __i__++) {
                 BMKNavigation* __this__;
                 if ([init boolValue]) {
                     __this__ = [[BMKNavigation alloc] init];
@@ -3170,19 +2811,26 @@ extern BOOL enableLog;
         },
         
         @"BMKMapPointForCoordinate::BMKMapPointForCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapPointForCoordinate::BMKMapPointForCoordinate(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
-            [coordinateValue getValue:&coordinate];
+            if (coordinateValue != nil && (NSNull*) coordinateValue != [NSNull null]) {
+              [coordinateValue getValue:&coordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"coordinate不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapPointForCoordinate::BMKMapPointForCoordinate(%@)", args[@"coordinate"]);
-            }
         
             // invoke native method
             BMKMapPoint result = BMKMapPointForCoordinate(coordinate);
@@ -3194,19 +2842,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKCoordinateForMapPoint::BMKCoordinateForMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateForMapPoint::BMKCoordinateForMapPoint(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* mapPointValue = (NSValue*) args[@"mapPoint"];
             BMKMapPoint mapPoint;
-            [mapPointValue getValue:&mapPoint];
+            if (mapPointValue != nil && (NSNull*) mapPointValue != [NSNull null]) {
+              [mapPointValue getValue:&mapPoint];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"mapPoint不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCoordinateForMapPoint::BMKCoordinateForMapPoint(%@)", args[@"mapPoint"]);
-            }
         
             // invoke native method
             CLLocationCoordinate2D result = BMKCoordinateForMapPoint(mapPoint);
@@ -3218,19 +2873,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* bd09llCoordinateValue = (NSValue*) args[@"bd09llCoordinate"];
             CLLocationCoordinate2D bd09llCoordinate;
-            [bd09llCoordinateValue getValue:&bd09llCoordinate];
+            if (bd09llCoordinateValue != nil && (NSNull*) bd09llCoordinateValue != [NSNull null]) {
+              [bd09llCoordinateValue getValue:&bd09llCoordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"bd09llCoordinate不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL(%@)", args[@"bd09llCoordinate"]);
-            }
         
             // invoke native method
             CGPoint result = BMKConvertToBaiduMercatorFromBD09LL(bd09llCoordinate);
@@ -3242,19 +2904,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* bdMCTCoordinateValue = (NSValue*) args[@"bdMCTCoordinate"];
             CGPoint bdMCTCoordinate;
-            [bdMCTCoordinateValue getValue:&bdMCTCoordinate];
+            if (bdMCTCoordinateValue != nil && (NSNull*) bdMCTCoordinateValue != [NSNull null]) {
+              [bdMCTCoordinateValue getValue:&bdMCTCoordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"bdMCTCoordinate不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator(%@)", args[@"bdMCTCoordinate"]);
-            }
         
             // invoke native method
             CLLocationCoordinate2D result = BMKConvertToBD09LLFromBaiduMercator(bdMCTCoordinate);
@@ -3266,11 +2935,23 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKCoordTrans::BMKCoordTrans": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordTrans::BMKCoordTrans(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
-            [coordinateValue getValue:&coordinate];
+            if (coordinateValue != nil && (NSNull*) coordinateValue != [NSNull null]) {
+              [coordinateValue getValue:&coordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"coordinate不能为null"]);
+              return;
+            }
+        
             // enum arg
             BMK_COORD_TYPE fromType = (BMK_COORD_TYPE) [args[@"fromType"] integerValue];
             // enum arg
@@ -3278,11 +2959,6 @@ extern BOOL enableLog;
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCoordTrans::BMKCoordTrans(%@, %@, %@)", args[@"coordinate"], args[@"fromType"], args[@"toType"]);
-            }
         
             // invoke native method
             CLLocationCoordinate2D result = BMKCoordTrans(coordinate, fromType, toType);
@@ -3294,21 +2970,28 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* coordinateValue = (NSValue*) args[@"coordinate"];
             CLLocationCoordinate2D coordinate;
-            [coordinateValue getValue:&coordinate];
+            if (coordinateValue != nil && (NSNull*) coordinateValue != [NSNull null]) {
+              [coordinateValue getValue:&coordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"coordinate不能为null"]);
+              return;
+            }
+        
             // enum arg
             BMK_COORD_TYPE type = (BMK_COORD_TYPE) [args[@"type"] integerValue];
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom(%@, %@)", args[@"coordinate"], args[@"type"]);
-            }
         
             // invoke native method
             NSDictionary* result = BMKConvertBaiduCoorFrom(coordinate, type);
@@ -3320,17 +3003,16 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude(%@)", args);
+            }
+        
             // args
             // jsonable arg
             CLLocationDegrees latitude = [args[@"latitude"] doubleValue];
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude(%@)", args[@"latitude"]);
-            }
         
             // invoke native method
             CLLocationDistance result = BMKMetersPerMapPointAtLatitude(latitude);
@@ -3342,17 +3024,16 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude(%@)", args);
+            }
+        
             // args
             // jsonable arg
             CLLocationDegrees latitude = [args[@"latitude"] doubleValue];
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude(%@)", args[@"latitude"]);
-            }
         
             // invoke native method
             double result = BMKMapPointsPerMeterAtLatitude(latitude);
@@ -3364,23 +3045,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* aValue = (NSValue*) args[@"a"];
             BMKMapPoint a;
-            [aValue getValue:&a];
+            if (aValue != nil && (NSNull*) aValue != [NSNull null]) {
+              [aValue getValue:&a];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"a不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* bValue = (NSValue*) args[@"b"];
             BMKMapPoint b;
-            [bValue getValue:&b];
+            if (bValue != nil && (NSNull*) bValue != [NSNull null]) {
+              [bValue getValue:&b];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"b不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints(%@, %@)", args[@"a"], args[@"b"]);
-            }
         
             // invoke native method
             CLLocationDistance result = BMKMetersBetweenMapPoints(a, b);
@@ -3392,19 +3088,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectGetWidth::BMKMapRectGetWidth": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetWidth::BMKMapRectGetWidth(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectGetWidth::BMKMapRectGetWidth(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             double result = BMKMapRectGetWidth(rect);
@@ -3416,19 +3119,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectGetHeight::BMKMapRectGetHeight": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectGetHeight::BMKMapRectGetHeight(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectGetHeight::BMKMapRectGetHeight(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             double result = BMKMapRectGetHeight(rect);
@@ -3440,23 +3150,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapPointEqualToPoint::BMKMapPointEqualToPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapPointEqualToPoint::BMKMapPointEqualToPoint(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* point1Value = (NSValue*) args[@"point1"];
             BMKMapPoint point1;
-            [point1Value getValue:&point1];
+            if (point1Value != nil && (NSNull*) point1Value != [NSNull null]) {
+              [point1Value getValue:&point1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* point2Value = (NSValue*) args[@"point2"];
             BMKMapPoint point2;
-            [point2Value getValue:&point2];
+            if (point2Value != nil && (NSNull*) point2Value != [NSNull null]) {
+              [point2Value getValue:&point2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapPointEqualToPoint::BMKMapPointEqualToPoint(%@, %@)", args[@"point1"], args[@"point2"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapPointEqualToPoint(point1, point2);
@@ -3468,15 +3193,27 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
-            [pointValue getValue:&point];
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
             // list arg struct
             NSArray<NSValue*>* polylineValueList = (NSArray<NSValue*>*) args[@"polyline"];
             BMKMapPoint polyline[polylineValueList.count];
-            for (int __i__ = 0; __i__ < polylineValueList.count; __i__++) {
+            for (NSUInteger __i__ = 0; __i__ < polylineValueList.count; __i__++) {
                 NSValue* polylineValue = (NSValue*) [polylineValueList objectAtIndex:__i__];
                 BMKMapPoint polylineItem;
                 [polylineValue getValue:&polylineItem];
@@ -3488,11 +3225,6 @@ extern BOOL enableLog;
             // ref
         
         
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline(%@, %@, %@)", args[@"point"], args[@"polyline"], args[@"count"]);
-            }
-        
             // invoke native method
             BMKMapPoint result = BMKGetNearestMapPointFromPolyline(point, polyline, count);
         
@@ -3503,27 +3235,50 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
-            [pointValue getValue:&point];
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* lineStartPtValue = (NSValue*) args[@"lineStartPt"];
             BMKMapPoint lineStartPt;
-            [lineStartPtValue getValue:&lineStartPt];
+            if (lineStartPtValue != nil && (NSNull*) lineStartPtValue != [NSNull null]) {
+              [lineStartPtValue getValue:&lineStartPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"lineStartPt不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* lineEndPtValue = (NSValue*) args[@"lineEndPt"];
             BMKMapPoint lineEndPt;
-            [lineEndPtValue getValue:&lineEndPt];
+            if (lineEndPtValue != nil && (NSNull*) lineEndPtValue != [NSNull null]) {
+              [lineEndPtValue getValue:&lineEndPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"lineEndPt不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine(%@, %@, %@)", args[@"point"], args[@"lineStartPt"], args[@"lineEndPt"]);
-            }
         
             // invoke native method
             BMKMapPoint result = BMKGetPointToTheVerticalFootOfLine(point, lineStartPt, lineEndPt);
@@ -3535,27 +3290,50 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
-            [pointValue getValue:&point];
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* lineStartPtValue = (NSValue*) args[@"lineStartPt"];
             BMKMapPoint lineStartPt;
-            [lineStartPtValue getValue:&lineStartPt];
+            if (lineStartPtValue != nil && (NSNull*) lineStartPtValue != [NSNull null]) {
+              [lineStartPtValue getValue:&lineStartPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"lineStartPt不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* lineEndPtValue = (NSValue*) args[@"lineEndPt"];
             BMKMapPoint lineEndPt;
-            [lineEndPtValue getValue:&lineEndPt];
+            if (lineEndPtValue != nil && (NSNull*) lineEndPtValue != [NSNull null]) {
+              [lineEndPtValue getValue:&lineEndPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"lineEndPt不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine(%@, %@, %@)", args[@"point"], args[@"lineStartPt"], args[@"lineEndPt"]);
-            }
         
             // invoke native method
             CLLocationDistance result = BMKGetDistanceFromPointToLine(point, lineStartPt, lineEndPt);
@@ -3567,11 +3345,23 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* centerCoordinateValue = (NSValue*) args[@"centerCoordinate"];
             CLLocationCoordinate2D centerCoordinate;
-            [centerCoordinateValue getValue:&centerCoordinate];
+            if (centerCoordinateValue != nil && (NSNull*) centerCoordinateValue != [NSNull null]) {
+              [centerCoordinateValue getValue:&centerCoordinate];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"centerCoordinate不能为null"]);
+              return;
+            }
+        
             // jsonable arg
             CLLocationDistance latitudinalMeters = [args[@"latitudinalMeters"] doubleValue];
             // jsonable arg
@@ -3579,11 +3369,6 @@ extern BOOL enableLog;
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance(%@, %@, %@)", args[@"centerCoordinate"], args[@"latitudinalMeters"], args[@"longitudinalMeters"]);
-            }
         
             // invoke native method
             BMKCoordinateRegion result = BMKCoordinateRegionMakeWithDistance(centerCoordinate, latitudinalMeters, longitudinalMeters);
@@ -3595,23 +3380,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapSizeEqualToSize::BMKMapSizeEqualToSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapSizeEqualToSize::BMKMapSizeEqualToSize(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* size1Value = (NSValue*) args[@"size1"];
             BMKMapSize size1;
-            [size1Value getValue:&size1];
+            if (size1Value != nil && (NSNull*) size1Value != [NSNull null]) {
+              [size1Value getValue:&size1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"size1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* size2Value = (NSValue*) args[@"size2"];
             BMKMapSize size2;
-            [size2Value getValue:&size2];
+            if (size2Value != nil && (NSNull*) size2Value != [NSNull null]) {
+              [size2Value getValue:&size2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"size2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapSizeEqualToSize::BMKMapSizeEqualToSize(%@, %@)", args[@"size1"], args[@"size2"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapSizeEqualToSize(size1, size2);
@@ -3623,23 +3423,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectEqualToRect::BMKMapRectEqualToRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectEqualToRect::BMKMapRectEqualToRect(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
+            if (rect1Value != nil && (NSNull*) rect1Value != [NSNull null]) {
+              [rect1Value getValue:&rect1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
+            if (rect2Value != nil && (NSNull*) rect2Value != [NSNull null]) {
+              [rect2Value getValue:&rect2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectEqualToRect::BMKMapRectEqualToRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectEqualToRect(rect1, rect2);
@@ -3651,19 +3466,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectIsEmpty::BMKMapRectIsEmpty": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIsEmpty::BMKMapRectIsEmpty(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectIsEmpty::BMKMapRectIsEmpty(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectIsEmpty(rect);
@@ -3675,23 +3497,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectUnion::BMKMapRectUnion": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectUnion::BMKMapRectUnion(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
+            if (rect1Value != nil && (NSNull*) rect1Value != [NSNull null]) {
+              [rect1Value getValue:&rect1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
+            if (rect2Value != nil && (NSNull*) rect2Value != [NSNull null]) {
+              [rect2Value getValue:&rect2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectUnion::BMKMapRectUnion(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
         
             // invoke native method
             BMKMapRect result = BMKMapRectUnion(rect1, rect2);
@@ -3703,23 +3540,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectIntersection::BMKMapRectIntersection": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIntersection::BMKMapRectIntersection(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
+            if (rect1Value != nil && (NSNull*) rect1Value != [NSNull null]) {
+              [rect1Value getValue:&rect1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
+            if (rect2Value != nil && (NSNull*) rect2Value != [NSNull null]) {
+              [rect2Value getValue:&rect2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectIntersection::BMKMapRectIntersection(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
         
             // invoke native method
             BMKMapRect result = BMKMapRectIntersection(rect1, rect2);
@@ -3731,11 +3583,23 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectInset::BMKMapRectInset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectInset::BMKMapRectInset(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
             // jsonable arg
             double dx = [args[@"dx"] doubleValue];
             // jsonable arg
@@ -3743,11 +3607,6 @@ extern BOOL enableLog;
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectInset::BMKMapRectInset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
-            }
         
             // invoke native method
             BMKMapRect result = BMKMapRectInset(rect, dx, dy);
@@ -3759,11 +3618,23 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectOffset::BMKMapRectOffset": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectOffset::BMKMapRectOffset(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
             // jsonable arg
             double dx = [args[@"dx"] doubleValue];
             // jsonable arg
@@ -3771,11 +3642,6 @@ extern BOOL enableLog;
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectOffset::BMKMapRectOffset(%@, %@, %@)", args[@"rect"], args[@"dx"], args[@"dy"]);
-            }
         
             // invoke native method
             BMKMapRect result = BMKMapRectOffset(rect, dx, dy);
@@ -3787,23 +3653,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectContainsPoint::BMKMapRectContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectContainsPoint::BMKMapRectContainsPoint(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
-            [pointValue getValue:&point];
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectContainsPoint::BMKMapRectContainsPoint(%@, %@)", args[@"rect"], args[@"point"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectContainsPoint(rect, point);
@@ -3815,23 +3696,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectContainsRect::BMKMapRectContainsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectContainsRect::BMKMapRectContainsRect(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
+            if (rect1Value != nil && (NSNull*) rect1Value != [NSNull null]) {
+              [rect1Value getValue:&rect1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
+            if (rect2Value != nil && (NSNull*) rect2Value != [NSNull null]) {
+              [rect2Value getValue:&rect2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectContainsRect::BMKMapRectContainsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectContainsRect(rect1, rect2);
@@ -3843,23 +3739,38 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectIntersectsRect::BMKMapRectIntersectsRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectIntersectsRect::BMKMapRectIntersectsRect(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rect1Value = (NSValue*) args[@"rect1"];
             BMKMapRect rect1;
-            [rect1Value getValue:&rect1];
+            if (rect1Value != nil && (NSNull*) rect1Value != [NSNull null]) {
+              [rect1Value getValue:&rect1];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect1不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* rect2Value = (NSValue*) args[@"rect2"];
             BMKMapRect rect2;
-            [rect2Value getValue:&rect2];
+            if (rect2Value != nil && (NSNull*) rect2Value != [NSNull null]) {
+              [rect2Value getValue:&rect2];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect2不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectIntersectsRect::BMKMapRectIntersectsRect(%@, %@)", args[@"rect1"], args[@"rect2"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectIntersectsRect(rect1, rect2);
@@ -3871,19 +3782,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             BMKCoordinateRegion result = BMKCoordinateRegionForMapRect(rect);
@@ -3895,19 +3813,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             BOOL result = BMKMapRectSpans180thMeridian(rect);
@@ -3919,19 +3844,26 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKMapRectRemainder::BMKMapRectRemainder": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKMapRectRemainder::BMKMapRectRemainder(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* rectValue = (NSValue*) args[@"rect"];
             BMKMapRect rect;
-            [rectValue getValue:&rect];
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKMapRectRemainder::BMKMapRectRemainder(%@)", args[@"rect"]);
-            }
         
             // invoke native method
             BMKMapRect result = BMKMapRectRemainder(rect);
@@ -3943,25 +3875,40 @@ extern BOOL enableLog;
             methodResult(__result__);
         },
         @"BMKCircleContainsPoint::BMKCircleContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCircleContainsPoint::BMKCircleContainsPoint(%@)", args);
+            }
+        
             // args
             // struct arg
             NSValue* pointValue = (NSValue*) args[@"point"];
             BMKMapPoint point;
-            [pointValue getValue:&point];
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
             // struct arg
             NSValue* centerValue = (NSValue*) args[@"center"];
             BMKMapPoint center;
-            [centerValue getValue:&center];
+            if (centerValue != nil && (NSNull*) centerValue != [NSNull null]) {
+              [centerValue getValue:&center];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"center不能为null"]);
+              return;
+            }
+        
             // jsonable arg
             double radius = [args[@"radius"] doubleValue];
         
             // ref
         
-        
-            // print log
-            if (enableLog) {
-                NSLog(@"fluttify-objc: BMKCircleContainsPoint::BMKCircleContainsPoint(%@, %@, %@)", args[@"point"], args[@"center"], args[@"radius"]);
-            }
         
             // invoke native method
             BOOL result = BMKCircleContainsPoint(point, center, radius);
@@ -3969,6 +3916,408 @@ extern BOOL enableLog;
             // result
             // 返回值: Value
             NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKCircleContainsCoordinate::BMKCircleContainsCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCircleContainsCoordinate::BMKCircleContainsCoordinate(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            CLLocationCoordinate2D point;
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
+            // struct arg
+            NSValue* centerValue = (NSValue*) args[@"center"];
+            CLLocationCoordinate2D center;
+            if (centerValue != nil && (NSNull*) centerValue != [NSNull null]) {
+              [centerValue getValue:&center];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"center不能为null"]);
+              return;
+            }
+        
+            // jsonable arg
+            double radius = [args[@"radius"] doubleValue];
+        
+            // ref
+        
+        
+            // invoke native method
+            BOOL result = BMKCircleContainsCoordinate(point, center, radius);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKPolygonContainsPoint::BMKPolygonContainsPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKPolygonContainsPoint::BMKPolygonContainsPoint(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            BMKMapPoint point;
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
+            // list arg struct
+            NSArray<NSValue*>* polygonValueList = (NSArray<NSValue*>*) args[@"polygon"];
+            BMKMapPoint polygon[polygonValueList.count];
+            for (NSUInteger __i__ = 0; __i__ < polygonValueList.count; __i__++) {
+                NSValue* polygonValue = (NSValue*) [polygonValueList objectAtIndex:__i__];
+                BMKMapPoint polygonItem;
+                [polygonValue getValue:&polygonItem];
+                polygon[__i__] = polygonItem;
+            }
+            // jsonable arg
+            NSUInteger count = [args[@"count"] unsignedIntegerValue];
+        
+            // ref
+        
+        
+            // invoke native method
+            BOOL result = BMKPolygonContainsPoint(point, polygon, count);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            CLLocationCoordinate2D point;
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
+            // list arg struct
+            NSArray<NSValue*>* polygonValueList = (NSArray<NSValue*>*) args[@"polygon"];
+            CLLocationCoordinate2D polygon[polygonValueList.count];
+            for (NSUInteger __i__ = 0; __i__ < polygonValueList.count; __i__++) {
+                NSValue* polygonValue = (NSValue*) [polygonValueList objectAtIndex:__i__];
+                CLLocationCoordinate2D polygonItem;
+                [polygonValue getValue:&polygonItem];
+                polygon[__i__] = polygonItem;
+            }
+            // jsonable arg
+            NSUInteger count = [args[@"count"] unsignedIntegerValue];
+        
+            // ref
+        
+        
+            // invoke native method
+            BOOL result = BMKPolygonContainsCoordinate(point, polygon, count);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* leftTopValue = (NSValue*) args[@"leftTop"];
+            CLLocationCoordinate2D leftTop;
+            if (leftTopValue != nil && (NSNull*) leftTopValue != [NSNull null]) {
+              [leftTopValue getValue:&leftTop];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"leftTop不能为null"]);
+              return;
+            }
+        
+            // struct arg
+            NSValue* rightBottomValue = (NSValue*) args[@"rightBottom"];
+            CLLocationCoordinate2D rightBottom;
+            if (rightBottomValue != nil && (NSNull*) rightBottomValue != [NSNull null]) {
+              [rightBottomValue getValue:&rightBottom];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rightBottom不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            double result = BMKAreaBetweenCoordinates(leftTop, rightBottom);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKAreaForPolygon::BMKAreaForPolygon": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKAreaForPolygon::BMKAreaForPolygon(%@)", args);
+            }
+        
+            // args
+            // list arg struct
+            NSArray<NSValue*>* coordinatesValueList = (NSArray<NSValue*>*) args[@"coordinates"];
+            CLLocationCoordinate2D coordinates[coordinatesValueList.count];
+            for (NSUInteger __i__ = 0; __i__ < coordinatesValueList.count; __i__++) {
+                NSValue* coordinatesValue = (NSValue*) [coordinatesValueList objectAtIndex:__i__];
+                CLLocationCoordinate2D coordinatesItem;
+                [coordinatesValue getValue:&coordinatesItem];
+                coordinates[__i__] = coordinatesItem;
+            }
+            // jsonable arg
+            int count = [args[@"count"] intValue];
+        
+            // ref
+        
+        
+            // invoke native method
+            double result = BMKAreaForPolygon(coordinates, count);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKGetDirectionFromCoords::BMKGetDirectionFromCoords": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKGetDirectionFromCoords::BMKGetDirectionFromCoords(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* startCoordValue = (NSValue*) args[@"startCoord"];
+            CLLocationCoordinate2D startCoord;
+            if (startCoordValue != nil && (NSNull*) startCoordValue != [NSNull null]) {
+              [startCoordValue getValue:&startCoord];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"startCoord不能为null"]);
+              return;
+            }
+        
+            // struct arg
+            NSValue* endCoordValue = (NSValue*) args[@"endCoord"];
+            CLLocationCoordinate2D endCoord;
+            if (endCoordValue != nil && (NSNull*) endCoordValue != [NSNull null]) {
+              [endCoordValue getValue:&endCoord];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"endCoord不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            CLLocationDirection result = BMKGetDirectionFromCoords(startCoord, endCoord);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKGetDirectionFromPoints::BMKGetDirectionFromPoints": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKGetDirectionFromPoints::BMKGetDirectionFromPoints(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* startPtValue = (NSValue*) args[@"startPt"];
+            BMKMapPoint startPt;
+            if (startPtValue != nil && (NSNull*) startPtValue != [NSNull null]) {
+              [startPtValue getValue:&startPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"startPt不能为null"]);
+              return;
+            }
+        
+            // struct arg
+            NSValue* endPtValue = (NSValue*) args[@"endPt"];
+            BMKMapPoint endPt;
+            if (endPtValue != nil && (NSNull*) endPtValue != [NSNull null]) {
+              [endPtValue getValue:&endPt];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"endPt不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            CLLocationDirection result = BMKGetDirectionFromPoints(startPt, endPt);
+        
+            // result
+            // 返回值: Value
+            NSObject* __result__ = @(result);
+        
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapPoint::BMKStringFromMapPoint": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapPoint::BMKStringFromMapPoint(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* pointValue = (NSValue*) args[@"point"];
+            BMKMapPoint point;
+            if (pointValue != nil && (NSNull*) pointValue != [NSNull null]) {
+              [pointValue getValue:&point];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"point不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapPoint(point);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapSize::BMKStringFromMapSize": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapSize::BMKStringFromMapSize(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* sizeValue = (NSValue*) args[@"size"];
+            BMKMapSize size;
+            if (sizeValue != nil && (NSNull*) sizeValue != [NSNull null]) {
+              [sizeValue getValue:&size];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"size不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapSize(size);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
+        },
+        @"BMKStringFromMapRect::BMKStringFromMapRect": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKStringFromMapRect::BMKStringFromMapRect(%@)", args);
+            }
+        
+            // args
+            // struct arg
+            NSValue* rectValue = (NSValue*) args[@"rect"];
+            BMKMapRect rect;
+            if (rectValue != nil && (NSNull*) rectValue != [NSNull null]) {
+              [rectValue getValue:&rect];
+            } else {
+              methodResult([FlutterError errorWithCode:@"参数非法"
+                                               message:@"参数非法"
+                                               details:@"rect不能为null"]);
+              return;
+            }
+        
+        
+            // ref
+        
+        
+            // invoke native method
+            NSString* result = BMKStringFromMapRect(rect);
+        
+            // result
+            // 返回值: jsonable
+            id __result__ = result;
+        
+            methodResult(__result__);
+        },
+        @"BMKCoorDictionaryDecode::BMKCoorDictionaryDecode": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: BMKCoorDictionaryDecode::BMKCoorDictionaryDecode(%@)", args);
+            }
+        
+            // args
+            // jsonable arg
+            NSDictionary* dictionary = (NSDictionary*) args[@"dictionary"];
+        
+            // ref
+        
+        
+            // invoke native method
+            CLLocationCoordinate2D result = BMKCoorDictionaryDecode(dictionary);
+        
+            // result
+            // 返回值: 结构体
+            NSValue* __result__ = [NSValue value:&result withObjCType:@encode(CLLocationCoordinate2D)];
         
             methodResult(__result__);
         },

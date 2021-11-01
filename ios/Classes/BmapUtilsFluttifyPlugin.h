@@ -3,11 +3,10 @@
 //////////////////////////////////////////////////////////
 
 #import <Flutter/Flutter.h>
-#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
 typedef void (^Handler)(NSObject <FlutterPluginRegistrar> *, id, FlutterResult);
 
-@interface BmapUtilsFluttifyPlugin : NSObject<BMKOpenPanoramaDelegate, FlutterPlugin>
+@interface BmapUtilsFluttifyPlugin : NSObject<FlutterPlugin>
 
 - (instancetype) initWithFlutterPluginRegistrar: (NSObject <FlutterPluginRegistrar> *) registrar;
 

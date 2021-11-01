@@ -12,28 +12,34 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenDrivingRouteOption extends BMKOpenRouteOption  {
+class BMKOpenDrivingRouteOption extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenDrivingRouteOption';
+
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
   //endregion
 
   //region creators
   static Future<BMKOpenDrivingRouteOption> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenDrivingRouteOption', {'init': init});
-    final object = BMKOpenDrivingRouteOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenDrivingRouteOption',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption>(__result__);
   }
   
   static Future<List<BMKOpenDrivingRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenDrivingRouteOption', {'length': length, 'init': init});
-  
-    final List<BMKOpenDrivingRouteOption> typedResult = resultBatch.map((result) => BMKOpenDrivingRouteOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenDrivingRouteOption',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption>(it))
+        .toList();
   }
   
   //endregion
@@ -49,6 +55,11 @@ class BMKOpenDrivingRouteOption extends BMKOpenRouteOption  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenDrivingRouteOption{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenDrivingRouteOption_Batch on List<BMKOpenDrivingRouteOption> {

@@ -12,54 +12,60 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenRouteOption extends BMKOpenOption  {
+class BMKOpenRouteOption extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenRouteOption';
+
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
   //endregion
 
   //region creators
   static Future<BMKOpenRouteOption> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenRouteOption', {'init': init});
-    final object = BMKOpenRouteOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenRouteOption',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenRouteOption>(__result__);
   }
   
   static Future<List<BMKOpenRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenRouteOption', {'length': length, 'init': init});
-  
-    final List<BMKOpenRouteOption> typedResult = resultBatch.map((result) => BMKOpenRouteOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenRouteOption',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenRouteOption>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
   Future<BMKPlanNode> get_startPoint() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenRouteOption::get_startPoint", {'__this__': this});
-    return __result__ == null ? null : (BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_startPoint", {'__this__': this});
+    return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
   
   Future<BMKPlanNode> get_endPoint() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenRouteOption::get_endPoint", {'__this__': this});
-    return __result__ == null ? null : (BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify');
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_endPoint", {'__this__': this});
+    return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
   
   //endregion
 
   //region setters
   Future<void> set_startPoint(BMKPlanNode startPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenRouteOption::set_startPoint', <String, dynamic>{'__this__': this, "startPoint": startPoint});
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRouteOption::set_startPoint', <String, dynamic>{'__this__': this, "startPoint": startPoint});
   
   
   }
   
   Future<void> set_endPoint(BMKPlanNode endPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenRouteOption::set_endPoint', <String, dynamic>{'__this__': this, "endPoint": endPoint});
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRouteOption::set_endPoint', <String, dynamic>{'__this__': this, "endPoint": endPoint});
   
   
   }
@@ -69,35 +75,36 @@ class BMKOpenRouteOption extends BMKOpenOption  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenRouteOption{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenRouteOption_Batch on List<BMKOpenRouteOption> {
   //region getters
   Future<List<BMKPlanNode>> get_startPoint_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenRouteOption::get_startPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_startPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
   }
   
   Future<List<BMKPlanNode>> get_endPoint_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenRouteOption::get_endPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => BMKPlanNode()..refId = __result__..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_endPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
   }
   
   //endregion
 
   //region setters
   Future<void> set_startPoint_batch(List<BMKPlanNode> startPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenRouteOption::set_startPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "startPoint": startPoint[__i__]}]);
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRouteOption::set_startPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "startPoint": startPoint[__i__]}]);
   
   
   }
   
   Future<void> set_endPoint_batch(List<BMKPlanNode> endPoint) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenRouteOption::set_endPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "endPoint": endPoint[__i__]}]);
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRouteOption::set_endPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "endPoint": endPoint[__i__]}]);
   
   
   }

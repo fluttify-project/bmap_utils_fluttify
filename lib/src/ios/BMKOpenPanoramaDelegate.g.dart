@@ -19,11 +19,14 @@ mixin BMKOpenPanoramaDelegate on NSObject {
 
   
 
-  
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
 
-  @mustCallSuper
+  
+
+  /* @mustCallSuper */
   Future<void> onGetOpenPanoramaStatus(BMKOpenErrorCode ecode) {}
   
 }

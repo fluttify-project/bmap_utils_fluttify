@@ -12,28 +12,34 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenWalkingRouteOption extends BMKOpenRouteOption  {
+class BMKOpenWalkingRouteOption extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenWalkingRouteOption';
+
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
   //endregion
 
   //region creators
   static Future<BMKOpenWalkingRouteOption> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenWalkingRouteOption', {'init': init});
-    final object = BMKOpenWalkingRouteOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenWalkingRouteOption',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption>(__result__);
   }
   
   static Future<List<BMKOpenWalkingRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenWalkingRouteOption', {'length': length, 'init': init});
-  
-    final List<BMKOpenWalkingRouteOption> typedResult = resultBatch.map((result) => BMKOpenWalkingRouteOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenWalkingRouteOption',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption>(it))
+        .toList();
   }
   
   //endregion
@@ -49,6 +55,11 @@ class BMKOpenWalkingRouteOption extends BMKOpenRouteOption  {
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenWalkingRouteOption{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenWalkingRouteOption_Batch on List<BMKOpenWalkingRouteOption> {

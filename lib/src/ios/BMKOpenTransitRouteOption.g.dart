@@ -12,71 +12,62 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenTransitRouteOption extends BMKOpenRouteOption  {
+class BMKOpenTransitRouteOption extends NSObject  {
   //region constants
   static const String name__ = 'BMKOpenTransitRouteOption';
+
+  @override
+  final String tag__ = 'bmap_utils_fluttify';
 
   
   //endregion
 
   //region creators
   static Future<BMKOpenTransitRouteOption> create__({ bool init = true /* ios only */ }) async {
-    final refId = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::createBMKOpenTransitRouteOption', {'init': init});
-    final object = BMKOpenTransitRouteOption()..refId = refId..tag__ = 'bmap_utils_fluttify';
-    return object;
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
+      'ObjectFactory::createBMKOpenTransitRouteOption',
+      {'init': init}
+    );
+    return BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption>(__result__);
   }
   
   static Future<List<BMKOpenTransitRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
-    if (false) {
-      return Future.error('all args must have same length!');
-    }
-    final List resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('ObjectFactory::create_batchBMKOpenTransitRouteOption', {'length': length, 'init': init});
-  
-    final List<BMKOpenTransitRouteOption> typedResult = resultBatch.map((result) => BMKOpenTransitRouteOption()..refId = result..tag__ = 'bmap_utils_fluttify').toList();
-    return typedResult;
+    assert(true);
+    final __result_batch__ = await  kBmapUtilsFluttifyChannel.invokeListMethod(
+      'ObjectFactory::create_batchBMKOpenTransitRouteOption',
+      {'length': length, 'init': init}
+    );
+    return __result_batch__
+        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption>(it))
+        .toList();
   }
   
   //endregion
 
   //region getters
-  Future<BMKOpenTransitPolicy> get_openTransitPolicy() async {
-    final __result__ = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenTransitRouteOption::get_openTransitPolicy", {'__this__': this});
-    return __result__ == null ? null : ((__result__ as int).toBMKOpenTransitPolicy());
-  }
   
   //endregion
 
   //region setters
-  Future<void> set_openTransitPolicy(BMKOpenTransitPolicy openTransitPolicy) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod('BMKOpenTransitRouteOption::set_openTransitPolicy', <String, dynamic>{'__this__': this, "openTransitPolicy": openTransitPolicy.toValue()});
-  
-  
-  }
   
   //endregion
 
   //region methods
   
   //endregion
+
+  @override
+  String toString() {
+    return 'BMKOpenTransitRouteOption{refId: $refId, runtimeType: $runtimeType, tag__: $tag__}';
+  }
 }
 
 extension BMKOpenTransitRouteOption_Batch on List<BMKOpenTransitRouteOption> {
   //region getters
-  Future<List<BMKOpenTransitPolicy>> get_openTransitPolicy_batch() async {
-    final resultBatch = await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec('bmap_utils_fluttify'))).invokeMethod("BMKOpenTransitRouteOption::get_openTransitPolicy_batch", [for (final __item__ in this) {'__this__': __item__}]);
-  
-    final typedResult = (resultBatch as List).cast<String>().map((__result__) => (__result__ as int).toBMKOpenTransitPolicy()).toList();
-    return typedResult;
-  }
   
   //endregion
 
   //region setters
-  Future<void> set_openTransitPolicy_batch(List<BMKOpenTransitPolicy> openTransitPolicy) async {
-    await MethodChannel('com.fluttify/bmap_utils_fluttify', StandardMethodCodec(FluttifyMessageCodec())).invokeMethod('BMKOpenTransitRouteOption::set_openTransitPolicy_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "openTransitPolicy": openTransitPolicy[__i__].toValue()}]);
-  
-  
-  }
   
   //endregion
 
