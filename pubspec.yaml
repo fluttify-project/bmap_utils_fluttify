@@ -1,6 +1,6 @@
 name: bmap_utils_fluttify
 description: An `BaiduMap` Utils Component, Powered By `Fluttify`, A Compiler Generating Dart Bindings For Native SDK.
-version: 0.2.0
+version: 0.3.0
 author: yohom <yohombao@qq.com>
 homepage: https://github.com/fluttify-project
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   bmap_core_fluttify: ^0.4.0
-  
+
   foundation_fluttify: ^0.12.0-dev.1
   core_location_fluttify: ^0.7.0-dev.0
 
