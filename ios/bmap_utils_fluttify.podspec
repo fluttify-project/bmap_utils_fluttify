@@ -19,7 +19,7 @@ A new flutter plugin project.
   # flutter plugin dependency
   s.dependency 'bmap_core_fluttify'
   # sdk dependency
-  
+  s.dependency 'BaiduMapKit/Utils', '6.4'
 
   s.static_framework = true
   s.ios.deployment_target = '8.0'
