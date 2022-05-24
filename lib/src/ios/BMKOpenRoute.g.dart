@@ -23,12 +23,12 @@ class BMKOpenRoute extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenRoute> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenRoute?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenRoute',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenRoute>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenRoute?>(__result__);
   }
   
   static Future<List<BMKOpenRoute>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKOpenRoute extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenRoute>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenRoute>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenRoute>()
+        .toList() ?? <BMKOpenRoute>[];
   }
   
   //endregion
@@ -53,6 +55,56 @@ class BMKOpenRoute extends NSObject  {
   //endregion
 
   //region methods
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapWalkingRoute(BMKOpenWalkingRouteOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenRoute::openBaiduMapWalkingRoute([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapWalkingRoute', {"option": option});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapTransitRoute(BMKOpenTransitRouteOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenRoute::openBaiduMapTransitRoute([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapTransitRoute', {"option": option});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapDrivingRoute(BMKOpenDrivingRouteOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenRoute::openBaiduMapDrivingRoute([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapDrivingRoute', {"option": option});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
   
   //endregion
 
@@ -63,6 +115,11 @@ class BMKOpenRoute extends NSObject  {
 }
 
 extension BMKOpenRoute_Batch on List<BMKOpenRoute> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion
@@ -72,6 +129,38 @@ extension BMKOpenRoute_Batch on List<BMKOpenRoute> {
   //endregion
 
   //region methods
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapWalkingRoute_batch(List<BMKOpenWalkingRouteOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapWalkingRoute_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapTransitRoute_batch(List<BMKOpenTransitRouteOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapTransitRoute_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapDrivingRoute_batch(List<BMKOpenDrivingRouteOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenRoute::openBaiduMapDrivingRoute_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
   
   //endregion
 }

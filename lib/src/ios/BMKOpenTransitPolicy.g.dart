@@ -5,20 +5,20 @@
 
 enum BMKOpenTransitPolicy {
   BMK_OPEN_TRANSIT_RECOMMAND /* 3 */,
-  BMK_OPEN_TRANSIT_TRANSFER_FIRST /* null */,
-  BMK_OPEN_TRANSIT_WALK_FIRST /* null */,
-  BMK_OPEN_TRANSIT_NO_SUBWAY /* null */,
-  BMK_OPEN_TRANSIT_TIME_FIRST /* null */
+  BMK_OPEN_TRANSIT_TRANSFER_FIRST /* 4 */,
+  BMK_OPEN_TRANSIT_WALK_FIRST /* 5 */,
+  BMK_OPEN_TRANSIT_NO_SUBWAY /* 6 */,
+  BMK_OPEN_TRANSIT_TIME_FIRST /* 7 */
 }
 
 extension BMKOpenTransitPolicyToX on BMKOpenTransitPolicy {
   int toValue() {
     switch (this) {
       case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_RECOMMAND: return 3;
-      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST.index + 3;
-      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST.index + 3;
-      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY.index + 3;
-      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST.index + 3;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST: return 4;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST: return 5;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY: return 6;
+      case BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST: return 7;
       default: return 0;
     }
   }
@@ -28,6 +28,10 @@ extension BMKOpenTransitPolicyFromX on int {
   BMKOpenTransitPolicy toBMKOpenTransitPolicy() {
     switch (this) {
       case 3: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_RECOMMAND;
+      case 4: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TRANSFER_FIRST;
+      case 5: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_WALK_FIRST;
+      case 6: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_NO_SUBWAY;
+      case 7: return BMKOpenTransitPolicy.BMK_OPEN_TRANSIT_TIME_FIRST;
       default: return BMKOpenTransitPolicy.values[this + 3];
     }
   }

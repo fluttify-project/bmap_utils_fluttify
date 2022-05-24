@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenPoiDetailOption extends NSObject  {
+class BMKOpenPoiDetailOption extends BMKOpenOption  {
   //region constants
   static const String name__ = 'BMKOpenPoiDetailOption';
 
@@ -23,12 +23,12 @@ class BMKOpenPoiDetailOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoiDetailOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenPoiDetailOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenPoiDetailOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenPoiDetailOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenPoiDetailOption?>(__result__);
   }
   
   static Future<List<BMKOpenPoiDetailOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,14 +38,16 @@ class BMKOpenPoiDetailOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoiDetailOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoiDetailOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenPoiDetailOption>()
+        .toList() ?? <BMKOpenPoiDetailOption>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_poiUid() async {
+  Future<String?> get_poiUid() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiDetailOption::get_poiUid", {'__this__': this});
     return __result__;
   }
@@ -72,10 +74,15 @@ class BMKOpenPoiDetailOption extends NSObject  {
 }
 
 extension BMKOpenPoiDetailOption_Batch on List<BMKOpenPoiDetailOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_poiUid_batch() async {
+  Future<List<String?>> get_poiUid_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiDetailOption::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenWalkingRouteOption extends NSObject  {
+class BMKOpenWalkingRouteOption extends BMKOpenRouteOption  {
   //region constants
   static const String name__ = 'BMKOpenWalkingRouteOption';
 
@@ -23,12 +23,12 @@ class BMKOpenWalkingRouteOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenWalkingRouteOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenWalkingRouteOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenWalkingRouteOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption?>(__result__);
   }
   
   static Future<List<BMKOpenWalkingRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKOpenWalkingRouteOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenWalkingRouteOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenWalkingRouteOption>()
+        .toList() ?? <BMKOpenWalkingRouteOption>[];
   }
   
   //endregion
@@ -63,6 +65,11 @@ class BMKOpenWalkingRouteOption extends NSObject  {
 }
 
 extension BMKOpenWalkingRouteOption_Batch on List<BMKOpenWalkingRouteOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion

@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenDrivingRouteOption extends NSObject  {
+class BMKOpenDrivingRouteOption extends BMKOpenRouteOption  {
   //region constants
   static const String name__ = 'BMKOpenDrivingRouteOption';
 
@@ -23,12 +23,12 @@ class BMKOpenDrivingRouteOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenDrivingRouteOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenDrivingRouteOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenDrivingRouteOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption?>(__result__);
   }
   
   static Future<List<BMKOpenDrivingRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKOpenDrivingRouteOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenDrivingRouteOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenDrivingRouteOption>()
+        .toList() ?? <BMKOpenDrivingRouteOption>[];
   }
   
   //endregion
@@ -63,6 +65,11 @@ class BMKOpenDrivingRouteOption extends NSObject  {
 }
 
 extension BMKOpenDrivingRouteOption_Batch on List<BMKOpenDrivingRouteOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion

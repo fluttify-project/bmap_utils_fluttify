@@ -23,12 +23,12 @@ class BMKNaviPara extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKNaviPara> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKNaviPara?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKNaviPara',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKNaviPara>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKNaviPara?>(__result__);
   }
   
   static Future<List<BMKNaviPara>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,34 +38,41 @@ class BMKNaviPara extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKNaviPara>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKNaviPara>(it))
+        .where((element) => element !=null)
+        .cast<BMKNaviPara>()
+        .toList() ?? <BMKNaviPara>[];
   }
   
   //endregion
 
   //region getters
-  Future<BMKPlanNode> get_startPoint() async {
+  Future<BMKPlanNode?> get_startPoint() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_startPoint", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
   
-  Future<BMKPlanNode> get_endPoint() async {
+  Future<BMKPlanNode?> get_endPoint() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_endPoint", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
   
-  Future<String> get_appScheme() async {
+  Future<BMK_NAVI_TYPE?> get_naviType() async {
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_naviType", {'__this__': this});
+    return (__result__ as int).toBMK_NAVI_TYPE();
+  }
+  
+  Future<String?> get_appScheme() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_appScheme", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_appName() async {
+  Future<String?> get_appName() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_appName", {'__this__': this});
     return __result__;
   }
   
-  Future<bool> get_isSupportWeb() async {
+  Future<bool?> get_isSupportWeb() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_isSupportWeb", {'__this__': this});
     return __result__;
   }
@@ -81,6 +88,12 @@ class BMKNaviPara extends NSObject  {
   
   Future<void> set_endPoint(BMKPlanNode endPoint) async {
     await kBmapUtilsFluttifyChannel.invokeMethod('BMKNaviPara::set_endPoint', <String, dynamic>{'__this__': this, "endPoint": endPoint});
+  
+  
+  }
+  
+  Future<void> set_naviType(BMK_NAVI_TYPE naviType) async {
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKNaviPara::set_naviType', <String, dynamic>{'__this__': this, "naviType": naviType.toValue()});
   
   
   }
@@ -116,30 +129,40 @@ class BMKNaviPara extends NSObject  {
 }
 
 extension BMKNaviPara_Batch on List<BMKNaviPara> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<BMKPlanNode>> get_startPoint_batch() async {
+  Future<List<BMKPlanNode?>> get_startPoint_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_startPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__)).cast<BMKPlanNode?>().toList();
   }
   
-  Future<List<BMKPlanNode>> get_endPoint_batch() async {
+  Future<List<BMKPlanNode?>> get_endPoint_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_endPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__)).cast<BMKPlanNode?>().toList();
   }
   
-  Future<List<String>> get_appScheme_batch() async {
+  Future<List<BMK_NAVI_TYPE?>> get_naviType_batch() async {
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_naviType_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMK_NAVI_TYPE()).cast<BMK_NAVI_TYPE?>().toList();
+  }
+  
+  Future<List<String?>> get_appScheme_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_appScheme_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_appName_batch() async {
+  Future<List<String?>> get_appName_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_appName_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<bool>> get_isSupportWeb_batch() async {
+  Future<List<bool?>> get_isSupportWeb_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKNaviPara::get_isSupportWeb_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<bool>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   //endregion
@@ -153,6 +176,12 @@ extension BMKNaviPara_Batch on List<BMKNaviPara> {
   
   Future<void> set_endPoint_batch(List<BMKPlanNode> endPoint) async {
     await kBmapUtilsFluttifyChannel.invokeMethod('BMKNaviPara::set_endPoint_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "endPoint": endPoint[__i__]}]);
+  
+  
+  }
+  
+  Future<void> set_naviType_batch(List<BMK_NAVI_TYPE> naviType) async {
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKNaviPara::set_naviType_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "naviType": naviType[__i__].toValue()}]);
   
   
   }

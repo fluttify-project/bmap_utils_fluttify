@@ -23,12 +23,12 @@ class BMKFavPoiInfo extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKFavPoiInfo> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKFavPoiInfo?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKFavPoiInfo',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKFavPoiInfo>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKFavPoiInfo?>(__result__);
   }
   
   static Future<List<BMKFavPoiInfo>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,44 +38,46 @@ class BMKFavPoiInfo extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKFavPoiInfo>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKFavPoiInfo>(it))
+        .where((element) => element !=null)
+        .cast<BMKFavPoiInfo>()
+        .toList() ?? <BMKFavPoiInfo>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_favId() async {
+  Future<String?> get_favId() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_favId", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_poiName() async {
+  Future<String?> get_poiName() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_poiName", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_poiUid() async {
+  Future<String?> get_poiUid() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_poiUid", {'__this__': this});
     return __result__;
   }
   
-  Future<CLLocationCoordinate2D> get_pt() async {
+  Future<CLLocationCoordinate2D?> get_pt() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_pt", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
   }
   
-  Future<String> get_address() async {
+  Future<String?> get_address() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_address", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_cityName() async {
+  Future<String?> get_cityName() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_cityName", {'__this__': this});
     return __result__;
   }
   
-  Future<int> get_timeStamp() async {
+  Future<int?> get_timeStamp() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_timeStamp", {'__this__': this});
     return __result__;
   }
@@ -138,40 +140,45 @@ class BMKFavPoiInfo extends NSObject  {
 }
 
 extension BMKFavPoiInfo_Batch on List<BMKFavPoiInfo> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_favId_batch() async {
+  Future<List<String?>> get_favId_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_favId_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_poiName_batch() async {
+  Future<List<String?>> get_poiName_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_poiName_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_poiUid_batch() async {
+  Future<List<String?>> get_poiUid_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<CLLocationCoordinate2D>> get_pt_batch() async {
+  Future<List<CLLocationCoordinate2D?>> get_pt_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_pt_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__))?.cast<CLLocationCoordinate2D>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__)).cast<CLLocationCoordinate2D?>().toList();
   }
   
-  Future<List<String>> get_address_batch() async {
+  Future<List<String?>> get_address_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_address_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<String>> get_cityName_batch() async {
+  Future<List<String?>> get_cityName_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_cityName_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<int>> get_timeStamp_batch() async {
+  Future<List<int?>> get_timeStamp_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKFavPoiInfo::get_timeStamp_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
   //endregion

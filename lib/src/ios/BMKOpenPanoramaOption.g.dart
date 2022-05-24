@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenPanoramaOption extends NSObject  {
+class BMKOpenPanoramaOption extends BMKOpenOption  {
   //region constants
   static const String name__ = 'BMKOpenPanoramaOption';
 
@@ -23,12 +23,12 @@ class BMKOpenPanoramaOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPanoramaOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenPanoramaOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenPanoramaOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption?>(__result__);
   }
   
   static Future<List<BMKOpenPanoramaOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,14 +38,16 @@ class BMKOpenPanoramaOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanoramaOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenPanoramaOption>()
+        .toList() ?? <BMKOpenPanoramaOption>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_poiUid() async {
+  Future<String?> get_poiUid() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPanoramaOption::get_poiUid", {'__this__': this});
     return __result__;
   }
@@ -72,10 +74,15 @@ class BMKOpenPanoramaOption extends NSObject  {
 }
 
 extension BMKOpenPanoramaOption_Batch on List<BMKOpenPanoramaOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_poiUid_batch() async {
+  Future<List<String?>> get_poiUid_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPanoramaOption::get_poiUid_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

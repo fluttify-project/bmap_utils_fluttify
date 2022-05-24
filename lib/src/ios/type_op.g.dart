@@ -11,7 +11,7 @@ import 'package:bmap_utils_fluttify/src/ios/ios.export.g.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
-import 'package:bmap_core_fluttify/bmap_core_fluttify.dart';
+
 
 // ignore_for_file: non_constant_identifier_names, camel_case_types, missing_return, unused_import
 // type check
@@ -21,50 +21,92 @@ Future<bool> BmapUtilsFluttifyIOSIs<T>(dynamic __this__) async {
   if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ is T;
   }
-  else if (T == BMKOpenRoute) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenRoute', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenPoi) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoi', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenPoiDetailOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenPoiNearbyOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKFavPoiInfo) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenRouteOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenWalkingRouteOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenDrivingRouteOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenTransitRouteOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenOption', {'__this__': __this__});
-    return result;
-  } else if (T == BMKOpenPanoramaOption) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'__this__': __this__});
+  else if (T == BMKBaseLog) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKBaseLog', {'__this__': __this__});
     return result;
   } else if (T == BMKOpenPanorama) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPanorama', {'__this__': __this__});
     return result;
+  } else if (T == BMKOpenPoiDetailOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoiDetailOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenDrivingRouteOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenDrivingRouteOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKNavigation) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKNavigation', {'__this__': __this__});
+    return result;
+  } else if (T == BMKFavPoiInfo) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKFavPoiInfo', {'__this__': __this__});
+    return result;
+  } else if (T == BMKUserLocation) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKUserLocation', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenPanoramaOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPanoramaOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapPoint) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapPoint', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapRect) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapRect', {'__this__': __this__});
+    return result;
   } else if (T == BMKFavPoiManager) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKFavPoiManager', {'__this__': __this__});
+    return result;
+  } else if (T == BMKCoordinateSpan) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateSpan', {'__this__': __this__});
+    return result;
+  } else if (T == BMKIndoorPlanNode) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKIndoorPlanNode', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenRouteOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenRouteOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenPoiNearbyOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoiNearbyOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapManager) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapManager', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenWalkingRouteOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenWalkingRouteOption', {'__this__': __this__});
     return result;
   } else if (T == BMKNaviPara) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKNaviPara', {'__this__': __this__});
     return result;
-  } else if (T == BMKNavigation) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKNavigation', {'__this__': __this__});
+  } else if (T == BMKCoordinateBounds) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateBounds', {'__this__': __this__});
+    return result;
+  } else if (T == BMKMapSize) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKMapSize', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenPoi) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenPoi', {'__this__': __this__});
+    return result;
+  } else if (T == BMKCoordinateRegion) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKCoordinateRegion', {'__this__': __this__});
+    return result;
+  } else if (T == BMKGeoPoint) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKGeoPoint', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenRoute) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenRoute', {'__this__': __this__});
+    return result;
+  } else if (T == BMKBuildInfo) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKBuildInfo', {'__this__': __this__});
+    return result;
+  } else if (T == BMKAddressComponent) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKAddressComponent', {'__this__': __this__});
+    return result;
+  } else if (T == BMKOpenTransitRouteOption) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKOpenTransitRouteOption', {'__this__': __this__});
+    return result;
+  } else if (T == BMKPlanNode) {
+    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfBMKPlanNode', {'__this__': __this__});
     return result;
   } else if (T == CLLocation) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfCLLocation', {'__this__': __this__});
@@ -92,9 +134,6 @@ Future<bool> BmapUtilsFluttifyIOSIs<T>(dynamic __this__) async {
     return result;
   } else if (T == NSError) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfNSError', {'__this__': __this__});
-    return result;
-  } else if (T == NSCopying) {
-    final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfNSCopying', {'__this__': __this__});
     return result;
   } else if (T == UIView) {
     final result = await kBmapUtilsFluttifyChannel.invokeMethod('RefClass::isKindOfUIView', {'__this__': __this__});
@@ -132,7 +171,7 @@ Future<bool> BmapUtilsFluttifyIOSIs<T>(dynamic __this__) async {
 // type cast
 // 给一个可选的泛型, 如果没有指定泛型就返回dynamic
 @optionalTypeArgs
-T BmapUtilsFluttifyIOSAs<T>(dynamic __this__) {
+T? BmapUtilsFluttifyIOSAs<T>(dynamic __this__) {
   final typeName = T.toString();
 
   if (__this__ == null) {
@@ -140,36 +179,64 @@ T BmapUtilsFluttifyIOSAs<T>(dynamic __this__) {
   } else if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ as T;
   }
-  else if (T == BMKOpenRoute) {
-    return (BMKOpenRoute()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenPoi) {
-    return (BMKOpenPoi()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenPoiDetailOption) {
-    return (BMKOpenPoiDetailOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenPoiNearbyOption) {
-    return (BMKOpenPoiNearbyOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKFavPoiInfo) {
-    return (BMKFavPoiInfo()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenRouteOption) {
-    return (BMKOpenRouteOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenWalkingRouteOption) {
-    return (BMKOpenWalkingRouteOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenDrivingRouteOption) {
-    return (BMKOpenDrivingRouteOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenTransitRouteOption) {
-    return (BMKOpenTransitRouteOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenOption) {
-    return (BMKOpenOption()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKOpenPanoramaOption) {
-    return (BMKOpenPanoramaOption()..refId = (__this__ as Ref).refId) as T;
+  else if (T == BMKBaseLog) {
+    return (BMKBaseLog()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKOpenPanorama) {
     return (BMKOpenPanorama()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKFavPoiManager) {
-    return (BMKFavPoiManager()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == BMKNaviPara) {
-    return (BMKNaviPara()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenPoiDetailOption) {
+    return (BMKOpenPoiDetailOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenOption) {
+    return (BMKOpenOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenDrivingRouteOption) {
+    return (BMKOpenDrivingRouteOption()..refId = (__this__ as Ref).refId) as T;
   } else if (T == BMKNavigation) {
     return (BMKNavigation()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKFavPoiInfo) {
+    return (BMKFavPoiInfo()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKUserLocation) {
+    return (BMKUserLocation()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenPanoramaOption) {
+    return (BMKOpenPanoramaOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapPoint) {
+    return (BMKMapPoint()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapRect) {
+    return (BMKMapRect()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKFavPoiManager) {
+    return (BMKFavPoiManager()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKCoordinateSpan) {
+    return (BMKCoordinateSpan()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKIndoorPlanNode) {
+    return (BMKIndoorPlanNode()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenRouteOption) {
+    return (BMKOpenRouteOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenPoiNearbyOption) {
+    return (BMKOpenPoiNearbyOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapManager) {
+    return (BMKMapManager()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenWalkingRouteOption) {
+    return (BMKOpenWalkingRouteOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKNaviPara) {
+    return (BMKNaviPara()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKCoordinateBounds) {
+    return (BMKCoordinateBounds()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKMapSize) {
+    return (BMKMapSize()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenPoi) {
+    return (BMKOpenPoi()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKCoordinateRegion) {
+    return (BMKCoordinateRegion()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKGeoPoint) {
+    return (BMKGeoPoint()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenRoute) {
+    return (BMKOpenRoute()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKBuildInfo) {
+    return (BMKBuildInfo()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKAddressComponent) {
+    return (BMKAddressComponent()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKOpenTransitRouteOption) {
+    return (BMKOpenTransitRouteOption()..refId = (__this__ as Ref).refId) as T;
+  } else if (T == BMKPlanNode) {
+    return (BMKPlanNode()..refId = (__this__ as Ref).refId) as T;
   } else if (T == CLLocation) {
     return (CLLocation()..refId = (__this__ as Ref).refId) as T;
   } else if (T == CLHeading) {
@@ -188,8 +255,6 @@ T BmapUtilsFluttifyIOSAs<T>(dynamic __this__) {
     return (CLLocationManager()..refId = (__this__ as Ref).refId) as T;
   } else if (T == NSError) {
     return (NSError()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSCopying) {
-    return (NSCopying.subInstance()..refId = (__this__ as Ref).refId) as T;
   } else if (T == UIView) {
     return (UIView()..refId = (__this__ as Ref).refId) as T;
   } else if (T == UIViewController) {
@@ -209,9 +274,7 @@ T BmapUtilsFluttifyIOSAs<T>(dynamic __this__) {
   } else if (T == NSOperation) {
     return (NSOperation()..refId = (__this__ as Ref).refId) as T;
   }
-  else if (BmapCoreFluttifyIOSAs<T>(__this__) != null) {
-    return BmapCoreFluttifyIOSAs<T>(__this__);
-  }
+  
   else {
     return __this__;
   }

@@ -23,12 +23,12 @@ class BMKOpenOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenOption?>(__result__);
   }
   
   static Future<List<BMKOpenOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKOpenOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenOption>()
+        .toList() ?? <BMKOpenOption>[];
   }
   
   //endregion
 
   //region getters
-  Future<String> get_appScheme() async {
+  Future<String?> get_appScheme() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenOption::get_appScheme", {'__this__': this});
     return __result__;
   }
   
-  Future<bool> get_isSupportWeb() async {
+  Future<bool?> get_isSupportWeb() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenOption::get_isSupportWeb", {'__this__': this});
     return __result__;
   }
@@ -83,15 +85,20 @@ class BMKOpenOption extends NSObject  {
 }
 
 extension BMKOpenOption_Batch on List<BMKOpenOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<String>> get_appScheme_batch() async {
+  Future<List<String?>> get_appScheme_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenOption::get_appScheme_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
-  Future<List<bool>> get_isSupportWeb_batch() async {
+  Future<List<bool?>> get_isSupportWeb_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenOption::get_isSupportWeb_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<bool>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   //endregion

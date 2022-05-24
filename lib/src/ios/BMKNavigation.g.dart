@@ -23,12 +23,12 @@ class BMKNavigation extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKNavigation> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKNavigation?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKNavigation',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKNavigation>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKNavigation?>(__result__);
   }
   
   static Future<List<BMKNavigation>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKNavigation extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKNavigation>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKNavigation>(it))
+        .where((element) => element !=null)
+        .cast<BMKNavigation>()
+        .toList() ?? <BMKNavigation>[];
   }
   
   //endregion
@@ -53,6 +55,73 @@ class BMKNavigation extends NSObject  {
   //endregion
 
   //region methods
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapNavigation(BMKNaviPara para) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKNavigation::openBaiduMapNavigation([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapNavigation', {"para": para});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapWalkNavigation(BMKNaviPara para) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKNavigation::openBaiduMapWalkNavigation([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapWalkNavigation', {"para": para});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapRideNavigation(BMKNaviPara para) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKNavigation::openBaiduMapRideNavigation([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapRideNavigation', {"para": para});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapwalkARNavigation(BMKNaviPara para) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKNavigation::openBaiduMapwalkARNavigation([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation', {"para": para});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
   
   //endregion
 
@@ -63,6 +132,11 @@ class BMKNavigation extends NSObject  {
 }
 
 extension BMKNavigation_Batch on List<BMKNavigation> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion
@@ -72,6 +146,49 @@ extension BMKNavigation_Batch on List<BMKNavigation> {
   //endregion
 
   //region methods
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapNavigation_batch(List<BMKNaviPara> para) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapWalkNavigation_batch(List<BMKNaviPara> para) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapWalkNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapRideNavigation_batch(List<BMKNaviPara> para) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapRideNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapwalkARNavigation_batch(List<BMKNaviPara> para) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKNavigation::openBaiduMapwalkARNavigation_batch', [for (int __i__ = 0; __i__ < para.length; __i__++) {"para": para[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
   
   //endregion
 }

@@ -27,7 +27,7 @@ mixin BMKOpenPanoramaDelegate on NSObject {
   
 
   /* @mustCallSuper */
-  Future<void> onGetOpenPanoramaStatus(BMKOpenErrorCode ecode) {}
+  Future<void> onGetOpenPanoramaStatus(BMKOpenErrorCode ecode) async {}
   
 }
 

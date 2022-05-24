@@ -17,7 +17,7 @@ A new flutter plugin project.
   s.dependency 'Flutter'
   s.dependency 'foundation_fluttify'
   # flutter plugin dependency
-  s.dependency 'bmap_core_fluttify'
+  
   # sdk dependency
   s.dependency 'BaiduMapKit/Utils', '6.4'
 
