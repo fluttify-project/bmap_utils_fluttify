@@ -5,9 +5,12 @@
 #import "BmapUtilsFluttifyPlugin.h"
 #import <objc/runtime.h>
 #import "SubHandler/SubHandler0.h"
+#import "SubHandler/SubHandler1.h"
+#import "SubHandler/SubHandler2.h"
 #import "SubHandler/Custom/SubHandlerCustom.h"
 #import "FluttifyMessageCodec.h"
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 
 // Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
@@ -16,7 +19,7 @@ extern NSMutableDictionary<NSString*, NSObject*>* HEAP;
 // 日志打印开关
 extern BOOL enableLog;
 
-@interface BmapUtilsFluttifyPlugin (_Delegate) <BMKOpenPanoramaDelegate> @end
+@interface BmapUtilsFluttifyPlugin (_Delegate) <BMKOpenPanoramaDelegate, BMKGeneralDelegate> @end
 
 @implementation BmapUtilsFluttifyPlugin {
   NSMutableDictionary<NSString*, Handler>* _handlerMap;
@@ -30,6 +33,8 @@ extern BOOL enableLog;
     _handlerMap = @{}.mutableCopy;
 
     [_handlerMap addEntriesFromDictionary: [self getSubHandler0]];
+    [_handlerMap addEntriesFromDictionary: [self getSubHandler1]];
+    [_handlerMap addEntriesFromDictionary: [self getSubHandler2]];
     [_handlerMap addEntriesFromDictionary: [self getSubHandlerCustom]];
   }
 
@@ -76,6 +81,48 @@ extern BOOL enableLog;
 
   dispatch_async(dispatch_get_main_queue(), ^{
     [channel invokeMethod:@"Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus" arguments:@{@"ecode": argecode == nil ? [NSNull null] : argecode}];
+  });
+  
+}
+
+- (void)onGetNetworkState : (int)iError
+{
+  FlutterMethodChannel *channel = [FlutterMethodChannel
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
+  // print log
+  if (enableLog) {
+    NSLog(@"BMKGeneralDelegate::onGetNetworkState");
+  }
+
+  // convert to jsonable arg
+  // primitive callback arg
+  NSNumber* argiError = @(iError);
+
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetNetworkState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
+  });
+  
+}
+
+- (void)onGetPermissionState : (int)iError
+{
+  FlutterMethodChannel *channel = [FlutterMethodChannel
+        methodChannelWithName:@"BMKGeneralDelegate::Callback"
+              binaryMessenger:[_registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
+  // print log
+  if (enableLog) {
+    NSLog(@"BMKGeneralDelegate::onGetPermissionState");
+  }
+
+  // convert to jsonable arg
+  // primitive callback arg
+  NSNumber* argiError = @(iError);
+
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [channel invokeMethod:@"Callback::BMKGeneralDelegate::onGetPermissionState" arguments:@{@"iError": argiError == nil ? [NSNull null] : argiError}];
   });
   
 }

@@ -23,12 +23,12 @@ class BMKOpenPoi extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoi> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenPoi?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenPoi',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenPoi>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenPoi?>(__result__);
   }
   
   static Future<List<BMKOpenPoi>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKOpenPoi extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoi>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoi>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenPoi>()
+        .toList() ?? <BMKOpenPoi>[];
   }
   
   //endregion
@@ -53,6 +55,39 @@ class BMKOpenPoi extends NSObject  {
   //endregion
 
   //region methods
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapPoiDetailPage(BMKOpenPoiDetailOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenPoi::openBaiduMapPoiDetailPage([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage', {"option": option});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
+  
+  
+  static Future<BMKOpenErrorCode?> openBaiduMapPoiNearbySearch(BMKOpenPoiNearbyOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenPoi::openBaiduMapPoiNearbySearch([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch', {"option": option});
+  
+  
+    // handle native call
+  
+  
+    return (__result__ as int).toBMKOpenErrorCode();
+  }
   
   //endregion
 
@@ -63,6 +98,11 @@ class BMKOpenPoi extends NSObject  {
 }
 
 extension BMKOpenPoi_Batch on List<BMKOpenPoi> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion
@@ -72,6 +112,27 @@ extension BMKOpenPoi_Batch on List<BMKOpenPoi> {
   //endregion
 
   //region methods
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapPoiDetailPage_batch(List<BMKOpenPoiDetailOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPoi::openBaiduMapPoiDetailPage_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
+  
+  
+  static Future<List<BMKOpenErrorCode?>> openBaiduMapPoiNearbySearch_batch(List<BMKOpenPoiNearbyOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPoi::openBaiduMapPoiNearbySearch_batch', [for (int __i__ = 0; __i__ < option.length; __i__++) {"option": option[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenErrorCode()).cast<BMKOpenErrorCode?>().toList();
+  }
   
   //endregion
 }

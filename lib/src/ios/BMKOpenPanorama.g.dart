@@ -23,12 +23,12 @@ class BMKOpenPanorama extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPanorama> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenPanorama?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenPanorama',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenPanorama>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenPanorama?>(__result__);
   }
   
   static Future<List<BMKOpenPanorama>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKOpenPanorama extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanorama>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPanorama>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenPanorama>()
+        .toList() ?? <BMKOpenPanorama>[];
   }
   
   //endregion
@@ -49,10 +51,53 @@ class BMKOpenPanorama extends NSObject  {
   //endregion
 
   //region setters
+  Future<void> set_delegate(BMKOpenPanoramaDelegate delegate) async {
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPanorama::set_delegate', <String, dynamic>{'__this__': this, });
+  
+    MethodChannel('BMKOpenPanoramaDelegate::Callback', kBmapUtilsFluttifyMethodCodec)
+      .setMethodCallHandler((methodCall) async {
+        try {
+          final args = methodCall.arguments as Map;
+          switch (methodCall.method) {
+            case 'Callback::BMKOpenPanoramaDelegate::onGetOpenPanoramaStatus':
+              // print log
+              if (fluttifyLogEnabled) {
+                debugPrint('fluttify-dart-callback: onGetOpenPanoramaStatus([\'ecode\':${args['ecode']}])');
+              }
+          
+              // handle the native call
+              await delegate.onGetOpenPanoramaStatus((args['ecode'] as int).toBMKOpenErrorCode());
+              break;
+            default:
+              throw MissingPluginException('方法${methodCall.method}未实现');
+              break;
+          }
+        } catch (e) {
+          debugPrint(e.toString());
+          rethrow;
+        }
+      });
+  }
   
   //endregion
 
   //region methods
+  
+  Future<void> openBaiduMapPanorama(BMKOpenPanoramaOption option) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKOpenPanorama@$refId::openBaiduMapPanorama([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPanorama::openBaiduMapPanorama', {"option": option, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
   
   //endregion
 
@@ -63,6 +108,11 @@ class BMKOpenPanorama extends NSObject  {
 }
 
 extension BMKOpenPanorama_Batch on List<BMKOpenPanorama> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion
@@ -72,6 +122,16 @@ extension BMKOpenPanorama_Batch on List<BMKOpenPanorama> {
   //endregion
 
   //region methods
+  
+  Future<List<void>> openBaiduMapPanorama_batch(List<BMKOpenPanoramaOption> option) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenPanorama::openBaiduMapPanorama_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"option": option[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<void>().toList();
+  }
   
   //endregion
 }

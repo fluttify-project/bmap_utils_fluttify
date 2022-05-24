@@ -23,12 +23,12 @@ class BMKFavPoiManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKFavPoiManager> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKFavPoiManager?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKFavPoiManager',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKFavPoiManager>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKFavPoiManager?>(__result__);
   }
   
   static Future<List<BMKFavPoiManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,8 +38,10 @@ class BMKFavPoiManager extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKFavPoiManager>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKFavPoiManager>(it))
+        .where((element) => element !=null)
+        .cast<BMKFavPoiManager>()
+        .toList() ?? <BMKFavPoiManager>[];
   }
   
   //endregion
@@ -54,7 +56,41 @@ class BMKFavPoiManager extends NSObject  {
 
   //region methods
   
-  Future<List<dynamic>> getAllFavPois() async {
+  Future<int?> addFavPoi(BMKFavPoiInfo favPoiInfo) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKFavPoiManager@$refId::addFavPoi([])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::addFavPoi', {"favPoiInfo": favPoiInfo, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<BMKFavPoiInfo?> getFavPoi(String favId) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKFavPoiManager@$refId::getFavPoi([\'favId\':$favId])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::getFavPoi', {"favId": favId, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return BmapUtilsFluttifyIOSAs<BMKFavPoiInfo>(__result__);
+  }
+  
+  
+  Future<List<dynamic>?> getAllFavPois() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKFavPoiManager@$refId::getAllFavPois([])');
@@ -67,11 +103,28 @@ class BMKFavPoiManager extends NSObject  {
     // handle native call
   
   
-    return (__result__ as List)?.cast<dynamic>();
+    return (__result__ as List?)?.cast<dynamic>();
   }
   
   
-  Future<bool> deleteFavPoi(String favId) async {
+  Future<bool?> updateFavPoi_favPoiInfo(String favId, BMKFavPoiInfo favPoiInfo) async {
+    // print log
+    if (fluttifyLogEnabled) {
+      debugPrint('fluttify-dart: BMKFavPoiManager@$refId::updateFavPoi([\'favId\':$favId])');
+    }
+  
+    // invoke native method
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo', {"favId": favId, "favPoiInfo": favPoiInfo, "__this__": this});
+  
+  
+    // handle native call
+  
+  
+    return __result__;
+  }
+  
+  
+  Future<bool?> deleteFavPoi(String favId) async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKFavPoiManager@$refId::deleteFavPoi([\'favId\':$favId])');
@@ -88,7 +141,7 @@ class BMKFavPoiManager extends NSObject  {
   }
   
   
-  Future<bool> clearAllFavPois() async {
+  Future<bool?> clearAllFavPois() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: BMKFavPoiManager@$refId::clearAllFavPois([])');
@@ -113,6 +166,11 @@ class BMKFavPoiManager extends NSObject  {
 }
 
 extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
   
   //endregion
@@ -123,36 +181,69 @@ extension BMKFavPoiManager_Batch on List<BMKFavPoiManager> {
 
   //region methods
   
-  Future<List<List<dynamic>>> getAllFavPois_batch() async {
+  Future<List<int?>> addFavPoi_batch(List<BMKFavPoiInfo> favPoiInfo) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::addFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favPoiInfo": favPoiInfo[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
+  }
+  
+  
+  Future<List<BMKFavPoiInfo?>> getFavPoi_batch(List<String> favId) async {
+    assert(true);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::getFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<BMKFavPoiInfo>(__result__)).cast<BMKFavPoiInfo?>().toList();
+  }
+  
+  
+  Future<List<List<dynamic>?>> getAllFavPois_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::getAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => (__result__ as List)?.cast<dynamic>()).cast<List<dynamic>>().toList();
+    return (resultBatch as List).map((__result__) => (__result__ as List?)?.cast<dynamic>()).cast<List<dynamic>?>().toList();
   }
   
   
-  Future<List<bool>> deleteFavPoi_batch(List<String> favId) async {
+  Future<List<bool?>> updateFavPoi_favPoiInfo_batch(List<String> favId, List<BMKFavPoiInfo> favPoiInfo) async {
+    assert(favId.length == favPoiInfo.length);
+  
+    // invoke native method
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::updateFavPoi_favPoiInfo_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "favPoiInfo": favPoiInfo[__i__], "__this__": this[__i__]}]);
+  
+  
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
+  }
+  
+  
+  Future<List<bool?>> deleteFavPoi_batch(List<String> favId) async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::deleteFavPoi_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"favId": favId[__i__], "__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   
-  Future<List<bool>> clearAllFavPois_batch() async {
+  Future<List<bool?>> clearAllFavPois_batch() async {
     assert(true);
   
     // invoke native method
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod('BMKFavPoiManager::clearAllFavPois_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).map((__result__) => __result__).cast<bool>().toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<bool?>().toList();
   }
   
   //endregion

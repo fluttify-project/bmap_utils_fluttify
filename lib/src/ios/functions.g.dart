@@ -13,7 +13,199 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-Future<BMKMapPoint> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) async {
+Future<BMKCoordinateSpan?> BMKCoordinateSpanMake(double latitudeDelta, double longitudeDelta) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKCoordinateSpanMake::BMKCoordinateSpanMake([\'latitudeDelta\':$latitudeDelta, \'longitudeDelta\':$longitudeDelta])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKCoordinateSpanMake::BMKCoordinateSpanMake', {"latitudeDelta": latitudeDelta, "longitudeDelta": longitudeDelta});
+  
+
+  // handle native call
+  
+
+  return BmapUtilsFluttifyIOSAs<BMKCoordinateSpan>(__result__);
+}
+
+Future<BMKCoordinateRegion?> BMKCoordinateRegionMake(CLLocationCoordinate2D centerCoordinate, BMKCoordinateSpan span) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKCoordinateRegionMake::BMKCoordinateRegionMake([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKCoordinateRegionMake::BMKCoordinateRegionMake', {"centerCoordinate": centerCoordinate, "span": span});
+  
+
+  // handle native call
+  
+
+  return BmapUtilsFluttifyIOSAs<BMKCoordinateRegion>(__result__);
+}
+
+Future<BMKMapPoint?> BMKMapPointMake(double x, double y) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapPointMake::BMKMapPointMake([\'x\':$x, \'y\':$y])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapPointMake::BMKMapPointMake', {"x": x, "y": y});
+  
+
+  // handle native call
+  
+
+  return BmapUtilsFluttifyIOSAs<BMKMapPoint>(__result__);
+}
+
+Future<BMKMapSize?> BMKMapSizeMake(double width, double height) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapSizeMake::BMKMapSizeMake([\'width\':$width, \'height\':$height])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapSizeMake::BMKMapSizeMake', {"width": width, "height": height});
+  
+
+  // handle native call
+  
+
+  return BmapUtilsFluttifyIOSAs<BMKMapSize>(__result__);
+}
+
+Future<BMKMapRect?> BMKMapRectMake(double x, double y, double width, double height) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectMake::BMKMapRectMake([\'x\':$x, \'y\':$y, \'width\':$width, \'height\':$height])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectMake::BMKMapRectMake', {"x": x, "y": y, "width": width, "height": height});
+  
+
+  // handle native call
+  
+
+  return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
+}
+
+Future<bool?> BMKMapRectIsNull(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectIsNull::BMKMapRectIsNull([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectIsNull::BMKMapRectIsNull', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMinX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMinX::BMKMapRectGetMinX([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMinX::BMKMapRectGetMinX', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMinY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMinY::BMKMapRectGetMinY([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMinY::BMKMapRectGetMinY', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMidX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMidX::BMKMapRectGetMidX([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMidX::BMKMapRectGetMidX', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMidY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMidY::BMKMapRectGetMidY([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMidY::BMKMapRectGetMidY', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMaxX(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMaxX::BMKMapRectGetMaxX([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMaxX::BMKMapRectGetMaxX', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetMaxY(BMKMapRect rect) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMapRectGetMaxY::BMKMapRectGetMaxY([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMapRectGetMaxY::BMKMapRectGetMaxY', {"rect": rect});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<BMKMapPoint?> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapPointForCoordinate::BMKMapPointForCoordinate([])');
@@ -29,7 +221,7 @@ Future<BMKMapPoint> BMKMapPointForCoordinate(CLLocationCoordinate2D coordinate) 
   return BmapUtilsFluttifyIOSAs<BMKMapPoint>(__result__);
 }
 
-Future<CLLocationCoordinate2D> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) async {
+Future<CLLocationCoordinate2D?> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordinateForMapPoint::BMKCoordinateForMapPoint([])');
@@ -45,7 +237,7 @@ Future<CLLocationCoordinate2D> BMKCoordinateForMapPoint(BMKMapPoint mapPoint) as
   return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
 }
 
-Future<CGPoint> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09llCoordinate) async {
+Future<CGPoint?> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09llCoordinate) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKConvertToBaiduMercatorFromBD09LL::BMKConvertToBaiduMercatorFromBD09LL([])');
@@ -61,7 +253,7 @@ Future<CGPoint> BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09l
   return BmapUtilsFluttifyIOSAs<CGPoint>(__result__);
 }
 
-Future<CLLocationCoordinate2D> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCTCoordinate) async {
+Future<CLLocationCoordinate2D?> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCTCoordinate) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKConvertToBD09LLFromBaiduMercator::BMKConvertToBD09LLFromBaiduMercator([])');
@@ -77,7 +269,7 @@ Future<CLLocationCoordinate2D> BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCT
   return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
 }
 
-Future<CLLocationCoordinate2D> BMKCoordTrans(CLLocationCoordinate2D coordinate, BMK_COORD_TYPE fromType, BMK_COORD_TYPE toType) async {
+Future<CLLocationCoordinate2D?> BMKCoordTrans(CLLocationCoordinate2D coordinate, BMK_COORD_TYPE fromType, BMK_COORD_TYPE toType) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordTrans::BMKCoordTrans([])');
@@ -93,7 +285,7 @@ Future<CLLocationCoordinate2D> BMKCoordTrans(CLLocationCoordinate2D coordinate, 
   return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
 }
 
-Future<Map> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD_TYPE type) async {
+Future<Map?> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD_TYPE type) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKConvertBaiduCoorFrom::BMKConvertBaiduCoorFrom([])');
@@ -109,7 +301,7 @@ Future<Map> BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate, BMK_COORD
   return __result__;
 }
 
-Future<double> BMKMetersPerMapPointAtLatitude(double latitude) async {
+Future<double?> BMKMetersPerMapPointAtLatitude(double latitude) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMetersPerMapPointAtLatitude::BMKMetersPerMapPointAtLatitude([\'latitude\':$latitude])');
@@ -125,7 +317,7 @@ Future<double> BMKMetersPerMapPointAtLatitude(double latitude) async {
   return __result__;
 }
 
-Future<double> BMKMapPointsPerMeterAtLatitude(double latitude) async {
+Future<double?> BMKMapPointsPerMeterAtLatitude(double latitude) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapPointsPerMeterAtLatitude::BMKMapPointsPerMeterAtLatitude([\'latitude\':$latitude])');
@@ -141,7 +333,7 @@ Future<double> BMKMapPointsPerMeterAtLatitude(double latitude) async {
   return __result__;
 }
 
-Future<double> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
+Future<double?> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMetersBetweenMapPoints::BMKMetersBetweenMapPoints([])');
@@ -157,7 +349,23 @@ Future<double> BMKMetersBetweenMapPoints(BMKMapPoint a, BMKMapPoint b) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetWidth(BMKMapRect rect) async {
+Future<double?> BMKMetersBetweenCoordinates(CLLocationCoordinate2D a, CLLocationCoordinate2D b) async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKMetersBetweenCoordinates::BMKMetersBetweenCoordinates([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKMetersBetweenCoordinates::BMKMetersBetweenCoordinates', {"a": a, "b": b});
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<double?> BMKMapRectGetWidth(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetWidth::BMKMapRectGetWidth([])');
@@ -173,7 +381,7 @@ Future<double> BMKMapRectGetWidth(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<double> BMKMapRectGetHeight(BMKMapRect rect) async {
+Future<double?> BMKMapRectGetHeight(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectGetHeight::BMKMapRectGetHeight([])');
@@ -189,7 +397,7 @@ Future<double> BMKMapRectGetHeight(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<bool> BMKMapPointEqualToPoint(BMKMapPoint point1, BMKMapPoint point2) async {
+Future<bool?> BMKMapPointEqualToPoint(BMKMapPoint point1, BMKMapPoint point2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapPointEqualToPoint::BMKMapPointEqualToPoint([])');
@@ -205,7 +413,7 @@ Future<bool> BMKMapPointEqualToPoint(BMKMapPoint point1, BMKMapPoint point2) asy
   return __result__;
 }
 
-Future<BMKMapPoint> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BMKMapPoint> polyline, int count) async {
+Future<BMKMapPoint?> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BMKMapPoint> polyline, int count) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKGetNearestMapPointFromPolyline::BMKGetNearestMapPointFromPolyline([\'count\':$count])');
@@ -221,7 +429,7 @@ Future<BMKMapPoint> BMKGetNearestMapPointFromPolyline(BMKMapPoint point, List<BM
   return BmapUtilsFluttifyIOSAs<BMKMapPoint>(__result__);
 }
 
-Future<BMKMapPoint> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMapPoint lineStartPt, BMKMapPoint lineEndPt) async {
+Future<BMKMapPoint?> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMapPoint lineStartPt, BMKMapPoint lineEndPt) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKGetPointToTheVerticalFootOfLine::BMKGetPointToTheVerticalFootOfLine([])');
@@ -237,7 +445,7 @@ Future<BMKMapPoint> BMKGetPointToTheVerticalFootOfLine(BMKMapPoint point, BMKMap
   return BmapUtilsFluttifyIOSAs<BMKMapPoint>(__result__);
 }
 
-Future<double> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint lineStartPt, BMKMapPoint lineEndPt) async {
+Future<double?> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint lineStartPt, BMKMapPoint lineEndPt) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKGetDistanceFromPointToLine::BMKGetDistanceFromPointToLine([])');
@@ -253,7 +461,7 @@ Future<double> BMKGetDistanceFromPointToLine(BMKMapPoint point, BMKMapPoint line
   return __result__;
 }
 
-Future<BMKCoordinateRegion> BMKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D centerCoordinate, double latitudinalMeters, double longitudinalMeters) async {
+Future<BMKCoordinateRegion?> BMKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D centerCoordinate, double latitudinalMeters, double longitudinalMeters) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordinateRegionMakeWithDistance::BMKCoordinateRegionMakeWithDistance([\'latitudinalMeters\':$latitudinalMeters, \'longitudinalMeters\':$longitudinalMeters])');
@@ -269,7 +477,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionMakeWithDistance(CLLocationCoordi
   return BmapUtilsFluttifyIOSAs<BMKCoordinateRegion>(__result__);
 }
 
-Future<bool> BMKMapSizeEqualToSize(BMKMapSize size1, BMKMapSize size2) async {
+Future<bool?> BMKMapSizeEqualToSize(BMKMapSize size1, BMKMapSize size2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapSizeEqualToSize::BMKMapSizeEqualToSize([])');
@@ -285,7 +493,7 @@ Future<bool> BMKMapSizeEqualToSize(BMKMapSize size1, BMKMapSize size2) async {
   return __result__;
 }
 
-Future<bool> BMKMapRectEqualToRect(BMKMapRect rect1, BMKMapRect rect2) async {
+Future<bool?> BMKMapRectEqualToRect(BMKMapRect rect1, BMKMapRect rect2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectEqualToRect::BMKMapRectEqualToRect([])');
@@ -301,7 +509,7 @@ Future<bool> BMKMapRectEqualToRect(BMKMapRect rect1, BMKMapRect rect2) async {
   return __result__;
 }
 
-Future<bool> BMKMapRectIsEmpty(BMKMapRect rect) async {
+Future<bool?> BMKMapRectIsEmpty(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectIsEmpty::BMKMapRectIsEmpty([])');
@@ -317,7 +525,7 @@ Future<bool> BMKMapRectIsEmpty(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<BMKMapRect> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
+Future<BMKMapRect?> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectUnion::BMKMapRectUnion([])');
@@ -333,7 +541,7 @@ Future<BMKMapRect> BMKMapRectUnion(BMKMapRect rect1, BMKMapRect rect2) async {
   return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<BMKMapRect> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) async {
+Future<BMKMapRect?> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectIntersection::BMKMapRectIntersection([])');
@@ -349,7 +557,7 @@ Future<BMKMapRect> BMKMapRectIntersection(BMKMapRect rect1, BMKMapRect rect2) as
   return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<BMKMapRect> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async {
+Future<BMKMapRect?> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectInset::BMKMapRectInset([\'dx\':$dx, \'dy\':$dy])');
@@ -365,7 +573,7 @@ Future<BMKMapRect> BMKMapRectInset(BMKMapRect rect, double dx, double dy) async 
   return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<BMKMapRect> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async {
+Future<BMKMapRect?> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectOffset::BMKMapRectOffset([\'dx\':$dx, \'dy\':$dy])');
@@ -381,7 +589,7 @@ Future<BMKMapRect> BMKMapRectOffset(BMKMapRect rect, double dx, double dy) async
   return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<bool> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
+Future<bool?> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectContainsPoint::BMKMapRectContainsPoint([])');
@@ -397,7 +605,7 @@ Future<bool> BMKMapRectContainsPoint(BMKMapRect rect, BMKMapPoint point) async {
   return __result__;
 }
 
-Future<bool> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
+Future<bool?> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectContainsRect::BMKMapRectContainsRect([])');
@@ -413,7 +621,7 @@ Future<bool> BMKMapRectContainsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   return __result__;
 }
 
-Future<bool> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async {
+Future<bool?> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectIntersectsRect::BMKMapRectIntersectsRect([])');
@@ -429,7 +637,7 @@ Future<bool> BMKMapRectIntersectsRect(BMKMapRect rect1, BMKMapRect rect2) async 
   return __result__;
 }
 
-Future<BMKCoordinateRegion> BMKCoordinateRegionForMapRect(BMKMapRect rect) async {
+Future<BMKCoordinateRegion?> BMKCoordinateRegionForMapRect(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoordinateRegionForMapRect::BMKCoordinateRegionForMapRect([])');
@@ -445,7 +653,7 @@ Future<BMKCoordinateRegion> BMKCoordinateRegionForMapRect(BMKMapRect rect) async
   return BmapUtilsFluttifyIOSAs<BMKCoordinateRegion>(__result__);
 }
 
-Future<bool> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
+Future<bool?> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectSpans180thMeridian::BMKMapRectSpans180thMeridian([])');
@@ -461,7 +669,7 @@ Future<bool> BMKMapRectSpans180thMeridian(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<BMKMapRect> BMKMapRectRemainder(BMKMapRect rect) async {
+Future<BMKMapRect?> BMKMapRectRemainder(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKMapRectRemainder::BMKMapRectRemainder([])');
@@ -477,7 +685,7 @@ Future<BMKMapRect> BMKMapRectRemainder(BMKMapRect rect) async {
   return BmapUtilsFluttifyIOSAs<BMKMapRect>(__result__);
 }
 
-Future<bool> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, double radius) async {
+Future<bool?> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, double radius) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCircleContainsPoint::BMKCircleContainsPoint([\'radius\':$radius])');
@@ -493,7 +701,7 @@ Future<bool> BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, doubl
   return __result__;
 }
 
-Future<bool> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocationCoordinate2D center, double radius) async {
+Future<bool?> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocationCoordinate2D center, double radius) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCircleContainsCoordinate::BMKCircleContainsCoordinate([\'radius\':$radius])');
@@ -509,7 +717,7 @@ Future<bool> BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocatio
   return __result__;
 }
 
-Future<bool> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygon, int count) async {
+Future<bool?> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygon, int count) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKPolygonContainsPoint::BMKPolygonContainsPoint([\'count\':$count])');
@@ -525,7 +733,7 @@ Future<bool> BMKPolygonContainsPoint(BMKMapPoint point, List<BMKMapPoint> polygo
   return __result__;
 }
 
-Future<bool> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLLocationCoordinate2D> polygon, int count) async {
+Future<bool?> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLLocationCoordinate2D> polygon, int count) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKPolygonContainsCoordinate::BMKPolygonContainsCoordinate([\'count\':$count])');
@@ -541,7 +749,7 @@ Future<bool> BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, List<CLL
   return __result__;
 }
 
-Future<double> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocationCoordinate2D rightBottom) async {
+Future<double?> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocationCoordinate2D rightBottom) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKAreaBetweenCoordinates::BMKAreaBetweenCoordinates([])');
@@ -557,7 +765,7 @@ Future<double> BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocat
   return __result__;
 }
 
-Future<double> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int count) async {
+Future<double?> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int count) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKAreaForPolygon::BMKAreaForPolygon([\'count\':$count])');
@@ -573,7 +781,7 @@ Future<double> BMKAreaForPolygon(List<CLLocationCoordinate2D> coordinates, int c
   return __result__;
 }
 
-Future<double> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLocationCoordinate2D endCoord) async {
+Future<double?> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLocationCoordinate2D endCoord) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKGetDirectionFromCoords::BMKGetDirectionFromCoords([])');
@@ -589,7 +797,7 @@ Future<double> BMKGetDirectionFromCoords(CLLocationCoordinate2D startCoord, CLLo
   return __result__;
 }
 
-Future<double> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt) async {
+Future<double?> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKGetDirectionFromPoints::BMKGetDirectionFromPoints([])');
@@ -605,7 +813,7 @@ Future<double> BMKGetDirectionFromPoints(BMKMapPoint startPt, BMKMapPoint endPt)
   return __result__;
 }
 
-Future<String> BMKStringFromMapPoint(BMKMapPoint point) async {
+Future<String?> BMKStringFromMapPoint(BMKMapPoint point) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKStringFromMapPoint::BMKStringFromMapPoint([])');
@@ -621,7 +829,7 @@ Future<String> BMKStringFromMapPoint(BMKMapPoint point) async {
   return __result__;
 }
 
-Future<String> BMKStringFromMapSize(BMKMapSize size) async {
+Future<String?> BMKStringFromMapSize(BMKMapSize size) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKStringFromMapSize::BMKStringFromMapSize([])');
@@ -637,7 +845,7 @@ Future<String> BMKStringFromMapSize(BMKMapSize size) async {
   return __result__;
 }
 
-Future<String> BMKStringFromMapRect(BMKMapRect rect) async {
+Future<String?> BMKStringFromMapRect(BMKMapRect rect) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKStringFromMapRect::BMKStringFromMapRect([])');
@@ -653,7 +861,7 @@ Future<String> BMKStringFromMapRect(BMKMapRect rect) async {
   return __result__;
 }
 
-Future<CLLocationCoordinate2D> BMKCoorDictionaryDecode(Map dictionary) async {
+Future<CLLocationCoordinate2D?> BMKCoorDictionaryDecode(Map dictionary) async {
   // print log
   if (fluttifyLogEnabled) {
     debugPrint('fluttify-dart: BMKCoorDictionaryDecode::BMKCoorDictionaryDecode([\'dictionary\':$dictionary])');
@@ -667,4 +875,68 @@ Future<CLLocationCoordinate2D> BMKCoorDictionaryDecode(Map dictionary) async {
   
 
   return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
+}
+
+Future<String?> BMKGetMapApiVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiVersion::BMKGetMapApiVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKGetMapApiVersion::BMKGetMapApiVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<String?> BMKGetMapApiBaseComponentVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKGetMapApiBaseComponentVersion::BMKGetMapApiBaseComponentVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<String?> BMKGetMapApiUtilsComponentVersion() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKGetMapApiUtilsComponentVersion::BMKGetMapApiUtilsComponentVersion([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKGetMapApiUtilsComponentVersion::BMKGetMapApiUtilsComponentVersion', );
+  
+
+  // handle native call
+  
+
+  return __result__;
+}
+
+Future<bool?> BMKCheckUtilsComponentIsLegal() async {
+  // print log
+  if (fluttifyLogEnabled) {
+    debugPrint('fluttify-dart: BMKCheckUtilsComponentIsLegal::BMKCheckUtilsComponentIsLegal([])');
+  }
+
+  // invoke native method
+  final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod('BMKCheckUtilsComponentIsLegal::BMKCheckUtilsComponentIsLegal', );
+  
+
+  // handle native call
+  
+
+  return __result__;
 }

@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenPoiNearbyOption extends NSObject  {
+class BMKOpenPoiNearbyOption extends BMKOpenOption  {
   //region constants
   static const String name__ = 'BMKOpenPoiNearbyOption';
 
@@ -23,12 +23,12 @@ class BMKOpenPoiNearbyOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenPoiNearbyOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenPoiNearbyOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenPoiNearbyOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenPoiNearbyOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenPoiNearbyOption?>(__result__);
   }
   
   static Future<List<BMKOpenPoiNearbyOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,24 +38,26 @@ class BMKOpenPoiNearbyOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoiNearbyOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenPoiNearbyOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenPoiNearbyOption>()
+        .toList() ?? <BMKOpenPoiNearbyOption>[];
   }
   
   //endregion
 
   //region getters
-  Future<CLLocationCoordinate2D> get_location() async {
+  Future<CLLocationCoordinate2D?> get_location() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_location", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__);
   }
   
-  Future<int> get_radius() async {
+  Future<int?> get_radius() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_radius", {'__this__': this});
     return __result__;
   }
   
-  Future<String> get_keyword() async {
+  Future<String?> get_keyword() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_keyword", {'__this__': this});
     return __result__;
   }
@@ -94,20 +96,25 @@ class BMKOpenPoiNearbyOption extends NSObject  {
 }
 
 extension BMKOpenPoiNearbyOption_Batch on List<BMKOpenPoiNearbyOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<CLLocationCoordinate2D>> get_location_batch() async {
+  Future<List<CLLocationCoordinate2D?>> get_location_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_location_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__))?.cast<CLLocationCoordinate2D>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<CLLocationCoordinate2D>(__result__)).cast<CLLocationCoordinate2D?>().toList();
   }
   
-  Future<List<int>> get_radius_batch() async {
+  Future<List<int?>> get_radius_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_radius_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<int>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<int?>().toList();
   }
   
-  Future<List<String>> get_keyword_batch() async {
+  Future<List<String?>> get_keyword_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenPoiNearbyOption::get_keyword_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => __result__)?.cast<String>()?.toList();
+    return (resultBatch as List).map((__result__) => __result__).cast<String?>().toList();
   }
   
   //endregion

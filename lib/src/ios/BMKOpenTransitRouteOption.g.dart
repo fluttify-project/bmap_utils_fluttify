@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenTransitRouteOption extends NSObject  {
+class BMKOpenTransitRouteOption extends BMKOpenRouteOption  {
   //region constants
   static const String name__ = 'BMKOpenTransitRouteOption';
 
@@ -23,12 +23,12 @@ class BMKOpenTransitRouteOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenTransitRouteOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenTransitRouteOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenTransitRouteOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption?>(__result__);
   }
   
   static Future<List<BMKOpenTransitRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,17 +38,28 @@ class BMKOpenTransitRouteOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenTransitRouteOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenTransitRouteOption>()
+        .toList() ?? <BMKOpenTransitRouteOption>[];
   }
   
   //endregion
 
   //region getters
+  Future<BMKOpenTransitPolicy?> get_openTransitPolicy() async {
+    final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenTransitRouteOption::get_openTransitPolicy", {'__this__': this});
+    return (__result__ as int).toBMKOpenTransitPolicy();
+  }
   
   //endregion
 
   //region setters
+  Future<void> set_openTransitPolicy(BMKOpenTransitPolicy openTransitPolicy) async {
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenTransitRouteOption::set_openTransitPolicy', <String, dynamic>{'__this__': this, "openTransitPolicy": openTransitPolicy.toValue()});
+  
+  
+  }
   
   //endregion
 
@@ -63,11 +74,25 @@ class BMKOpenTransitRouteOption extends NSObject  {
 }
 
 extension BMKOpenTransitRouteOption_Batch on List<BMKOpenTransitRouteOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
+  Future<List<BMKOpenTransitPolicy?>> get_openTransitPolicy_batch() async {
+    final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenTransitRouteOption::get_openTransitPolicy_batch", [for (final __item__ in this) {'__this__': __item__}]);
+    return (resultBatch as List).map((__result__) => (__result__ as int).toBMKOpenTransitPolicy()).cast<BMKOpenTransitPolicy?>().toList();
+  }
   
   //endregion
 
   //region setters
+  Future<void> set_openTransitPolicy_batch(List<BMKOpenTransitPolicy> openTransitPolicy) async {
+    await kBmapUtilsFluttifyChannel.invokeMethod('BMKOpenTransitRouteOption::set_openTransitPolicy_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {'__this__': this[__i__], "openTransitPolicy": openTransitPolicy[__i__].toValue()}]);
+  
+  
+  }
   
   //endregion
 

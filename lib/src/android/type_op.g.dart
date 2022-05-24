@@ -11,7 +11,7 @@ import 'package:bmap_utils_fluttify/src/android/android.export.g.dart';
 
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
-import 'package:bmap_core_fluttify/bmap_core_fluttify.dart';
+
 
 // ignore_for_file: non_constant_identifier_names, camel_case_types, missing_return, unused_import
 // type check
@@ -111,7 +111,7 @@ Future<bool> BmapUtilsFluttifyAndroidIs<T>(dynamic __this__) async {
 // type cast
 // 给一个可选的泛型, 如果没有指定泛型就返回dynamic
 @optionalTypeArgs
-T BmapUtilsFluttifyAndroidAs<T>(dynamic __this__) {
+T? BmapUtilsFluttifyAndroidAs<T>(dynamic __this__) {
   final typeName = T.toString();
 
   if (__this__ == null) {
@@ -174,9 +174,7 @@ T BmapUtilsFluttifyAndroidAs<T>(dynamic __this__) {
   } else if (T == android_util_Pair) {
     return (android_util_Pair()..refId = (__this__ as Ref).refId) as T;
   }
-  else if (BmapCoreFluttifyAndroidAs<T>(__this__) != null) {
-    return BmapCoreFluttifyAndroidAs<T>(__this__);
-  }
+  
   else {
     return __this__;
   }

@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-class BMKOpenRouteOption extends NSObject  {
+class BMKOpenRouteOption extends BMKOpenOption  {
   //region constants
   static const String name__ = 'BMKOpenRouteOption';
 
@@ -23,12 +23,12 @@ class BMKOpenRouteOption extends NSObject  {
   //endregion
 
   //region creators
-  static Future<BMKOpenRouteOption> create__({ bool init = true /* ios only */ }) async {
+  static Future<BMKOpenRouteOption?> create__({ bool init = true /* ios only */ }) async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod(
       'ObjectFactory::createBMKOpenRouteOption',
       {'init': init}
     );
-    return BmapUtilsFluttifyIOSAs<BMKOpenRouteOption>(__result__);
+    return BmapUtilsFluttifyIOSAs<BMKOpenRouteOption?>(__result__);
   }
   
   static Future<List<BMKOpenRouteOption>> create_batch__(int length, { bool init = true /* ios only */ }) async {
@@ -38,19 +38,21 @@ class BMKOpenRouteOption extends NSObject  {
       {'length': length, 'init': init}
     );
     return __result_batch__
-        .map((it) => BmapUtilsFluttifyIOSAs<BMKOpenRouteOption>(it))
-        .toList();
+        ?.map((it) => BmapUtilsFluttifyIOSAs<BMKOpenRouteOption>(it))
+        .where((element) => element !=null)
+        .cast<BMKOpenRouteOption>()
+        .toList() ?? <BMKOpenRouteOption>[];
   }
   
   //endregion
 
   //region getters
-  Future<BMKPlanNode> get_startPoint() async {
+  Future<BMKPlanNode?> get_startPoint() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_startPoint", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
   
-  Future<BMKPlanNode> get_endPoint() async {
+  Future<BMKPlanNode?> get_endPoint() async {
     final __result__ = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_endPoint", {'__this__': this});
     return BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__);
   }
@@ -83,15 +85,20 @@ class BMKOpenRouteOption extends NSObject  {
 }
 
 extension BMKOpenRouteOption_Batch on List<BMKOpenRouteOption> {
+  String? get refId {
+    if (isEmpty) return null;
+    return first.refId;
+  }
+
   //region getters
-  Future<List<BMKPlanNode>> get_startPoint_batch() async {
+  Future<List<BMKPlanNode?>> get_startPoint_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_startPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__)).cast<BMKPlanNode?>().toList();
   }
   
-  Future<List<BMKPlanNode>> get_endPoint_batch() async {
+  Future<List<BMKPlanNode?>> get_endPoint_batch() async {
     final resultBatch = await kBmapUtilsFluttifyChannel.invokeMethod("BMKOpenRouteOption::get_endPoint_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List)?.map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__))?.cast<BMKPlanNode>()?.toList();
+    return (resultBatch as List).map((__result__) => BmapUtilsFluttifyIOSAs<BMKPlanNode>(__result__)).cast<BMKPlanNode?>().toList();
   }
   
   //endregion
